@@ -22,5 +22,12 @@
             "local_name": "تابناک",
             "img_address": "images/agencies/tabnak.png"
         }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "all",
+        "fields": {
+            "local_name": "همه"
+        }
     }
 ]
