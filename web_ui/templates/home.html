@@ -37,7 +37,7 @@
                             {{ n.date }}
                         </div>
                         <div class="row">
-                            <a href="{{ n.link }}">مشاهده خبر</a>
+                            <a href="{% url 'detail' n.id %}">مشاهده خبر</a>
                         </div>
                     </div>
                 </div>
