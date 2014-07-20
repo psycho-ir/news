@@ -25,7 +25,10 @@ class News(models.Model):
     date = models.DateTimeField()
     category = models.ForeignKey(NewsCategory)
     agency = models.ForeignKey(NewsAgency)
+    content = models.TextField()
 
     def __unicode__(self):
         return self.title
+
+
 
