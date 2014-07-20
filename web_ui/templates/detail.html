@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container well">
+        {{ news }}
+
+        <div class="well">
+            <a href="{{ news.link }}"> منبع خبر </a>
+        </div>
+    </div>
+
+
+{% endblock %}
