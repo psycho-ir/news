@@ -23,5 +23,5 @@ class News(models.Model):
     link = models.CharField(max_length=300)
     date = models.DateTimeField()
     category = models.ForeignKey(NewsCategory)
-    agency = models.CharField(NewsAgency)
+    agency = models.ForeignKey(NewsAgency)
 
