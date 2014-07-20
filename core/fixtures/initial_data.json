@@ -1,0 +1,26 @@
+[
+    {
+        "model": "core.newsagency",
+        "pk": "yjc",
+        "fields": {
+            "local_name": "باشگاه خبرنگاران جوان",
+            "img_address": "images/agencies/yjc.png"
+        }
+    },
+    {
+        "model": "core.newsagency",
+        "pk": "asriran",
+        "fields": {
+            "local_name": "عصر ایران",
+            "img_address": "images/agencies/asriran.png"
+        }
+    },
+    {
+        "model": "core.newsagency",
+        "pk": "tabnak",
+        "fields": {
+            "local_name": "تابناک",
+            "img_address": "images/agencies/tabnak.png"
+        }
+    }
+]
