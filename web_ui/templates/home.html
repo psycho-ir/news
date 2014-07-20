@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
+{% load agency_tags %}
+{% load staticfiles %}
 
 {% block content %}
+    <div class="well">
+        گروه های خبری
+    </div>
+    <div class="row container">
+        {% agencies as agents %}
+        {% for a in agents %}
+            <div class="col-xs-3" >
+                {{ a.local_name }}
+                <br/>
+                <img src="{% static a.img_address %}" />
+            </div>
+        {% endfor %}
+    </div>
+
     <div class="well">
         <h3>
             آخرین خبرها
         </h3>
     </div>
-
     <div class="row" style="text-align: center;">
 
         <div class="col-xs-11 news-head well"></div>

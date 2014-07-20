@@ -387,7 +387,7 @@ body {
 
 
     color: #000;
-    background-color: rgba(999,222,3,0.35);
+    background-color: rgba(255,111,3,0.35);
     text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
 }
 
@@ -954,5 +954,6 @@ hr {
 
 .news-head {
     margin: 20px;
+    margin-right: 40px;
     min-height: 250px;
 }
