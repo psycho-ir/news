@@ -3,28 +3,23 @@ from django.shortcuts import render
 from django.template.context import RequestContext
 from django.views.generic import View
 from django.shortcuts import render_to_response
-from core.models import News
-from sample.rss_reader.parser import Parser
+from core.models import News, AgencyRSSLink
+from core.rss.parser import Parser
 
 
 class HomeView(View):
     def get(self, request):
-        # parser = Parser('http://www.tabnak.ir/fa/rss/allnews')
-        # news_list = parser.collect_news_after()
+        # rss_links = AgencyRSSLink.objects.all()
+        # for link in rss_links:
+        #     parser = Parser(link)
+        #     news_list = parser.collect_news_after()
         #
-        # for n in news_list:
-        # n.save()
-        #
-        # while True:
-        # sleep(1)
-        #
-        # new_feeds = parser.collect_news_after(date=None)
-        # if new_feeds is None:
-        #         print 0
-        #     else:
-        #         print(len(new_feeds))
+        #     for n in news_list:
+        #         n.save()
 
-        return render_to_response('home.html', {'news': News.objects.all()[:10]},
+
+
+        return render_to_response('home.html', {'news': News.objects.all()[0:10]},
                                   context_instance=RequestContext(request))
 
 
