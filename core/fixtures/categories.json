@@ -1,0 +1,37 @@
+[
+    {
+        "model": "core.newscategory",
+        "pk": "sport",
+        "fields": {
+            "local_name": "ورزشی"
+        }
+    },
+     {
+        "model": "core.newscategory",
+        "pk": "social",
+        "fields": {
+            "local_name": "اجتماعی"
+        }
+    },
+     {
+        "model": "core.newscategory",
+        "pk": "political",
+        "fields": {
+            "local_name": "سیاسی"
+        }
+    },
+     {
+        "model": "core.newscategory",
+        "pk": "economic",
+        "fields": {
+            "local_name": "اقتصادی"
+        }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "cultural",
+        "fields": {
+            "local_name": "فرهنگی"
+        }
+    }
+]
