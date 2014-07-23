@@ -17,6 +17,11 @@ class NewsCategory(models.Model):
     def __unicode__(self):
         return self.name
 
+class AgencyRSSLink(models.Model):
+    link = models.CharField(max_length=250)
+    category = models.ForeignKey(NewsCategory)
+    agency = models.ForeignKey(NewsAgency,related_name='rss_links')
+
 
 class News(models.Model):
     title = models.CharField(max_length=200)
