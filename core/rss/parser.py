@@ -24,7 +24,7 @@ class Parser:
                     return False
                 return True
 
-        parsed = feedparser.parse(self.url)
+        parsed = feedparser.parse(self.agencyRSSLink.link)
         print 'parsing completed...'
         result = list()
         for item in parsed['items']:
