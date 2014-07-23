@@ -1,0 +1,29 @@
+[
+    {
+        "model": "core.agencyrsslink",
+        "pk": 1,
+        "fields": {
+            "link": "http://www.tabnak.ir/fa/rss/2",
+            "category": "sport",
+            "agency": "tabnak"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 2,
+        "fields": {
+            "link": "http://www.tabnak.ir/fa/rss/3",
+            "category": "social",
+            "agency": "tabnak"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 3,
+        "fields": {
+            "link": "http://www.tabnak.ir/fa/rss/6",
+            "category": "economic",
+            "agency": "tabnak"
+        }
+    }
+]
