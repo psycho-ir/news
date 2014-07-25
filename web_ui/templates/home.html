@@ -3,59 +3,172 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="well">
-        گروه های خبری
-    </div>
-    <div class="row container" style="text-align: center;">
-        {% agencies as agents %}
-        {% for a in agents %}
-            <div class="col-xs-4" style="text-align: center;">
-                {{ a.local_name }}
-                <br/>
-                <img src="{% static a.img_address %}"/>
-            </div>
-        {% endfor %}
-    </div>
 
-    <div class="well">
-        <h3>
-            آخرین خبرها
-        </h3>
-    </div>
-    <div class="row" style="text-align: center;">
-        {% for n in news %}
-            <div class="col-xs-11 news-head well">
+    <div class="layout-app" style="visibility: visible;">
+
+        <div class="container">
+            <div class="innerLR">
+
+                <div class="separator"></div>
+
+                <h4 class="innerAll bg-white margin-none">
+                            گروه های خبری
+                </h4>
+                <div class="separator"></div>
                 <div class="row">
-                    <div class="col-xs-2">
-                        <img src="{% static n.agency.img_address %}"/>
-                    </div>
-                    <div class="col-xs-10">
-                        <div class="row">
-                            {{ n.title }}
-                        </div>
-                        <div class="row">
-                            گووه خبری:
-                            {{ n.category.local_name }}
-                        </div>
-                        <div class="row">
-                            {{ n.date }}
-                        </div>
-                        <div class="row">
-                            <a href="{% url 'detail' n.id %}">مشاهده خبر</a>
+                     {% agencies as agents %}
+                        {% for a in agents %}
+                    <div class="col-md-4">
+                        <div class="widget innerAll bg-white border-none">
+                            <div class="widget widget-body-gray margin-none">
+                                <div class="widget-body">
+                                    <div class="glyphicons glyphicon-xlarge glyphicon-top eyedropper glyphicon-primary">
+                                        <img src="{% static a.img_address %}"/>
+                                        <h4> {{ a.local_name }}</h4>
+                                        <p class="margin-none">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s <br> <a href="">learn more</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                     {% endfor %}
                 </div>
-            </div>
-        {% endfor %}
 
-        {#        #}
-        {#        <div class="col-xs-11 news-head well"></div>#}
-        {#        <div class="col-xs-11 news-head well"></div>#}
-        {#        <div class="col-xs-11 news-head  well"></div>#}
-        {#        <div class="col-xs-11 news-head  well"></div>#}
-        {#        <div class="col-xs-11 news-head  well"></div>#}
-        {#        <div class="col-xs-11 news-head  well"></div>#}
-        {#        <div class="col-xs-11 news-head  well"></div>#}
+
+<div class="widget activity-line medium">
+	<div class="widget-body padding-none">
+		<div class="color-widget primary">
+			<div class="icon inverse"><a class="glyphicons envelope"><i></i></a></div>
+			<span><a href="">
+                                            آخرین خبرها
+           </a> </span>
+
+		</div>
+	</div>
+</div>
+
+                <div class="row">
+
+                    <!-- Tabs -->
+                    <div class="relativeWrap" >
+                        <div class="widget widget-tabs widget-tabs-responsive">
+
+                            <!-- Tabs Heading -->
+                            <div class="widget-head">
+                                <ul>
+                                    <li class="active"><a class="glyphicons coffe_cup" href="#tab-1" data-toggle="tab"><i></i>Tabnak</a></li>
+                                    <li><a class="glyphicons share_alt" href="#tab-2" data-toggle="tab"><i></i>Asr Iran</a></li>
+                                    <li><a class="glyphicons share_alt" href="#tab-3" data-toggle="tab"><i></i>Bashgahe Khabar Negaran</a></li>
+                                </ul>
+                            </div>
+                            <!-- // Tabs Heading END -->
+
+                            <div class="widget-body">
+                                <div class="tab-content">
+
+                                    <!-- Tab content -->
+                                    <div class="tab-pane active" id="tab-1">
+
+                                            <div class="row" style="text-align: center;">
+                            {% for n in news %}
+                                <div class="col-xs-11 news-head well">
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <img src="{% static n.agency.img_address %}"/>
+                                        </div>
+                                        <div class="col-xs-10">
+                                            <div class="row">
+                                                {{ n.title }}
+                                            </div>
+                                            <div class="row">
+                                                گووه خبری:
+                                                {{ n.category.local_name }}
+                                            </div>
+                                            <div class="row">
+                                                {{ n.date }}
+                                            </div>
+                                            <div class="row">
+                                                <a href="{% url 'detail' n.id %}">مشاهده خبر</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            {#        #}
+                            {#        <div class="col-xs-11 news-head well"></div>#}
+                            {#        <div class="col-xs-11 news-head well"></div>#}
+                            {#        <div class="col-xs-11 news-head  well"></div>#}
+                            {#        <div class="col-xs-11 news-head  well"></div>#}
+                            {#        <div class="col-xs-11 news-head  well"></div>#}
+                            {#        <div class="col-xs-11 news-head  well"></div>#}
+                            {#        <div class="col-xs-11 news-head  well"></div>#}
+
+                        </div>
+
+                                    </div>
+                                    <!-- // Tab content END -->
+
+                                    <!-- Tab content -->
+                                    <div class="tab-pane" id="tab-2">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+                                    </div>
+                                    <!-- // Tab content END -->
+
+                                    <!-- Tab content -->
+                                    <div class="tab-pane" id="tab-3">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+                                    </div>
+                                    <!-- // Tab content END -->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // Tabs END -->
+
+
+            </div>
+
+           </div>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
+
+
+    <script src="http://localhost/profile/public/assets/components/common/forms/elements/bootstrap-select/assets/lib/js/bootstrap-select.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="http://localhost/profile/public/assets/components/common/forms/elements/bootstrap-select/assets/custom/js/bootstrap-select.init.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="http://localhost/profile/public/assets/components/common/forms/editors/wysihtml5/assets/lib/js/wysihtml5-0.3.0_rc2.min.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="http://localhost/profile/public/assets/components/common/forms/editors/wysihtml5/assets/lib/js/bootstrap-wysihtml5-0.0.2.js?v=v1.9.6"></script>
+    <script src="http://localhost/profile/public/assets/components/common/forms/editors/wysihtml5/assets/custom/wysihtml5.init.js?v=v1.9.6"></script>
+    <script src="http://localhost/profile/public/assets/components/common/forms/elements/jasny-fileupload/assets/js/bootstrap-fileupload.js?v=v1.9.6&sv=v0.0.1"></script>
+
+    <script src="http://localhost/profile/public/assets/components/modules/admin/modals/assets/js/bootbox.min.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="http://localhost/profile/public/assets/components/modules/admin/modals/assets/js/modals.init.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="http://localhost/profile/public/assets/components/modules/admin/notifications/gritter/assets/lib/js/jquery.gritter.min.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="http://localhost/profile/public/assets/components/modules/admin/notifications/gritter/assets/custom/js/gritter.init.js?v=v1.9.6&sv=v0.0.1"></script>
+
+    <script src="http://localhost/profile/public/assets/js/handlebars-v1.3.0.js"></script>
+
+    <script src="http://localhost/profile/public/assets/components/common/sliders/jqueryui-sliders/assets/custom/js/jqueryui-sliders.init.js?v=v1.9.6&sv=v0.0.1"></script>
+
+
+
 {% endblock %}
