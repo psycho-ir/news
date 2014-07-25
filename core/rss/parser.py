@@ -35,7 +35,10 @@ class Parser:
             news.agency_id = self.agencyRSSLink.agency.name
             news.category_id = self.agencyRSSLink.category.name
             news.title = item.title
-            news.abstract = ''
+            if hasattr(item,'description'):
+                news.abstract = item.description
+            else:
+                news.abstract = ''
             news.link = item.link
             news.date = d
             # item.title, '', item.link, d
