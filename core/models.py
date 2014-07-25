@@ -33,10 +33,18 @@ class News(models.Model):
     date = models.DateTimeField()
     category = models.ForeignKey(NewsCategory)
     agency = models.ForeignKey(NewsAgency)
-    content = models.TextField()
 
     def __unicode__(self):
         return self.title
+
+class NewsDetail(models.Model):
+    news = models.OneToOneField(News,primary_key=True)
+    content = models.TextField()
+
+    def __unicode__(self):
+        return self.news.title
+
+
 
 
 
