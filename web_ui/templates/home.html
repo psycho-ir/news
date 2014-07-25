@@ -35,17 +35,17 @@
                 </div>
 
 
-<div class="widget activity-line medium">
-	<div class="widget-body padding-none">
-		<div class="color-widget primary">
-			<div class="icon inverse"><a class="glyphicons envelope"><i></i></a></div>
-			<span><a href="">
-                                            آخرین خبرها
-           </a> </span>
+                <div class="widget activity-line medium">
+                    <div class="widget-body padding-none">
+                        <div class="color-widget primary">
+                            <div class="icon inverse"><a class="glyphicons list"><i></i></a></div>
+                            <span><a class="head-title" href="">
+                                                            آخرین خبرها
+                           </a> </span>
 
-		</div>
-	</div>
-</div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
 
@@ -56,9 +56,19 @@
                             <!-- Tabs Heading -->
                             <div class="widget-head">
                                 <ul>
-                                    <li class="active"><a class="glyphicons coffe_cup" href="#tab-1" data-toggle="tab"><i></i>Tabnak</a></li>
-                                    <li><a class="glyphicons share_alt" href="#tab-2" data-toggle="tab"><i></i>Asr Iran</a></li>
-                                    <li><a class="glyphicons share_alt" href="#tab-3" data-toggle="tab"><i></i>Bashgahe Khabar Negaran</a></li>
+
+                                    <li class="active">
+                                    <a class="glyphicons coffe_cup tab_title" href="#tab-1" data-toggle="tab">
+                                    مهم ترین اخبار
+                                    </a>
+                                    </li>
+
+                                    <li>
+                                     <a class="glyphicons share_alt tab_title" href="#tab-2" data-toggle="tab">
+                                    جدید ترین اخبار
+                                    </a>
+                                    </li>
+
                                 </ul>
                             </div>
                             <!-- // Tabs Heading END -->
@@ -69,44 +79,22 @@
                                     <!-- Tab content -->
                                     <div class="tab-pane active" id="tab-1">
 
-                                            <div class="row" style="text-align: center;">
-                            {% for n in news %}
-                                <div class="col-xs-11 news-head well">
-                                    <div class="row">
-                                        <div class="col-xs-2">
-                                            <img src="{% static n.agency.img_address %}"/>
+                                        {% for n in news %}
+                                        <div class="box-generic bg-white innerAll inner-2x animated fadeInUp" style="visibility: visible;">
+                                            <div class="media margin-none">
+                                                <a class="pull-left" href=""><img width="100" alt="" src="{% static n.agency.img_address %}"></a>
+                                                <div class="media-body innerTB">
+                                                    <h4><a href="{% url 'detail' n.id %}">{{ n.title }}</a></h4>
+                                                    <p class="text-muted">{{ n.date }} - -  {{ n.category.local_name }} </p>
+                                                </div>
+                                            </div>
+                                            <div class="separator bottom"></div>
+                                            <p class="margin-none">-- context here --</p>
+                                         <div class="row">
+                                            <a href="{% url 'detail' n.id %}">مشاهده خبر</a>
+                                         </div>
                                         </div>
-                                        <div class="col-xs-10">
-                                            <div class="row">
-                                                {{ n.title }}
-                                            </div>
-                                            <div class="row">
-                                                گووه خبری:
-                                                {{ n.category.local_name }}
-                                            </div>
-                                            <div class="row">
-                                                {{ n.date }}
-                                            </div>
-
-                                            <div class="row">
-                                                {{ n.abstract }}
-                                                <a href="{% url 'detail' n.id %}">مشاهده خبر</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-
-                            {#        #}
-                            {#        <div class="col-xs-11 news-head well"></div>#}
-                            {#        <div class="col-xs-11 news-head well"></div>#}
-                            {#        <div class="col-xs-11 news-head  well"></div>#}
-                            {#        <div class="col-xs-11 news-head  well"></div>#}
-                            {#        <div class="col-xs-11 news-head  well"></div>#}
-                            {#        <div class="col-xs-11 news-head  well"></div>#}
-                            {#        <div class="col-xs-11 news-head  well"></div>#}
-
-                        </div>
+                                        {% endfor %}
 
                                     </div>
                                     <!-- // Tab content END -->
@@ -116,13 +104,6 @@
                                         <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
                                     </div>
                                     <!-- // Tab content END -->
-
-                                    <!-- Tab content -->
-                                    <div class="tab-pane" id="tab-3">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-                                    </div>
-                                    <!-- // Tab content END -->
-
 
                                 </div>
                             </div>

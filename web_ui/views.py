@@ -16,8 +16,8 @@ class HomeView(View):
         #
         #     for n in news_list:
         #         n.save()
-        #
-        #
+
+
 
         return render_to_response('home.html', {'news': News.objects.all()[0:10]},
                                   context_instance=RequestContext(request))
