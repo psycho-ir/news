@@ -23,7 +23,7 @@ class Parser:
                 if d <= kwargs.get('date'):
                     return False
                 return True
-
+        print 'reading rss feeds from:%s category:%s agency:%s' %(self.agencyRSSLink.link , self.agencyRSSLink.category_id, self.agencyRSSLink.agency_id)
         parsed = feedparser.parse(self.agencyRSSLink.link)
         print 'parsing completed...'
         result = list()
