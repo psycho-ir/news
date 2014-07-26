@@ -8,7 +8,28 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
+from core.models import News, AgencyRSSLink
+from core.rss.parser import Parser
+from scheduler.simple_scheduler import ThreadSimpleScheduler
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.settings")
 
 from django.core.wsgi import get_wsgi_application
+
 application = get_wsgi_application()
+
+
+def show_latest_news():
+    all_links = AgencyRSSLink.objects.all()
+    for link in all_links:
+        latest_news = News.objects.filter(category__name=link.category_id, agency__name=link.agency_id).first()
+        parser = Parser(link)
+        print 'latest news added in: %s' % latest_news.date
+        new_news = parser.collect_news_after(date=latest_news.date)
+        for n in new_news:
+            print 'News:%s is loaded' % n
+            n.save()
+
+
+scheduler = ThreadSimpleScheduler(180, show_latest_news)
+scheduler.run()
