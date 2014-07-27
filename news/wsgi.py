@@ -24,8 +24,12 @@ def show_latest_news():
     for link in all_links:
         latest_news = News.objects.filter(category__name=link.category_id, agency__name=link.agency_id).first()
         parser = Parser(link)
-        print 'latest news added in: %s' % latest_news.date
-        new_news = parser.collect_news_after(date=latest_news.date)
+        if latest_news is not None:
+            print 'latest news added in: %s' % latest_news.date
+            new_news = parser.collect_news_after(date=latest_news.date)
+        else:
+            print 'First news added'
+            new_news = parser.collect_news_after()
         for n in new_news:
             print 'News:%s is loaded' % n
             n.save()
