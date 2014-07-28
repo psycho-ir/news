@@ -1,3 +1,4 @@
+import urllib
 import urllib2
 from bs4 import BeautifulSoup
 
@@ -22,7 +23,7 @@ class Crawler:
     def crawl_content(self, news): raise NotImplementedError()
 
     def _get_soup(self, link):
-        response = urllib2.urlopen(link)
+        response = urllib2.urlopen(link.encode('utf-8'))
         html = response.read()
         soup = BeautifulSoup(html)
 

@@ -38,7 +38,7 @@ class News(models.Model):
         return self.title
 
 class NewsDetail(models.Model):
-    news = models.OneToOneField(News,primary_key=True)
+    news = models.OneToOneField(News,primary_key=True,related_name='detail')
     content = models.TextField()
 
     def __unicode__(self):
