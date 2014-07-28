@@ -6,6 +6,9 @@
 
         <div class="well">
             <a href="{{ news.link }}"> منبع خبر </a>
+            <div class="body">
+                {{ news.detail.content | safe }}
+            </div>
         </div>
     </div>
 
