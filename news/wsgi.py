@@ -8,9 +8,10 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
-from core.models import News, AgencyRSSLink
+from core.models import News, AgencyRSSLink, NewsDetail
 from core.rss.parser import Parser
 from scheduler.simple_scheduler import ThreadSimpleScheduler
+from core.crawler import *
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.settings")
 
@@ -35,5 +36,19 @@ def show_latest_news():
             n.save()
 
 
+def crawl_some_news():
+    selected_news = News.objects.filter(detail=None)[:10]
+    for n in selected_news:
+        print 'News: %s with ID: %s loaded to crawl its content' % (n,n.id)
+        detail_content = get_crawler(n.agency_id).crawl_content(n)
+        detail = NewsDetail()
+        detail.news_id = n.id
+        detail.content = detail_content
+        detail.save()
+
+
 scheduler = ThreadSimpleScheduler(180, show_latest_news)
 scheduler.run()
+
+crawler_scheduler = ThreadSimpleScheduler(10, crawl_some_news)
+crawler_scheduler.run()
