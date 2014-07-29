@@ -25,14 +25,17 @@ class SimpleSearchView(View):
     def get(self, request):
         query = request.GET.get('q', None)
         page_number = request.GET.get('page_number', 1)
+
         if query == None:
             result = []
         else:
             result = News.objects.filter(title__icontains=query)
 
         paginator = Paginator(result, 10)
+        if int(page_number) > paginator.num_pages:
+            page_number = paginator.num_pages
 
-        return render_to_response('simple_search_result.html', {'query':query,'result': paginator.page(page_number)},
+        return render_to_response('simple_search_result.html', {'query': query, 'result': paginator.page(page_number)},
                                   context_instance=RequestContext(request))
 
 
