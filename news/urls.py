@@ -4,7 +4,6 @@ from django.contrib import admin
 from web_ui.views import HomeView, DetailView
 
 admin.autodiscover()
-
 urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'news.views.home', name='home'),
@@ -12,6 +11,8 @@ urlpatterns = patterns('',
 
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^detail/(?P<news_id>\d*)$', DetailView.as_view(), name='detail'),
+                       url(r'^(?i)rest/', include('rest.urls', namespace='rest')),
                        url(r'^(?i)$', HomeView.as_view(), name='home'),
 
 )
+
