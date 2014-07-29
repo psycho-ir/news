@@ -11,28 +11,58 @@
 
                 <div class="separator"></div>
 
-                <h4 class="innerAll bg-white margin-none">
-                            گروه های خبری
-                </h4>
-                <div class="separator"></div>
-                <div class="row">
-                     {% agencies as agents %}
-                        {% for a in agents %}
-                    <div class="col-md-4">
-                        <div class="widget innerAll bg-white border-none">
-                            <div class="widget widget-body-gray margin-none">
-                                <div class="widget-body">
-                                    <div class="glyphicons glyphicon-xlarge glyphicon-top eyedropper glyphicon-primary">
-                                        <img src="{% static a.img_address %}"/>
-                                        <h4> {{ a.local_name }}</h4>
-                                        <p class="margin-none">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s <br> <a href="">learn more</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     {% endfor %}
-                </div>
+
+            <div class="widget widget-body-white">
+
+								<!-- Widget heading -->
+								<div class="widget-head">
+									<h4 class="heading"></h4>
+								</div>
+								<!-- // Widget heading END -->
+
+								<div class="widget-body innerAll inner-2x">
+
+									<!-- 2 Column Grid / One Fourth & Three Fourth -->
+									<div class="row">
+
+										<!-- One Fourth Column -->
+										<div class="col-md-3">
+                                            <div class="innerAll border-bottom">
+                                                <form class="form-inline margin-none" autocomplete="off">
+                                                    <div class="input-group input-group-sm">
+                                                        <input type="text" placeholder="Find someone .." class="form-control">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-primary btn-xs pull-right" type="button"><i class="fa fa-search"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            </div>
+										</div>
+										<!-- // One Fourth Column END -->
+
+										<!-- Three Fourth Column -->
+										<div class="col-md-9">
+											<h4>خبرگزاری ها</h4>
+
+                                            <!-- Links widget preview & code sample -->
+                                            <div class="menubar links primary rtl-menu">
+                                                <ul>
+                                                    {% agencies as agents %}
+                                                    {% for a in agents %}
+                                                    <li><a href="">{{ a.local_name }}</a></li>
+                                                    <li class="divider"></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+
+										</div>
+										<!-- // Three Fourth Column END -->
+
+									</div>
+									<!-- // 2 Column Grid / One Fourth & Three Fourth -->
+
+								</div>
+							</div>
 
 
                 <div class="row">
