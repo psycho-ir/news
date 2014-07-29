@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from web_ui.views import HomeView, DetailView
+from web_ui.views import HomeView, DetailView, SimpleSearchView
 
 admin.autodiscover()
 urlpatterns = patterns('',
@@ -13,6 +13,7 @@ urlpatterns = patterns('',
                        url(r'^detail/(?P<news_id>\d*)$', DetailView.as_view(), name='detail'),
                        url(r'^(?i)rest/', include('rest.urls', namespace='rest')),
                        url(r'^(?i)$', HomeView.as_view(), name='home'),
+                       url(r'^(?i)search/simple$', SimpleSearchView.as_view(), name='simple_search'),
 
 )
 

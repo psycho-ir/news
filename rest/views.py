@@ -1,6 +1,7 @@
 from django.core import serializers
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from django.views.generic import View
 from django.core.paginator import *
 from core.models import News
@@ -35,3 +36,4 @@ class LatestNewsView(APIView):
             all_news = all_news.filter(category__in=categories)
 
         return all_news
+
