@@ -39,7 +39,8 @@
                                 <div class="panel panel-default col-sm-6 col-sm-offset-3">
 
                                     <div class="panel-body">
-                                        <form class="form-horizontal" accept-charset="UTF-8" action="" method="POST"><input type="hidden" value="GrWCTX55FROzGdwF8zv8MhRpCyH47mwTYGiynUEa" name="_token">
+                                        <form class="form-horizontal" accept-charset="UTF-8" action="" method="POST">
+                                            {% csrf_token %}
                                             <div class="form-group">
 
                                                 <label for="exampleInputEmail1">Email address</label>
