@@ -13,6 +13,10 @@ class HomeView(View):
         return render_to_response('home.html', {'news': News.objects.all()[0:10]},
                                   context_instance=RequestContext(request))
 
+class LoginView(View):
+    def get(self, request):
+        return render_to_response('login.html', {},
+                                  context_instance=RequestContext(request))
 
 class DetailView(View):
     def get(self, request, news_id):
