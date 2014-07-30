@@ -42,11 +42,16 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.comments',
+    'django.contrib.sites',
+    'comments',
     'south',
     'core',
     'web_ui',
     'rest'
 )
+
+SITE_ID=1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
