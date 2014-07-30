@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{%  block title %} ثبت نام {%  endblock %}
+{% load staticfiles %}
+{% block css %}
+    <style>
+        #frmRegister .row {
+            margin-bottom: 15px;
+
+
+        }
+
+    </style>
+    <link href="{% static "bootstrap/css/bootstrap-rtl.css" %}" rel="stylesheet">
+    <link href="{% static "bootstrap/css/bootstrap-rtl0.css" %}" rel="stylesheet">
+    <link href="{% static "bootstrap/css/new_base.css" %}" rel="stylesheet">
+
+{% endblock %}
+{% block content %}
+
+    <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    ثبت نام
+                </h1>
+                <ol class="breadcrumb">
+{#                    <li><a href= {% url 'exam:index' %}>خانه</a>#}
+{#                    </li>#}
+{#                    <li class="active">#}
+{#                        ثبت نام#}
+{#                    </li>#}
+                </ol>
+            </div>
+
+        </div>
+    <div class="row">
+
+    <div class="col-md-offset-3">
+    <form id="frmRegister" action="{% url 'register' %}" method="post" novalidate="">
+    {% csrf_token %}
+    <div class="form-group center-block">
+    <div class="row">
+        <div class="col-md-2">
+            <label class="form-label">
+                نام
+            </label>
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="txtFirstname" name="name" autofocus=""
+                           pattern="^[^0-9]*$"
+                           maxlength="30"
+                           minlength="2"
+                           data-validation-pattern-message="لطفا نام را صحیح وارد کنید"
+                           data-validation-required-message="وارد کردن نام الزامی است"
+                           data-validation-maxlength-message="بیش از اندازه بلند است"
+                           data-validation-minlength-message="بیش از اندازه کوتاه است"
+                           required/>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="error-plate">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <label class="form-label">
+                نام خانوادگی
+            </label>
+
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+
+                <div class="controls">
+                    <input type="text" class="form-control" id="txtLastname" name="lastName"
+                           maxlength="30"
+                           minlength="2"
+                           pattern="^[^0-9]*$"
+                           data-validation-pattern-message="لطفا نام خانوادگی را صحیح وارد کنید"
+
+                           data-validation-required-message="وارد کردن نام خانوادگی الزامی است"
+                           data-validation-maxlength-message="بیش از اندازه بلند است"
+                           data-validation-minlength-message="بیش از اندازه کوتاه است"
+                           required/>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <div class="error-plate">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-2">
+
+            <label class="form-label">
+                آدرس ایمیل
+            </label>
+        </div>
+        <div class="col-md-6">
+
+            <div class="control-group">
+
+
+                <div class="controls">
+                    <input type="email" class="form-control" id="txtEmailAddress" name="email"
+
+                           required
+                           data-validation-required-message="وارد کردن آدرس ایمیل الزامیست"
+                           data-validation-email-message="آدرس ایمیل وارد شده صحیح نیست"
+                            />
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="error-plate">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <label class="form-label">
+                نام کاربری
+            </label>
+        </div>
+        <div class="col-md-6">
+
+            <div class="control-group">
+
+
+                <div class="controls">
+                    <input type="text" class="form-control" id="txtUsername" name="username"
+                           maxlength="30"
+                           minlength="5"
+                           data-validation-required-message="وارد کردن نام کاربری الزامی است"
+                           data-validation-maxlength-message="بیش از اندازه بلند است"
+                           data-validation-minlength-message="بیش از اندازه کوتاه است"
+                           required/>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="error-plate">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <label class="form-label">
+                گذرواژه
+            </label>
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+
+
+                <div class="controls">
+                    <input type="password" class="form-control" id="txtPassword" name="password"
+                           minlength="6"
+                           data-validation-minlength-message="حداقل شش کاراکتر لازم است"
+                           data-validation-required-message="وارد کردن این فیلد ضروری است"
+                           required/>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="error-plate">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <label class="form-label">
+                تکرار گذرواژه
+            </label>
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+
+
+                <div class="controls">
+                    <input type="password" class="form-control" id="txtConfirmPassword"
+                           data-validation-match-message="لطفا گذرواژه ای که انتخاب کردید را مجددا وارد کنید"
+                           data-validation-required-message="وارد کردن این فیلد ضروری است"
+                           data-validation-match-match="password"
+                           required/>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="error-plate">
+                <p class="help-block"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-11">
+            <div class="checkbox">
+                <label class="form-label" data-toggle="modal" data-target="#myModal">
+                    من تمام قوانین و حقوقم را خواندم و متعهد به انجام آنها میباشم.
+                </label>
+                <input
+                        type="checkbox"
+                        id="chkrights"
+                        name="terms-and-conditions"
+                        />
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 style="color: black" class="modal-title" id="myModalLabel">قوانین</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-gentel" data-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="error-plate">
+
+            </div>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-gentel btn-lg ">
+        ثبت
+    </button>
+    </div>
+    </form>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

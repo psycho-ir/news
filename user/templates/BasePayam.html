@@ -1,0 +1,21 @@
+<div id="envelope">
+    <div id="letter" style="direction: rtl; border: solid thin black;">
+        <div id="header"
+             style="font-family:tahoma sans-serif; padding-top:10px; padding-bottom:10px; background-color:#006d91; color:white;padding-right:8px;">
+            {% block MailHeader %}
+            {% endblock %}
+        </div>
+        <div id="body" style="padding-right: 10px; padding-top: 10px; background-color: #eeeeee;">
+            {% block MailBody %}
+            {% endblock %}
+        </div>
+        <div id="footer" style="padding-right:10px;padding-top:10px;padding-bottom:10px;background-color:#eeeeee">
+            {% block MailFooter %}
+
+            {% endblock %}
+                با احترام
+                <br />
+                آزما وب
+        </div>
+    </div>
+</div>

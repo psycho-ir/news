@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i$9sj$ak)x1gxg3#^*id=2eb9e0s+-#@i%peaj=*15t4ffj8kk'
+SECRET_KEY = '#mmm(c*ezo)q(!z3@7xdcrgv88960a5ryvz2+8n1i235tr2r4d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,7 +48,8 @@ INSTALLED_APPS = (
     'south',
     'core',
     'web_ui',
-    'rest'
+    'rest',
+    'user'
 )
 
 SITE_ID=1
@@ -104,3 +105,4 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+DEFAULT_LOGIN_URL ='/'

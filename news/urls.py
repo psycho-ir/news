@@ -8,6 +8,7 @@ urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'news.views.home', name='home'),
                        # url(r'^blog/', include('blog.urls')),
+                       url(r'^(?i)user/', include('user.urls')),
                        url(r'^comments', include('django.contrib.comments.urls')),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^detail/(?P<news_id>\d*)$', DetailView.as_view(), name='detail'),

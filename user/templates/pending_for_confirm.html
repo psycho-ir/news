@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="center-block">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+        <h1>
+            تنها یک قدم تا پیوستن به جامعه آزما!
+        </h1>
+            </div>
+        </div>
+    </div>
+
+        <p>
+            ثبت نام شما با موفقیت انجام شد.
+        </p>
+
+        <p>
+            به زودی ایمیلی برای تکمیل ثبت نام شماارسال خواهد شد. لطفا با توجه به توضیحات ارسال شده عمل کنید.
+            <br/>
+            در صورت دریافت نکردن ایمیل
+            <a href="{% url 'confirm_again' %}">اینجا</a>
+            کلیک کنید.
+        </p>
+    </div>
+{% endblock %}
