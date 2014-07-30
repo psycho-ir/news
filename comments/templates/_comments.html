@@ -1,26 +1,5 @@
 {% load comments %}
 
-{% load mptt_tags %}
-
-
-
-{#{% get_comment_list for object as comments %}#}
-
-
-
-{#{% if comments %}#}
-{##}
-{#    {% for c in comments %}#}
-{#        {{ c }}#}
-{#        <br />#}
-{#    {% endfor %}#}
-{#{% endif %}#}
-{##}
-{##}
-{##}
-{#{% render_comment_form for object %}#}
-
-
             <div class="well">
                 {% get_comment_count for object as comment_count %}
                 <div class="well" style="padding: 5px; padding-right: 20px;"> تا به حال {{ comment_count }} نظر برای این
@@ -61,7 +40,7 @@
                             {{ form.object_pk }}
                             {{ form.timestamp }}
                             {{ form.security_hash }}
-                            <input type="hidden" name="next" value="{% url 'tutorial:tutorial' tutorial.name %}"/>
+                            <input type="hidden" name="next" value="{% url 'detail' object.pk %}"/>
                             <input class="btn btn-lg btn-success" style="width: 100%;" type="submit" value="ثبت"
                                    id="id_submit"/>
                         </form>
