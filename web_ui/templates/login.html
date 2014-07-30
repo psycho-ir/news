@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+ <style>
+    body{
+        background: url({% static 'images/background/login-background.jpg' %})  no-repeat center center fixed ;
+        background-size: cover;
+        opacity: 0.9;
+    }
+
+
+ </style>   
+
+
+<div style="visibility: visible;" class="layout-app ">
+<div class="container"><!-- row-app -->
+    <div class="row row-app ">
+        <!-- col -->
+
+        <!-- col-separator.box -->
+        <div class="col-separator col-unscrollable box">
+
+            <!-- col-table -->
+            <div class="col-table">
+
+                <h4 class="innerAll margin-none border-bottom text-center"><i class="fa fa-lock"></i> Login to your Account</h4>
+
+                <!-- col-table-row -->
+                <div class="col-table-row">
+
+                    <!-- col-app -->
+                    <div class="col-app col-unscrollable">
+
+                        <!-- col-app -->
+                        <div class="col-app animated fadeInDown">
+                            <div class="login">
+                                <div class="placeholder text-center"><i class="fa fa-lock"></i></div>
+                                <div class="panel panel-default col-sm-6 col-sm-offset-3">
+
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" accept-charset="UTF-8" action="" method="POST"><input type="hidden" value="GrWCTX55FROzGdwF8zv8MhRpCyH47mwTYGiynUEa" name="_token">
+                                            <div class="form-group">
+
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" name="email" style="direction: ltr" placeholder="Email" id="inputEmail3" class="form-control">                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" value="" name="password" placeholder="Password" id="inputPassword3" class="form-control">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Remember my details
+                                                </label>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4 col-sm-offset-4 text-center">
+                                    <div class="innerAll">
+                                        <a href="http://localhost/profile/public/register" class="btn btn-info">Create a new account? <i class="fa fa-pencil"></i> </a>
+                                        <div class="separator"></div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+
+                        </div>
+                        <!-- // END col-app -->
+
+                    </div>
+                    <!-- // END col-app.col-unscrollable -->
+
+                </div>
+                <!-- // END col-table-row -->
+
+            </div>
+            <!-- // END col-table -->
+
+        </div>
+        <!-- // END col-separator.box -->
+
+
+    </div>
+    <!-- // END row-app -->
+
+</div>
+
+</div>
+
+
+
+{% endblock %}
