@@ -82,15 +82,15 @@
                             <div class="widget-head">
                                 <ul>
 
-                                    <li class="active">
+                                    <li>
                                         <a class="glyphicons coffe_cup tab_title" href="#tab-1" data-toggle="tab">
-                                            مهم ترین اخبار
+مهم ترین اخبار
                                         </a>
                                     </li>
 
-                                    <li>
+                                    <li  class="active">
                                         <a class="glyphicons share_alt tab_title" href="#tab-2" data-toggle="tab">
-                                            جدید ترین اخبار
+آخرین اخبار
                                         </a>
                                     </li>
 
@@ -102,73 +102,54 @@
                                 <div class="tab-content">
 
                                     <!-- Tab content -->
-                                    <div class="tab-pane active" id="tab-1">
+                                    <div class="tab-pane" id="tab-1">
 
 
-                                        <div class="innerAll">
-                                            <div class="row">
 
-
-                                                {% for n in news %}
-                                                    <div class="col-sm-6">
-                                                        <div class="box-generic padding-none">
-                                                            <div class="innerAll border-bottom">
-                                                                <a class="pull-left mid-side" href=""><img width="100"
-                                                                                                           alt=""
-                                                                                                           src="{% static n.agency.img_address %}"></a>
-                                                                <h4 class="strong"><a
-                                                                        href="{% url 'detail' n.id %}">{{ n.title }}</a>
-                                                                </h4>
-
-                                                                <p class="text-faded margin-none">Corporate Website /
-                                                                    MosaicPro, Inc.</p>
-                                                            </div>
-                                                            <div class="innerAll border-bottom">
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                                elit. Commodi cum autem alias est fugiat ratione
-                                                                nesciunt eum ullam! Esse, sed, sequi obcaecati pariatur
-                                                                non iste soluta optio necessitatibus expedita cum.
-                                                            </div>
-                                                            <div class="bg-white innerAll border-bottom">
-                                                                <a href=""><i class="fa fa-calendar"></i> {{ n.date }}
-                                                                </a> &nbsp;
-                                                                <a href=""><i class="fa fa-euro"></i> 3 Hours</a> &nbsp;
-                                                                <span class="label label-default">{{ n.category.local_name }} </span>
-                                                            </div>
-                                                            <div class="bg-white box-generic-footer">
-                                                                <div class="btn-group pull-right">
-                                                                    <button class="btn btn-default"><i
-                                                                            class="fa fa-star-o"></i></button>
-                                                                    <button class="btn btn-default"><i
-                                                                            class="fa fa-sun-o"></i></button>
-                                                                </div>
-												<span class="pull-left innerAll">
-													<i class="fa fa-clock-o"></i>  <a href="{% url 'detail' n.id %}">مشاهده
-                                                    خبر</a>
-												</span>
-
-                                                                <div class="clearfix"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-
-
-                                            </div>
-                                        </div>
 
                                     </div>
                                     <!-- // Tab content END -->
 
 
                                     <!-- Tab content -->
-                                    <div class="tab-pane" id="tab-2">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                            dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                                            tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                            wes anderson cred nesciunt sapiente ea proident.</p>
+                                    <div class="tab-pane active" id="tab-2">
+                                       <div class="innerAll">
+                                            <div class="row">
+                                                {% for n in news %}
+                                                    <div class="col-md-6 ">
+                                                        <div class="box-generic bg-white innerAll inner-2x news-box">
+                                                        <div class="media margin-none">
+                                                            <a class="pull-left" href=""><img width="100" alt="" src="{% static n.agency.img_address %}"></a>
+                                                            <div class="media-body innerTB">
+                                                                <h4>
+                                                                    <a href="{% url 'detail' n.id %}">{{ n.title }}</a>
+                                                                </h4>
+                                                                <p class="text-muted">{{ n.date }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="separator bottom"></div>
+                                                        <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, est, iste similique eius perspiciatis expedita exercitationem.</p>
+
+                                                             <div class="bg-white box-generic-footer">
+                                                            <div class="btn-group pull-right">
+                                                                <button class="btn btn-default"><i class="fa fa-star-o"></i></button>
+                                                                <button class="btn btn-default"><i class="fa fa-sun-o"></i></button>
+                                                            </div>
+                                                            <span class="pull-left innerAll">
+                                                                <i class="fa fa-clock-o"></i>  <a href="/detail/476">مشاهده
+                                                                خبر</a>
+                                                            </span>
+
+                                                            <div class="clearfix"></div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                {% endfor %}
+
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- // Tab content END -->
 
