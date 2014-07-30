@@ -22,3 +22,14 @@ h4,.head-title,.tab_title{
      float: right;
      font-size: 14px;
 }
+
+.login-form , .login-form button {
+     font-family: 'Yekan' !important;
+}
+.login-form input[type='password']{
+    direction: ltr;
+}
+
+.yekan-font {
+    font-family: 'Yekan' !important;
+}
