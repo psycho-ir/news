@@ -3,7 +3,12 @@
 {% load staticfiles %}
 
 {% block content %}
-
+    <div class="row well">
+        {% if user.is_authenticated %}
+            sssss
+            {{ user.username }}
+        {% endif %}
+    </div>
     <div class="layout-app" style="visibility: visible;">
 
         <div class="container">
@@ -12,63 +17,64 @@
                 <div class="separator"></div>
 
 
-            <div class="widget widget-body-white">
+                <div class="widget widget-body-white">
 
-								<!-- Widget heading -->
-								<div class="widget-head">
-									<h4 class="heading"></h4>
-								</div>
-								<!-- // Widget heading END -->
+                    <!-- Widget heading -->
+                    <div class="widget-head">
+                        <h4 class="heading"></h4>
+                    </div>
+                    <!-- // Widget heading END -->
 
-								<div class="widget-body innerAll inner-2x">
+                    <div class="widget-body innerAll inner-2x">
 
-									<!-- 2 Column Grid / One Fourth & Three Fourth -->
-									<div class="row">
+                        <!-- 2 Column Grid / One Fourth & Three Fourth -->
+                        <div class="row">
 
-										<!-- One Fourth Column -->
-										<div class="col-md-3">
-                                            <div class="innerAll border-bottom">
-                                                <form class="form-inline margin-none" autocomplete="off">
-                                                    <div class="input-group input-group-sm">
-                                                        <input type="text" placeholder="Find someone .." class="form-control">
+                            <!-- One Fourth Column -->
+                            <div class="col-md-3">
+                                <div class="innerAll border-bottom">
+                                    <form class="form-inline margin-none" autocomplete="off">
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" placeholder="Find someone .." class="form-control">
                                                         <span class="input-group-btn">
-                                                            <button class="btn btn-primary btn-xs pull-right" type="button"><i class="fa fa-search"></i></button>
+                                                            <button class="btn btn-primary btn-xs pull-right"
+                                                                    type="button"><i class="fa fa-search"></i></button>
                                                         </span>
-                                                    </div>
-                                                </form>
-                                            </div>
-										</div>
-										<!-- // One Fourth Column END -->
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- // One Fourth Column END -->
 
-										<!-- Three Fourth Column -->
-										<div class="col-md-9">
-											<h4>خبرگزاری ها</h4>
+                            <!-- Three Fourth Column -->
+                            <div class="col-md-9">
+                                <h4>خبرگزاری ها</h4>
 
-                                            <!-- Links widget preview & code sample -->
-                                            <div class="menubar links primary rtl-menu">
-                                                <ul>
-                                                    {% agencies as agents %}
-                                                    {% for a in agents %}
-                                                    <li><a href="">{{ a.local_name }}</a></li>
-                                                    <li class="divider"></li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
+                                <!-- Links widget preview & code sample -->
+                                <div class="menubar links primary rtl-menu">
+                                    <ul>
+                                        {% agencies as agents %}
+                                        {% for a in agents %}
+                                            <li><a href="">{{ a.local_name }}</a></li>
+                                            <li class="divider"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
 
-										</div>
-										<!-- // Three Fourth Column END -->
+                            </div>
+                            <!-- // Three Fourth Column END -->
 
-									</div>
-									<!-- // 2 Column Grid / One Fourth & Three Fourth -->
+                        </div>
+                        <!-- // 2 Column Grid / One Fourth & Three Fourth -->
 
-								</div>
-							</div>
+                    </div>
+                </div>
 
 
                 <div class="row">
 
                     <!-- Tabs -->
-                    <div class="relativeWrap" >
+                    <div class="relativeWrap">
                         <div class="widget widget-tabs widget-tabs-responsive">
 
                             <!-- Tabs Heading -->
@@ -76,15 +82,15 @@
                                 <ul>
 
                                     <li class="active">
-                                    <a class="glyphicons coffe_cup tab_title" href="#tab-1" data-toggle="tab">
-                                    مهم ترین اخبار
-                                    </a>
+                                        <a class="glyphicons coffe_cup tab_title" href="#tab-1" data-toggle="tab">
+                                            مهم ترین اخبار
+                                        </a>
                                     </li>
 
                                     <li>
-                                     <a class="glyphicons share_alt tab_title" href="#tab-2" data-toggle="tab">
-                                    جدید ترین اخبار
-                                    </a>
+                                        <a class="glyphicons share_alt tab_title" href="#tab-2" data-toggle="tab">
+                                            جدید ترین اخبار
+                                        </a>
                                     </li>
 
                                 </ul>
@@ -98,53 +104,70 @@
                                     <div class="tab-pane active" id="tab-1">
 
 
-                                      <div class="innerAll">
-								        <div class="row">
+                                        <div class="innerAll">
+                                            <div class="row">
 
 
-                                    {% for n in news %}
-									<div class="col-sm-6">
-										<div class="box-generic padding-none">
-											<div class="innerAll border-bottom">
-                                                <a class="pull-left mid-side" href=""><img width="100" alt="" src="{% static n.agency.img_address %}"></a>
-												<h4 class="strong"><a href="{% url 'detail' n.id %}">{{ n.title }}</a></h4>
-												<p class="text-faded margin-none">Corporate Website / MosaicPro, Inc.</p>
-											</div>
-											<div class="innerAll border-bottom">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi cum autem alias est fugiat ratione nesciunt eum ullam! Esse, sed, sequi obcaecati pariatur non iste soluta optio necessitatibus expedita cum.
-											</div>
-											<div class="bg-white innerAll border-bottom">
-												<a href=""><i class="fa fa-calendar"></i> {{ n.date }} </a> &nbsp;
-												<a href=""><i class="fa fa-euro"></i> 3 Hours</a> &nbsp;
-												<span class="label label-default">{{ n.category.local_name }} </span>
-											</div>
-											<div class="bg-white box-generic-footer">
-												<div class="btn-group pull-right">
-													<button class="btn btn-default"><i class="fa fa-star-o"></i></button><button class="btn btn-default"><i class="fa fa-sun-o"></i></button>
-												</div>
+                                                {% for n in news %}
+                                                    <div class="col-sm-6">
+                                                        <div class="box-generic padding-none">
+                                                            <div class="innerAll border-bottom">
+                                                                <a class="pull-left mid-side" href=""><img width="100"
+                                                                                                           alt=""
+                                                                                                           src="{% static n.agency.img_address %}"></a>
+                                                                <h4 class="strong"><a
+                                                                        href="{% url 'detail' n.id %}">{{ n.title }}</a>
+                                                                </h4>
+
+                                                                <p class="text-faded margin-none">Corporate Website /
+                                                                    MosaicPro, Inc.</p>
+                                                            </div>
+                                                            <div class="innerAll border-bottom">
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                                elit. Commodi cum autem alias est fugiat ratione
+                                                                nesciunt eum ullam! Esse, sed, sequi obcaecati pariatur
+                                                                non iste soluta optio necessitatibus expedita cum.
+                                                            </div>
+                                                            <div class="bg-white innerAll border-bottom">
+                                                                <a href=""><i class="fa fa-calendar"></i> {{ n.date }}
+                                                                </a> &nbsp;
+                                                                <a href=""><i class="fa fa-euro"></i> 3 Hours</a> &nbsp;
+                                                                <span class="label label-default">{{ n.category.local_name }} </span>
+                                                            </div>
+                                                            <div class="bg-white box-generic-footer">
+                                                                <div class="btn-group pull-right">
+                                                                    <button class="btn btn-default"><i
+                                                                            class="fa fa-star-o"></i></button>
+                                                                    <button class="btn btn-default"><i
+                                                                            class="fa fa-sun-o"></i></button>
+                                                                </div>
 												<span class="pull-left innerAll">
-													<i class="fa fa-clock-o"></i>  <a href="{% url 'detail' n.id %}">مشاهده خبر</a>
+													<i class="fa fa-clock-o"></i>  <a href="{% url 'detail' n.id %}">مشاهده
+                                                    خبر</a>
 												</span>
-												<div class="clearfix"></div>
-											</div>
-										</div>
-									</div>
-                                    {% endfor %}
+
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
 
 
-								</div>
-							</div>
+                                            </div>
+                                        </div>
 
                                     </div>
                                     <!-- // Tab content END -->
 
 
-
-
-
                                     <!-- Tab content -->
                                     <div class="tab-pane" id="tab-2">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                            dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                            tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                                            wes anderson cred nesciunt sapiente ea proident.</p>
                                     </div>
                                     <!-- // Tab content END -->
 
@@ -155,25 +178,11 @@
                     <!-- // Tabs END -->
 
 
+                </div>
+
             </div>
 
-           </div>
-
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
 
 
     </div>
