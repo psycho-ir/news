@@ -1,0 +1,48 @@
+[
+    {
+        "model": "core.agencyrsslink",
+        "pk": 101,
+        "fields": {
+            "link": "http://www.yjc.ir/fa/rss/8",
+            "category": "sport",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 102,
+        "fields": {
+            "link": "http://www.yjc.ir/fa/rss/5",
+            "category": "social",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 103,
+        "fields": {
+            "link": "http://www.yjc.ir/fa/rss/6",
+            "category": "economic",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 104,
+        "fields": {
+            "link": "http://www.yjc.ir/fa/rss/3",
+            "category": "political",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 105,
+        "fields": {
+            "link": "http://www.yjc.ir/fa/rss/4",
+            "category": "cultural",
+            "agency": "yjc"
+        }
+    }
+
+]
