@@ -1,0 +1,48 @@
+[
+    {
+        "model": "core.agencyrsslink",
+        "pk": 201,
+        "fields": {
+            "link": "http://isna.ir/fa/Imamandleaders/feed",
+            "category": "leader",
+            "agency": "isna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 202,
+        "fields": {
+            "link": "http://isna.ir/fa/Science%20and%20Tech/feed",
+            "category": "technology",
+            "agency": "isna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 303,
+        "fields": {
+            "link": "http://isna.ir/fa/Social/feed",
+            "category": "social",
+            "agency": "isna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 304,
+        "fields": {
+            "link": "http://isna.ir/fa/Economy/feed",
+            "category": "economic",
+            "agency": "isna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 505,
+        "fields": {
+            "link": "http://isna.ir/fa/Politics/feed",
+            "category": "political",
+            "agency": "isna"
+        }
+    }
+
+]

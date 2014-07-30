@@ -22,5 +22,13 @@
             "local_name": "تابناک",
             "img_address": "images/agencies/tabnak.png"
         }
+    },
+    {
+        "model": "core.newsagency",
+        "pk": "isna",
+        "fields": {
+            "local_name": "ایسنا",
+            "img_address": "images/agencies/isna.jpg"
+        }
     }
 ]

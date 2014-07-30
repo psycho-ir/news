@@ -4,7 +4,7 @@ __author__ = 'SOROOSH'
 
 
 class TabnakCrawler(Crawler):
-    agencies = ['tabnak']
+    agencies = ['tabnak','yjc']
 
     def crawl_content(self, news):
         soup = self._get_soup(news.link)

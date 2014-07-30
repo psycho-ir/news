@@ -6,21 +6,21 @@
             "local_name": "ورزشی"
         }
     },
-     {
+    {
         "model": "core.newscategory",
         "pk": "social",
         "fields": {
             "local_name": "اجتماعی"
         }
     },
-     {
+    {
         "model": "core.newscategory",
         "pk": "political",
         "fields": {
             "local_name": "سیاسی"
         }
     },
-     {
+    {
         "model": "core.newscategory",
         "pk": "economic",
         "fields": {
@@ -33,5 +33,27 @@
         "fields": {
             "local_name": "فرهنگی"
         }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "technology",
+        "fields": {
+            "local_name": "علم و فناوری"
+        }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "leader",
+        "fields": {
+            "local_name": "امام و رهبری"
+        }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "international",
+        "fields": {
+            "local_name": "بین الملل"
+        }
     }
+
 ]

@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 from time import sleep
 from django.conf import settings
 from core.models import News
@@ -23,12 +23,16 @@ class Parser:
                 if d <= kwargs.get('date'):
                     return False
                 return True
-        print 'reading rss feeds from:%s category:%s agency:%s' %(self.agencyRSSLink.link , self.agencyRSSLink.category_id, self.agencyRSSLink.agency_id)
+        print 'reading rss feeds from:%s category:%s agency:%s' % (
+        self.agencyRSSLink.link, self.agencyRSSLink.category_id, self.agencyRSSLink.agency_id)
         parsed = feedparser.parse(self.agencyRSSLink.link)
         print 'parsing completed...'
         result = list()
         for item in parsed['items']:
-            d = datetime.strptime(item.published[0:20], '%d %b %Y %H:%M:%S')
+            try:
+                d = datetime.datetime.strptime(item.published[0:20], '%d %b %Y %H:%M:%S')
+            except:
+                d = datetime.datetime.strptime(item.published[5:25], '%d %b %Y %H:%M:%S') + datetime.timedelta(minutes=30,hours=4)
             if not is_selectable(d):
                 continue
             news = News()
