@@ -20,7 +20,9 @@ h4,.head-title,.tab_title{
      direction: rtl;
      text-align: right;
      float: right;
-     font-size: 14px;
+}
+.rtl-menu ul li a{
+    font-size: 15px !important;
 }
 
 .login-form , .login-form button {
