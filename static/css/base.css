@@ -43,3 +43,14 @@ h4,.head-title,.tab_title{
 div.news-box{
     height: 250px !important;
 }
+
+.top-menu li{
+    direction: rtl !important;
+    float: right !important;
+    text-align: right !important;
+}
+
+div.detail-content{
+    font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif !important;
+    font-size: 12px  !important;
+}
