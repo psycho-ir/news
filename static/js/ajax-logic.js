@@ -18,7 +18,7 @@ $(document).ready(function(){
     function createNews(news){
             var source       = $("#handlebar-news-box").html();
             var template     = Handlebars.compile(source);
-            var html         = template({news : news});
+            var html         = template({news : news });
             return html;
     }
 
