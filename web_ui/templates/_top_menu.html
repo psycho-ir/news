@@ -1,0 +1,83 @@
+ <!-- Widget heading -->
+                    <div class="widget-head">
+
+
+                        <div class="menubar links primary rtl-menu">
+                            <ul class="top-menu">
+
+                                {% if not user.is_authenticated %}
+
+                                    <li><a href="">
+                                        ثبت نام
+                                    </a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{% url 'user:login' %}">
+                                        ورود به سیستم
+                                    </a></li>
+                                {% else %}
+                                    <li><a href="{% url 'user:logout' %}">
+خروج
+                                    </a></li>
+                                {% endif %}
+                                <li class="divider"></li>
+                                <li><a href="">
+                                    درباره ما
+                                </a></li>
+                                <li class="divider"></li>
+
+                                <li><a href="{% url 'home' %}">
+                                    صفحه اصلی
+                                </a></li>
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- // Widget heading END -->
+
+                    <div class="widget-body innerAll inner-2x">
+
+                        <!-- 2 Column Grid / One Fourth & Three Fourth -->
+                        <div class="row">
+
+                            <!-- One Fourth Column -->
+                            <div class="col-md-3">
+                                <div class="innerAll border-bottom">
+                                    <form class="form-inline margin-none" autocomplete="off"
+                                          action="{% url 'simple_search' %}" method="get">
+                                        <div class="input-group input-group-sm">
+                                            <input name="q" type="text" placeholder="به دنبال چی هستی ؟"
+                                                   class="form-control yekan-font">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary btn-xs pull-right"
+                                                            type="submit"><i class="fa fa-search"></i></button>
+                                                </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- // One Fourth Column END -->
+
+                            <!-- Three Fourth Column -->
+                            <div class="col-md-9">
+                                <h4>خبرگزاری ها</h4>
+
+                                <!-- Links widget preview & code sample -->
+                                <div class="menubar links primary rtl-menu">
+                                    <ul>
+
+                                        {% for a in object %}
+                                            <li><a href="">{{ a.local_name }}</a></li>
+                                            <li class="divider"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- // Three Fourth Column END -->
+
+                        </div>
+                        <!-- // 2 Column Grid / One Fourth & Three Fourth -->
+
+                    </div>
