@@ -4,7 +4,7 @@
         "pk": "yjc",
         "fields": {
             "local_name": "باشگاه خبرنگاران جوان",
-            "img_address": "images/agencies/yjc.png"
+            "img_address": "images/agencies/yjc.jpg"
         }
     },
     {
@@ -12,7 +12,7 @@
         "pk": "asriran",
         "fields": {
             "local_name": "عصر ایران",
-            "img_address": "images/agencies/asriran.png"
+            "img_address": "images/agencies/asriran.jpg"
         }
     },
     {
@@ -20,7 +20,7 @@
         "pk": "tabnak",
         "fields": {
             "local_name": "تابناک",
-            "img_address": "images/agencies/tabnak.png"
+            "img_address": "images/agencies/tabnak.jpg"
         }
     },
     {
