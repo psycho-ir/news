@@ -65,4 +65,6 @@ div.detail-content{
     font-size: 14px;
     color: #d9534f;
 }
-
+.error-box b{
+   color: #ffffff;
+}
