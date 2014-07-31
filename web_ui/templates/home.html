@@ -7,7 +7,6 @@
 
         <div class="row well">
             {% if user.is_authenticated %}
-                sssss
                 {{ user.username }}
             {% endif %}
         </div>
@@ -19,8 +18,8 @@
 
 
                 <div class="widget widget-body-white">
-
-                    {% include '_top_menu.html' with object=agencies %}
+                    {% agencies as agents %}
+                    {% include '_top_menu.html' %}
 
                 </div>
 
