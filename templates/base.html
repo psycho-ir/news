@@ -27,9 +27,50 @@
     <script src="{% static "js/ajax-logic.js" %}"></script>
     <script src="{% static "js/handlebars.js" %}"></script>
 
-    <script type="handlebar-news-box">
+    {% verbatim %}
+    <script id="handlebar-news-box" type="handlebar-news-box">
+        {{#news}}
+                <div class="col-md-6 ">
+                    <div class="box-generic bg-white innerAll inner-2x news-box">
+                        <div class="media margin-none">
+                            <a class="pull-left" href=""><img width="100" alt="" src=""></a>
+
+                            <div class="media-body innerTB">
+                                <h4>
+                                    <a href="/detail/{{ this.pk }}">{{ this.fields.title }}</a>
+                                </h4>
+
+                                <p class="text-muted">{{ this.fields.date }}</p>
+                            </div>
+                        </div>
+                        <div class="separator bottom"></div>
+                        <p class="margin-none">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit. Dolorum, est, iste
+                            similique eius perspiciatis expedita exercitationem.</p>
+
+                        <div class="bg-white box-generic-footer">
+                            <div class="btn-group pull-right">
+                                <button class="btn btn-default"><i
+                                        class="fa fa-star-o"></i></button>
+                                <button class="btn btn-default"><i
+                                        class="fa fa-sun-o"></i></button>
+                            </div>
+                        <span class="pull-left innerAll">
+                            <i class="fa fa-clock-o"></i>  <a href="/detail/{{ this.pk }}">مشاهده
+                            خبر</a>
+                        </span>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+        {{/news}}
 
     </script>
+   {% endverbatim %}
 
 </head>
 <body>
