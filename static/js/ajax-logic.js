@@ -6,7 +6,7 @@ $(document).ready(function(){
         url      = window.domain ;
         $.get(url,{
             page_number : 1 ,
-            agency      : agencyID
+            agencies      : agencyID
         },function(data){
             news     = JSON.parse(data);
             htmlNews = createNews(news);
