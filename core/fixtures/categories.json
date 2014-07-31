@@ -54,6 +54,20 @@
         "fields": {
             "local_name": "بین الملل"
         }
+    },
+     {
+        "model": "core.newscategory",
+        "pk": "photo",
+        "fields": {
+            "local_name": "عکس"
+        }
+    },
+    {
+        "model":"core.newscategory",
+        "pk":"accident",
+        "fields":{
+            "local_name":"حوادث"
+        }
     }
 
 ]
