@@ -51,4 +51,4 @@ scheduler = ThreadSimpleScheduler(180, show_latest_news)
 scheduler.run()
 
 crawler_scheduler = ThreadSimpleScheduler(10, crawl_some_news)
-# crawler_scheduler.run()
+crawler_scheduler.run()
