@@ -64,9 +64,9 @@
 
                                 <!-- Links widget preview & code sample -->
                                 <div class="menubar links primary rtl-menu">
-                                    <ul>
+                                    <ul class="agency-menu">
                                         {% for a in agents %}
-                                            <li><a href="">{{ a.local_name }}</a></li>
+                                            <li class="agency-li" data-id="{{ a }}"><a href="#">{{ a.local_name }}</a></li>
                                             <li class="divider"></li>
                                         {% endfor %}
                                     </ul>

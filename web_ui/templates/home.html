@@ -64,13 +64,12 @@
                                     <!-- Tab content -->
                                     <div class="tab-pane active" id="tab-2">
                                         <div class="innerAll">
-                                            <div class="row">
+                                            <div class="row agency-box">
                                                 {% for n in news %}
                                                     <div class="col-md-6 ">
                                                         <div class="box-generic bg-white innerAll inner-2x news-box">
                                                             <div class="media margin-none">
-                                                                <a class="pull-left" href=""><img width="100" alt=""
-                                                                                                  src="{% static n.agency.img_address %}"></a>
+                                                                <a class="pull-left" href=""><img width="100" alt="" src="{% static n.agency.img_address %}"></a>
 
                                                                 <div class="media-body innerTB">
                                                                     <h4>
