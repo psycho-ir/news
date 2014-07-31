@@ -30,5 +30,13 @@
             "local_name": "ایسنا",
             "img_address": "images/agencies/isna.jpg"
         }
+    },
+     {
+        "model": "core.newsagency",
+        "pk": "irna",
+        "fields": {
+            "local_name": "ایرنا",
+            "img_address": "images/agencies/irna.jpg"
+        }
     }
 ]
