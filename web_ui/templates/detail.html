@@ -1,18 +1,57 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <div class="container well">
-        {{ news }}
 
-        <div class="well">
-            <a href="{{ news.link }}"> منبع خبر </a>
-            <div class="body">
-                {{ news.detail.content | safe }}
+{% load agency_tags %}
+{% load staticfiles %}
+
+
+<div class="layout-app main-page" style="visibility: visible;">
+
+<div class="row well">
+    {% if user.is_authenticated %}
+        {{ user.username }}
+    {% endif %}
+</div>
+
+            <div class="container">
+            <div class="innerLR">
+
+                <div class="separator"></div>
+
+                 <div class="widget widget-body-white">
+                    {% agencies as agents %}
+                    {% include '_top_menu.html' %}
+
+                </div>
+
+
+
+    <div class="box-generic bg-white innerAll inner-2x">
+        <div class="media margin-none">
+             <a class="pull-left" href=""><img width="100" alt="" src="{% static news.agency.img_address %}"></a>
+            <div class="media-body innerTB">
+                <h4><a href="">{{ news }}</a></h4>
+                <p class="text-muted">{{ news.date }}</p>
             </div>
         </div>
+        <div class="separator bottom"></div>
+        <div class="detail-content">
+            <p class="margin-none">
+              {{ news.detail.content | safe }}
+            </p>
+        </div>
+
+
+
+        <a href="{{ news.link }}"> منبع خبر </a>
     </div>
 
     {% include '_comments.html' with object=news %}
 
+    </div>
 
+   </div>
+
+
+</div>
 {% endblock %}
