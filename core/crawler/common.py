@@ -23,7 +23,7 @@ class Crawler:
     def crawl_content(self, news): raise NotImplementedError()
 
     def _get_soup(self, link):
-        response = urllib2.urlopen(urllib.quote(link.encode('utf-8'),safe=':,/'))
+        response = urllib2.urlopen(urllib.quote(link.replace('\n', '').encode('utf-8'), safe=':/'))
         html = response.read()
         soup = BeautifulSoup(html)
 
