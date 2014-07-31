@@ -37,7 +37,7 @@
     },
     {
         "model": "core.agencyrsslink",
-        "pk": 505,
+        "pk": 305,
         "fields": {
             "link": "http://isna.ir/fa/Politics/feed",
             "category": "political",

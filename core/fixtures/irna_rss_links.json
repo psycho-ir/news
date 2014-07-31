@@ -1,0 +1,92 @@
+[
+    {
+        "model": "core.agencyrsslink",
+        "pk": 401,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=41",
+            "category": "cultural",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 402,
+        "fields": {
+            "link": "http://isna.ir/fa/Science%20and%20Tech/feed",
+            "category": "technology",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 403,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=32",
+            "category": "social",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 404,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=20",
+            "category": "economic",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 405,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=5",
+            "category": "political",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 406,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=180",
+            "category": "technology",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 407,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=14",
+            "category": "sport",
+            "agency": "irna"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 408,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=1",
+            "category": "international",
+            "agency": "irna"
+        }
+    },
+     {
+        "model": "core.agencyrsslink",
+        "pk": 409,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=51",
+            "category": "photo",
+            "agency": "irna"
+        }
+    },
+     {
+        "model": "core.agencyrsslink",
+        "pk": 410,
+        "fields": {
+            "link": "http://www.irna.ir/fa/rss.aspx?kind=212",
+            "category": "accident",
+            "agency": "irna"
+        }
+    }
+]
