@@ -2,37 +2,46 @@
 
             <div class="well">
                 {% get_comment_count for object as comment_count %}
-                <div class="well" style="padding: 5px; padding-right: 20px;"> تا به حال {{ comment_count }} نظر برای این
-                    آموزش داده شده است.
-                </div>
+
+            <div class="box-generic">
+				<div class="timeline-top-info comment_count">
+					<i class="fa fa-comment"></i>
+
+تا به حال
+                    {{ comment_count }}
+نظر برای این خبر ثبت شده است
+				</div>
+			</div>
+
+
                 <div class="well">
                     {% render_comment_list for object %}
                 </div>
                 {#                <div class="well">#}
                 {#                    {% render_comment_form for tutorial %}#}
                 {#                </div>#}
-                <div class="well">
+                <div class="well comment-box">
                     {% if user.is_authenticated %}
                         {% get_comment_form for object as form %}
-                        <form action="{% comment_form_target %}" method="POST">
+                        <form action="{% comment_form_target %}" method="POST" class="form-horizontal" >
                             {% csrf_token %}
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    کامنت
-                                </div>
-                                <div class="col-xs-9">
-                                    <textarea class="form-control" name="comment"
-                                              style="margin-bottom: 15px;"></textarea>
-                                    {#                                    {{ form.comment }}#}
+
+                            <div class="form-group" style="">
+                                <label class="col-sm-2 control-label yekan-font" for="inputEmail3" style="float: right" >
+                                    نظر
+                                </label>
+                                <div class="col-sm-8" style="float: right">
+                                      <textarea class="form-control yekan-font" name="comment"></textarea>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-2">
+
+                            <div class="form-group" style="">
+                                <label class="col-sm-2 control-label yekan-font" for="inputEmail3" style="float: right" >
                                     چیزی ننویسید
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text" class="form-control" name="honeypot"
-                                           style="margin-bottom: 15px;"></textarea>
+                                </label>
+                                <div class="col-sm-8" style="float: right">
+                                      <input type="text" class="form-control" name="honeypot"
+                                           style="margin-bottom: 15px;">
                                 </div>
                             </div>
 
@@ -41,9 +50,9 @@
                             {{ form.timestamp }}
                             {{ form.security_hash }}
                             <input type="hidden" name="next" value="{% url 'detail' object.pk %}"/>
-                            <input class="btn btn-lg btn-success" style="width: 100%;" type="submit" value="ثبت"
+                            <input class="btn btn-lg btn-success yekan-font" style="width: 100%;" type="submit" value="ثبت"
                                    id="id_submit"/>
-                        </form>
+                    </form>
                     {% else %}
                         <p>برای کامنت لطفا
                             <a href="{% url 'user:login' %}">وارد</a>
