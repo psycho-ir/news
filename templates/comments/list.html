@@ -1,17 +1,17 @@
 {% for c in comment_list %}
 
-    <div class="well">
-        <div>
-           <span>
-                <img src="http://www.gravatar.com/avatar/{{ c.user.profile.email_md5 }}"/>
-            </span>
-            <span style="padding-right: 3px; vertical-align: bottom;">
-                {{ c.user.get_full_name }} نوشته است:
-            </span>
+    <div class="media">
+        <a class="pull-right" href=""><img class="img-responsive" alt="100x100" data-src="holder.js/100x100" style="width: 80px; height: 80px;" src="http://www.gravatar.com/avatar/{{ c.user.profile.email_md5 }}"></a>
+        <div class="media-body innerTB half">
+            <h5 class="strong text-uppercase yekan-font">
+                 {{ c.user.get_full_name }} نوشته است:
+            </h5>
+            <p class="margin-none content-comment">
+                 {{ c.comment }}
+            </p>
         </div>
-
-
-        <hr style="margin-top: 10px; margin-bottom: 10px;"/>
-        {{ c.comment }}
     </div>
+    <div class="innerAll border-bottom"></div>
+
+
 {% endfor %}

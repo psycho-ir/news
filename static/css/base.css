@@ -54,3 +54,15 @@ div.detail-content{
     font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif !important;
     font-size: 12px  !important;
 }
+
+.content-comment{
+    font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif !important;
+    font-size: 12px  !important;
+    color: #00526e;
+}
+.comment_count{
+    font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif !important;
+    font-size: 14px;
+    color: #d9534f;
+}
+
