@@ -89,10 +89,10 @@
 
                                                             <div class="bg-white box-generic-footer">
                                                                 <div class="btn-group pull-right">
-                                                                    <button class="btn btn-default"><i
+                                                                    <button class="btn btn-default bookmark-news" data-id="{{ n.id }}" data-token="{{ csrf_token }}" ><i
                                                                             class="fa fa-star-o"></i></button>
-                                                                    <button class="btn btn-default"><i
-                                                                            class="fa fa-sun-o"></i></button>
+                                                                    <button class="btn btn-default like-news" data-id="{{ n.id }}" data-token="{{ csrf_token }}" ><i
+                                                                            class="fa fa-thumbs-o-up" ></i></button>
                                                                 </div>
                                                             <span class="pull-left innerAll">
                                                                 <i class="fa fa-clock-o"></i>  <a href="/detail/476">مشاهده

@@ -1,4 +1,4 @@
-window.domain = "http://localhost:8000/rest/latest/"
+window.apiDomain = "http://localhost:8000/rest/"
 window.pageNumber = 0 ;
 window.agencyId   = 0 ;
 $(document).ready(function(){
@@ -6,23 +6,57 @@ $(document).ready(function(){
     $(".agency-menu .agency-li").on("click",function(){
         window.pageNumber = 1 ;
         window.agencyId   = $(this).data("id");
-        callServer(window.pageNumber,agencyId,"refresh")
+        callServerForNews(window.pageNumber,agencyId,"refresh")
+    });
+
+    $(".like-news").on("click",function(){
+        var newsId = $(this).data("id");
+        var token  = $(this).data("token");
+        callServerForLike(newsId,token);
+    });
+
+    $(".bookmark-news").on("click",function(){
+        var newsId = $(this).data("id");
+        var token  = $(this).data("token");
+        callServerForBookmark(newsId,token);
     });
 
     $(window).scroll(function() {
         if($(window).scrollTop() == $(document).height() - $(window).height()) {
             window.pageNumber+= 1;
             if (window.agencyId == 0){
-                callServer(window.pageNumber,0,"append");
+                callServerForNews(window.pageNumber,0,"append");
             }
             else {
-                callServer(window.pageNumber,window.agencyId,"append");
+                callServerForNews(window.pageNumber,window.agencyId,"append");
             }
         }
     });
 
-    function callServer(pageNumber,agencyId,type){
-        url      = window.domain ;
+    function callServerForBookmark(newsId,token){
+        var url           = window.apiDomain + 'bookmark/';
+        var sendingObject = {
+            news_id : newsId ,
+            csrfmiddlewaretoken : token
+        };
+        $.post(url,sendingObject,function(data){
+
+        })
+    }
+
+    function callServerForLike(newsId,token){
+        var url           = window.apiDomain + 'like/';
+        var sendingObject = {
+            news_id : newsId ,
+            csrfmiddlewaretoken : token
+        };
+        $.post(url,sendingObject,function(data){
+
+        })
+    }
+
+    function callServerForNews(pageNumber,agencyId,type){
+        var url = window.apiDomain + 'latest/' ;
         var sendingObject = null;
         if (agencyId == 0){
             sendingObject = {
@@ -59,6 +93,8 @@ $(document).ready(function(){
          $(".agency-box").append(htmlNews);
     }
 
+    function likeNews(){
 
+    }
 
 });
