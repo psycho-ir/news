@@ -16,7 +16,7 @@ class APIView(View):
         result = self.get_api_result(request)
         p = Paginator(result, size)
         if int(page_number) > p.num_pages:
-            page_number = p.num_pages
+            return HttpResponse("{}")
 
         current_page = p.page(page_number)
         response = serializers.serialize('json', current_page, indent=3)
