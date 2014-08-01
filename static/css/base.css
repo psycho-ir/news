@@ -36,6 +36,10 @@ h4,.head-title,.tab_title{
     font-family: 'Yekan' !important;
 }
 
+.default-font {
+    font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif !important;
+}
+
 .main-page{
     margin-top: -60px !important;
 }
@@ -48,6 +52,7 @@ div.news-box{
     direction: rtl !important;
     float: right !important;
     text-align: right !important;
+    color: #00526e !important;
 }
 
 div.detail-content{
@@ -67,4 +72,8 @@ div.detail-content{
 }
 .error-box b{
    color: #ffffff;
+}
+
+.currency-box {
+    background: #ffffff ;
 }
