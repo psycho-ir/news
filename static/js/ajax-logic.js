@@ -35,6 +35,7 @@ $(document).ready(function(){
             }
         }
         $.get(url,sendingObject,function(data){
+            if (data == "{}") return false;
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             if (type == "refresh")
