@@ -41,26 +41,28 @@ class LatestNewsView(APIView):
 class LikeView(View):
     def post(self, request):
         news_id = request.POST.get('news_id', None)
-        if not Like.objects.filter(news__id=news_id, user__id=request.user.id):
+        if not Like.objects.filter(news__id=news_id, user__id=request.user.id).exists():
             like = Like()
             like.news_id = news_id
             like.user_id = request.user.id
             like.save()
             return HttpResponse("Like saved")
 
-        return HttpResponse("Like exist")
+        Like.objects.filter(news_id=news_id,user__id=request.user.id).delete()
+        return HttpResponse("Like removed")
 
 
 class BookmarkView(View):
     def post(self, request):
         news_id = request.POST.get('news_id', None)
-        if not Bookmark.objects.filter(news__id=news_id, user__id=request.user.id):
+        if not Bookmark.objects.filter(news__id=news_id, user__id=request.user.id).exists():
             bookmark = Bookmark()
             bookmark.news_id = news_id
             bookmark.user_id = request.user.id
             bookmark.save()
             return HttpResponse("Bookmark saved")
 
+        # Bookmark.objects.filter(news_id=news_id,user__id=request.user.id).delete()
         return HttpResponse("Bookmark exist")
 
 
