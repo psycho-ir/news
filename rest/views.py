@@ -4,7 +4,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.views.generic import View
 from django.core.paginator import *
-from core.models import News
+from core.models import News, Like, Bookmark
 
 
 class APIView(View):
@@ -19,7 +19,7 @@ class APIView(View):
             page_number = p.num_pages
 
         current_page = p.page(page_number)
-        response = serializers.serialize('json', current_page)
+        response = serializers.serialize('json', current_page, indent=3)
 
         return HttpResponse(response)
 
@@ -36,4 +36,32 @@ class LatestNewsView(APIView):
             all_news = all_news.filter(category__in=categories)
 
         return all_news
+
+
+class LikeView(View):
+    def post(self, request):
+        news_id = request.POST.get('news_id', None)
+        if not Like.objects.filter(news__id=news_id, user__id=request.user.id):
+            like = Like()
+            like.news_id = news_id
+            like.user_id = request.user.id
+            like.save()
+            return HttpResponse("Like saved")
+
+        return HttpResponse("Like exist")
+
+
+class BookmarkView(View):
+    def post(self, request):
+        news_id = request.POST.get('news_id', None)
+        if not Bookmark.objects.filter(news__id=news_id, user__id=request.user.id):
+            bookmark = Bookmark()
+            bookmark.news_id = news_id
+            bookmark.user_id = request.user.id
+            bookmark.save()
+            return HttpResponse("Bookmark saved")
+
+        return HttpResponse("Bookmark exist")
+
+
 

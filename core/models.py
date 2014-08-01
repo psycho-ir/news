@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -27,6 +28,7 @@ class AgencyRSSLink(models.Model):
 class News(models.Model):
     class Meta:
         ordering = ['-date']
+
     title = models.CharField(max_length=200)
     abstract = models.CharField(max_length=500)
     link = models.CharField(max_length=300)
@@ -37,12 +39,23 @@ class News(models.Model):
     def __unicode__(self):
         return self.title
 
+
 class NewsDetail(models.Model):
-    news = models.OneToOneField(News,primary_key=True,related_name='detail')
+    news = models.OneToOneField(News, primary_key=True, related_name='detail')
     content = models.TextField()
 
     def __unicode__(self):
         return self.news.title
+
+
+class Like(models.Model):
+    news = models.ForeignKey(News)
+    user = models.ForeignKey(User)
+
+
+class Bookmark(models.Model):
+    news = models.ForeignKey(News)
+    user = models.ForeignKey(User)
 
 
 
