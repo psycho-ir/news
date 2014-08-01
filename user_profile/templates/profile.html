@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block title %}صفحه شخصی {% endblock %}
+{% block no_container_content %}
+
+
+
+
+
+    {#    <div class="user-panel">#}
+    {#        <div class="panel-handle panel-handle-opened">#}
+    {#            <div class="panel-handle-arm ">#}
+    {#                <div class="arm-pointer glyphicon glyphicon-chevron-right"></div>#}
+    {#            </div>#}
+    {##}
+    {#        </div>#}
+
+    <div class="row" style="margin: 30px;">
+        <div class="page-header">
+
+            <h3> صفحه شخصی {{ user.username }}</h3>
+        </div>
+    </div>
+    <div class="row" style="margin:0px; padding-right: 0px;">
+        <div id="profile-menu" class="col-xs-2 well hidden-sm hidden-xs hidden-md hidden-print"
+             style="">
+
+{#            <div class="col-xs-12" style="padding-right: 2px; padding-left: 0; padding-top:8px;" id="profile-menu">#}
+                <div class="profile-item profile-item-selected" id="info">
+                    اطلاعات من
+                </div>
+                <div class="profile-item" id="exam">
+                    آزمونها
+                </div>
+                <div class="profile-item" id="password">
+                    تغییر رمز عبور
+                </div>
+{#            </div>#}
+        </div>
+
+        <div class="col-xs-9 pull-right profile-content"
+             style="padding-right: 30px;margin-right: 20px; padding-left: 30px;"
+                >
+            <div class="visible" id="info-container" >
+                <div class="row">
+
+                    <div class="col-lg-2">نام</div>
+                    <div class="col-lg-10">{{ user.first_name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">نام خانوادگی</div>
+                    <div class="col-lg-10">{{ user.last_name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">نام کاربری</div>
+                    <div class="col-lg-10">{{ user.username }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2"> تاریخ عضویت</div>
+                    <div class="col-lg-10">{{ user.date_joined }}</div>
+                </div>
+
+            </div>
+            <div class=" c hidden" id="exam-container">
+                <div>
+                    <ul id="myTab" class="nav nav-tabs">
+                        {% for category in categories %}
+                            <li class="">
+                                {% with "image/techs/"|add:category.name|add:".png" as address %}
+                                    <a data-toggle="tab" style="height: 60px;" href="#{{ category.local_name }}"><img
+                                            class="img-responsive" style="height: 40px;"
+                                            src="{% static address %}"/>
+                                    </a>
+                                {% endwith %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="tab-content" style="font-size: 1.1vw; border: solid 1px #448899;">
+                        {% for category in categories %}
+                            <div class="tab-pane" id="{{ category.local_name }}">
+                                {% for sub in category.sub_categories.all %}
+                                    <div class="jumbotron"
+                                         style="padding-top: 10px; padding-bottom: 10px; margin-bottom: 0px; border-bottom: 0px;">
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                {{ sub.local_name }}
+                                            </div>
+                                            <div class="col-xs-1 pull-left "
+                                                 style="text-align: left; padding-left: 0px;">
+                                                <span style="vertical-align: middle; margin-top: 11px;"
+                                                      class="badge">{{ sub.exam_set.count }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-right: 2%; font-size: 1vw;">
+                                        {% for exam in sub.exam_set.all %}
+                                            <div class="col-xs-3"
+                                                 style="padding-top: 25px; border:solid 1px transparent; border-radius: 5px; background-color:#E0E0E0;margin:20px; min-height: 200px; text-align: center; ">
+                                                <a style="margin-top: 4%; font-size: 1.1vw;"
+                                                   href="{% url 'exam:intro' exam.id %}"> {{ exam.local_name }} </a>
+
+                                                <div style="padding-top: 10px;">
+                                                    امتیاز شما:
+                                                    <div id="{{ exam.id }}">
+                                                        شمار در این آزمون شرکت نکرده اید
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+
+                                {% endfor %}
+
+                            </div>
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="c hidden col-xs-9" id="password-container">
+                <form method="post" action="{% url 'profile:change_password' %}">
+                    {% csrf_token %}
+
+                    <div class="control-group"><label class="form-label">
+
+                        رمز عبور کنونی
+
+                    </label>
+
+                        <div class="controls">
+                            <label></label>
+                            <input type="password" class="form-control" name="oldPass"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="form-label">
+                            رمز عبور جدید
+                        </label>
+
+                        <div class="controls">
+                            <label></label>
+                            <input type="password" class="form-control" name="newPass"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="form-label">
+                            تکرار رمز عبور
+                        </label>
+
+                        <div class="controls">
+                            <label></label>
+                            <input type="password" class="form-control"/>
+                        </div>
+                    </div>
+                    <button style="margin-top: 10px;" type="submit" class="btn btn-gentel btn-lg">
+                        ثبت
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+
+
+    <script type="text/javascript">
+        var user_panel = {
+            close: function () {
+
+                $('.user-panel').animate(
+                        {
+                            right: '-230'
+                        }
+                        , 500, function () {
+                            /* $('.panel-handle').addClass('panel-handle-closed').removeClass('panel-handle-opened');
+                             $('.arm-pointer').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-left');
+                             */
+                            $('.panel-handle-arm').css('float', 'none');
+                            $('.panel-handle').animate({
+                                borderBottomRightRadius: '5px',
+                                borderTopRightRadius: '5px',
+                                borderTopLeftRadius: '15px',
+                                borderBottomLeftRadius: '15px'
+
+                            }, 10, function () {
+
+                                $('.arm-pointer').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-left')
+                                        .css({left: '2px' });
+
+                            });
+                            $('.panel-handle-arm').animate({
+                                float: 'left',
+
+                                marginLeft: '-13px',
+                                marginRight: '+3px',
+                                borderRightWidth: '0px',
+                                borderLeftWidth: '1px',
+                                borderBottomRightRadius: '2px',
+                                borderTopRightRadius: '2px',
+                                borderTopLeftRadius: '6px',
+                                borderBottomLeftRadius: '6px'
+                            });
+
+
+                        }
+                );
+            },
+            open: function () {
+                $('.user-panel').animate(
+                        {
+                            right: '0'
+                        }
+                        , 500, function () {
+                            /*  $('.panel-handle').removeClass('panel-handle-closed').addClass('panel-handle-opened');
+                             //<div class="arm-pointer glyphicon glyphicon-chevron-right"></div>
+                             $('.arm-pointer').addClass('glyphicon-chevron-right').removeClass('glyphicon-chevron-left');
+                             */
+
+                            $('.panel-handle-arm').css('float', 'none');
+                            $('.panel-handle').animate({
+                                borderBottomRightRadius: '15px',
+                                borderTopRightRadius: '15px',
+                                borderTopLeftRadius: '5px',
+                                borderBottomLeftRadius: '5px'
+                            }, 10, function () {
+
+                                $('.arm-pointer').addClass('glyphicon-chevron-right').removeClass('glyphicon-chevron-left')
+                                        .css({left: '0px', right: '0px'});
+                            });
+
+                            $('.panel-handle-arm').animate({
+                                float: 'right',
+                                marginRight: '-5px',
+                                marginLeft: '0px',
+                                borderRightWidth: '1px',
+                                borderLeftWidth: '0px',
+                                borderBottomRightRadius: '6px',
+                                borderTopRightRadius: '6px',
+                                borderTopLeftRadius: '2px',
+                                borderBottomLeftRadius: '2px'
+                            });
+                        }
+                );
+            },
+            toggle: function () {
+                console.log("ASD");
+                var right_distance = $('.user-panel').css('right');
+                console.log($('.user-panel').css('right'));
+                if (right_distance == '0px')
+                    user_panel.close();
+                else
+                    user_panel.open();
+            }
+
+
+        };
+
+        $(document).ready(function () {
+            $('#myTab a:first').tab('show');
+
+            {% for answer in exam_answers %}
+                var element = $('#{{ answer.exam.id }}');
+                element.html('{{ answer.score }}');
+                element.parent().parent().css('backgroundColor', 'green');
+            {% endfor %}
+
+            $('.panel-handle').click(function () {
+                user_panel.toggle();
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.profile-item').click(
+                    function (item) {
+                        $('.profile-item').removeClass('profile-item-selected');
+
+                        $(item.target).addClass('profile-item-selected');
+                        var item_id = item.target.id;
+                        var container_name = item_id + '-container';
+                        var visible_object = $('.visible')[0];
+                        if (visible_object.id == container_name) {
+                            return;
+                        }
+
+                        $('.visible').fadeOut('fast', function () {
+                            $('.visible').removeClass('visible').addClass('hidden');
+                            $('#' + container_name).removeClass('hidden').addClass('visible');
+                            $('#' + container_name).fadeIn('slow');
+
+                        });
+
+                    }
+            )
+        });
+    </script>
+{% endblock %}

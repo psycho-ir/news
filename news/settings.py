@@ -49,10 +49,11 @@ INSTALLED_APPS = (
     'core',
     'web_ui',
     'rest',
-    'user'
+    'user',
+    'user_profile'
 )
 
-SITE_ID=1
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,5 +106,5 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-DEFAULT_LOGIN_URL ='/'
+DEFAULT_LOGIN_URL = '/'
 DEFAULT_LOGOUT_URL = '/'

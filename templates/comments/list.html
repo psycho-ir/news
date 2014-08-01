@@ -1,7 +1,7 @@
 {% for c in comment_list %}
 
     <div class="media">
-        <a class="pull-right" href=""><img class="img-responsive" alt="100x100" data-src="holder.js/100x100" style="width: 80px; height: 80px;" src="http://www.gravatar.com/avatar/{{ c.user.profile.email_md5 }}"></a>
+        <a class="pull-right" href=""><img class="img-responsive" style="width: 80px; height: 80px;" src="http://www.gravatar.com/avatar/{{ c.user.profile.email_md5 }}"></a>
         <div class="media-body innerTB half">
             <h5 class="strong text-uppercase yekan-font">
                  {{ c.user.get_full_name }} نوشته است:
