@@ -41,29 +41,33 @@ class LatestNewsView(APIView):
 class LikeView(View):
     def post(self, request):
         news_id = request.POST.get('news_id', None)
+        if not request.user.is_authenticated:
+            return HttpResponse('{"message":"Not logined"}')
         if not Like.objects.filter(news__id=news_id, user__id=request.user.id).exists():
             like = Like()
             like.news_id = news_id
             like.user_id = request.user.id
             like.save()
-            return HttpResponse("Like saved")
+            return HttpResponse('{"message":"Like saved"}')
 
         Like.objects.filter(news_id=news_id,user__id=request.user.id).delete()
-        return HttpResponse("Like removed")
+        return HttpResponse('{"message":"Like removed"}')
 
 
 class BookmarkView(View):
     def post(self, request):
         news_id = request.POST.get('news_id', None)
+        if not request.user.is_authenticated:
+            return HttpResponse('{"message":"Not logined"}')
         if not Bookmark.objects.filter(news__id=news_id, user__id=request.user.id).exists():
             bookmark = Bookmark()
             bookmark.news_id = news_id
             bookmark.user_id = request.user.id
             bookmark.save()
-            return HttpResponse("Bookmark saved")
+            return HttpResponse('{"message":"Bookmark saved"}')
 
         # Bookmark.objects.filter(news_id=news_id,user__id=request.user.id).delete()
-        return HttpResponse("Bookmark exist")
+        return HttpResponse('{"message":"Bookmark exist"}')
 
 
 
