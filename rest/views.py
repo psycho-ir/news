@@ -41,7 +41,7 @@ class LatestNewsView(APIView):
 class LikeView(View):
     def post(self, request):
         news_id = request.POST.get('news_id', None)
-        if not request.user.is_authenticated:
+        if not request.user.is_authenticated():
             return HttpResponse('{"message":"Not logined"}')
         if not Like.objects.filter(news__id=news_id, user__id=request.user.id).exists():
             like = Like()
@@ -57,7 +57,7 @@ class LikeView(View):
 class BookmarkView(View):
     def post(self, request):
         news_id = request.POST.get('news_id', None)
-        if not request.user.is_authenticated:
+        if not request.user.is_authenticated():
             return HttpResponse('{"message":"Not logined"}')
         if not Bookmark.objects.filter(news__id=news_id, user__id=request.user.id).exists():
             bookmark = Bookmark()
