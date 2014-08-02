@@ -4,6 +4,7 @@ import json
 __author__ = 'SOROOSH'
 
 
+
 class PriceCrawler:
     def read_gold_price(self):
         url = urllib.urlopen('http://www.tala.ir/webservice/price_live.php?mode=ajax&nocache=1')
@@ -15,4 +16,4 @@ class PriceCrawler:
 c = PriceCrawler()
 result = c.read_gold_price()
 for a in result:
-    print "%s : %s" % (a,result[a])
+    print "%s : %s" % (a,result

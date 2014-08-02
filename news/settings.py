@@ -50,7 +50,8 @@ INSTALLED_APPS = (
     'web_ui',
     'rest',
     'user',
-    'user_profile'
+    'user_profile',
+    'price'
 )
 
 SITE_ID = 1
