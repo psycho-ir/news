@@ -57,7 +57,7 @@
     },
      {
         "model": "price.item",
-        "pk": "USD",
+        "pk": "usd",
         "fields": {
             "local_name": "دلار امریکا"
         }
@@ -71,7 +71,7 @@
     },
      {
         "model": "price.item",
-        "pk": "oli",
+        "pk": "oil",
         "fields": {
             "local_name": "نفت"
         }
