@@ -1,0 +1,79 @@
+[
+    {
+        "model": "price.item",
+        "pk": "ounce",
+        "fields": {
+            "local_name": "اونس طلا"
+        }
+    },
+    {
+        "model": "price.item",
+        "pk": "18gram",
+        "fields": {
+            "local_name": "هر گرم طلای ۱۸ عیار"
+        }
+    },
+    {
+        "model": "price.item",
+        "pk": "24gram",
+        "fields": {
+            "local_name": "هر گرم طلای ۲۴ عیار"
+        }
+    },
+    {
+        "model": "price.item",
+        "pk": "coin-old",
+        "fields": {
+            "local_name": "سکه طرح قدیم"
+        }
+    },
+    {
+        "model": "price.item",
+        "pk": "coin-new",
+        "fields": {
+            "local_name": "سکه طرح جدید"
+        }
+    },
+     {
+        "model": "price.item",
+        "pk": "con-half",
+        "fields": {
+            "local_name": "نیم سکه"
+        }
+    },
+     {
+        "model": "price.item",
+        "pk": "coin-quarter",
+        "fields": {
+            "local_name": "ربع سکه"
+        }
+    },
+     {
+        "model": "price.item",
+        "pk": "coin-1g",
+        "fields": {
+            "local_name": "سکه یک گرمی"
+        }
+    },
+     {
+        "model": "price.item",
+        "pk": "USD",
+        "fields": {
+            "local_name": "دلار امریکا"
+        }
+    },
+     {
+        "model": "price.item",
+        "pk": "silver",
+        "fields": {
+            "local_name": "نقره"
+        }
+    },
+     {
+        "model": "price.item",
+        "pk": "oli",
+        "fields": {
+            "local_name": "نفت"
+        }
+    }
+]
