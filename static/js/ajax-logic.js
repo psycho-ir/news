@@ -1,4 +1,4 @@
-window.apiDomain = "http://localhost:8000/rest/"
+window.apiDomain = "/rest/"
 window.pageNumber = 0 ;
 window.agencyId   = 0 ;
 $(document).ready(function(){
