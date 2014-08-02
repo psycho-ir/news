@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 import os
 from core.models import News, AgencyRSSLink, NewsDetail
 from core.rss.parser import Parser
+from price.service import update_prices
 from scheduler.simple_scheduler import ThreadSimpleScheduler
 from core.crawler import *
 
@@ -48,7 +49,10 @@ def crawl_some_news():
 
 
 scheduler = ThreadSimpleScheduler(180, show_latest_news)
-scheduler.run()
+# scheduler.run()
 
 crawler_scheduler = ThreadSimpleScheduler(10, crawl_some_news)
-crawler_scheduler.run()
+# crawler_scheduler.run()
+
+price_scheduler = ThreadSimpleScheduler(1800,update_prices)
+price_scheduler.run()
