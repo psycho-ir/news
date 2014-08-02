@@ -7,9 +7,11 @@ class Item(models.Model):
 
 
 class Price(models.Model):
+    class Meta:
+        ordering = ['-date']
     item = models.ForeignKey(Item)
     date = models.DateField()
-    price = models.IntegerField()
+    price = models.DecimalField(decimal_places=2,max_digits=14)
 
 
 
