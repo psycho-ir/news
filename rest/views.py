@@ -1,4 +1,6 @@
+from datetime import datetime
 from django.core import serializers
+from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
@@ -13,19 +15,38 @@ class APIView(View):
     def get(self, request):
         page_number = request.GET.get('page_number', 1)
         size = request.GET.get('size', 10)
-        result = self.get_api_result(request)
+        result, serializer = self.get_api_result(request)
         p = Paginator(result, size)
         if int(page_number) > p.num_pages:
             return HttpResponse("{}")
 
         current_page = p.page(page_number)
-        response = serializers.serialize('json', current_page, indent=3)
+        # response = serializers.serialize('json', current_page, indent=3)
+        response = serializer(current_page)
 
         return HttpResponse(response)
 
 
 class LatestNewsView(APIView):
     def get_api_result(self, request):
+        import json
+
+        def json_serial(obj):
+            if isinstance(obj, datetime):
+                serial = obj.isoformat()
+                return serial
+
+        def serializer(obj_list):
+            result = []
+            for obj in obj_list:
+                dict = model_to_dict(obj)
+                dict['likes'] = obj.like_set.count()
+                dict['liked'] = obj.like_set.filter(user__id=request.user.id).exists()
+                result.append(dict)
+
+            return json.dumps(result, default=json_serial)
+
+
         agencies = request.GET.getlist('agencies', [])
         categories = request.GET.getlist('categories', [])
         all_news = News.objects.all()
@@ -35,7 +56,7 @@ class LatestNewsView(APIView):
         if len(categories) > 0:
             all_news = all_news.filter(category__in=categories)
 
-        return all_news
+        return all_news, serializer
 
 
 class LikeView(View):
@@ -50,7 +71,7 @@ class LikeView(View):
             like.save()
             return HttpResponse('{"message":"Like saved"}')
 
-        Like.objects.filter(news_id=news_id,user__id=request.user.id).delete()
+        Like.objects.filter(news_id=news_id, user__id=request.user.id).delete()
         return HttpResponse('{"message":"Like removed"}')
 
 
