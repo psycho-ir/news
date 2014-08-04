@@ -18,8 +18,11 @@ class Scheduler:
     def _decorate_task(self):
         def result():
             while (True):
-                self.code()
-                sleep(self.seconds)
+                try:
+                    self.code()
+                except Exception as e:
+                    print 'Exception: %s occured. Scheduler continues its job.' % e.message
+                    sleep(self.seconds)
 
 
         return result
@@ -47,7 +50,7 @@ class ProcessSimpleScheduler(Scheduler):
 
 
 # if __name__ == "__main__":
-#     logging.basicConfig(level=logging.INFO,
+# logging.basicConfig(level=logging.INFO,
 #                         format="[%(threadName)-15s] %(message)s")
 #
 #     def say_hi():
