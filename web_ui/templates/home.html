@@ -3,6 +3,8 @@
 {% load staticfiles %}
 
 {% block content %}
+
+    <input type="hidden" name="csrfmiddlewaretoken"  id="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <div class="layout-app main-page" style="visibility: visible;">
 
         <div class="row well">
@@ -68,44 +70,8 @@
                                     <div class="tab-pane active" id="tab-2">
                                         <div class="innerAll">
                                             <div class="row agency-box">
-                                                {% for n in news %}
-                                                    <div class="col-md-6 ">
-                                                        <div class="box-generic bg-white innerAll inner-2x news-box">
-                                                            <div class="media margin-none">
-                                                                <a class="pull-left" href=""><img width="100" alt="" src="{% static n.agency.img_address %}"></a>
 
-                                                                <div class="media-body innerTB">
-                                                                    <h4>
-                                                                        <a href="{% url 'detail' n.id %}">{{ n.title }}</a>
-                                                                    </h4>
 
-                                                                    <p class="text-muted">{{ n.date }}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="separator bottom"></div>
-                                                            <p class="margin-none">Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit. Dolorum, est, iste
-                                                                similique eius perspiciatis expedita exercitationem.</p>
-
-                                                            <div class="bg-white box-generic-footer">
-                                                                <div class="btn-group pull-right">
-                                                                    <button class="btn btn-default bookmark-news" data-id="{{ n.id }}" data-token="{{ csrf_token }}" ><i
-                                                                            class="fa fa-star-o"></i></button>
-                                                                    <button class="btn btn-default like-news" data-id="{{ n.id }}" data-token="{{ csrf_token }}" ><i
-                                                                            class="fa fa-thumbs-o-up" ></i></button>
-                                                                </div>
-                                                            <span class="pull-left innerAll">
-                                                                <i class="fa fa-clock-o"></i>  <a href="/detail/476">مشاهده
-                                                                خبر</a>
-                                                            </span>
-
-                                                                <div class="clearfix"></div>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-                                                {% endfor %}
 
                                             </div>
                                         </div>
