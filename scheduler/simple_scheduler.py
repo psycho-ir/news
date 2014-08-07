@@ -21,7 +21,7 @@ class Scheduler:
                 try:
                     self.code()
                 except Exception as e:
-                    print 'Exception: %s occured. Scheduler continues its job.' % e.message
+                    print 'Exception: %s occured. Scheduler continues its job.' % e
                     sleep(self.seconds)
 
 

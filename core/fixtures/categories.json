@@ -55,7 +55,7 @@
             "local_name": "بین الملل"
         }
     },
-     {
+    {
         "model": "core.newscategory",
         "pk": "photo",
         "fields": {
@@ -63,10 +63,17 @@
         }
     },
     {
-        "model":"core.newscategory",
-        "pk":"accident",
-        "fields":{
-            "local_name":"حوادث"
+        "model": "core.newscategory",
+        "pk": "accident",
+        "fields": {
+            "local_name": "حوادث"
+        }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "important",
+        "fields": {
+            "local_name": "مهم"
         }
     }
 

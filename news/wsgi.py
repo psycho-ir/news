@@ -41,18 +41,21 @@ def crawl_some_news():
     selected_news = News.objects.filter(detail=None)[:10]
     for n in selected_news:
         print 'News: %s with ID: %s loaded to crawl its content' % (n,n.id)
-        detail_content = get_crawler(n.agency_id).crawl_content(n)
+        detail_content,cat = get_crawler(n.agency_id).crawl_content(n)
         detail = NewsDetail()
         detail.news_id = n.id
         detail.content = detail_content
         detail.save()
+        if cat:
+            n.category_id = cat
+            n.save()
 
 
 scheduler = ThreadSimpleScheduler(180, show_latest_news)
-# scheduler.run()
+scheduler.run()
 
 crawler_scheduler = ThreadSimpleScheduler(10, crawl_some_news)
-# crawler_scheduler.run()
+crawler_scheduler.run()
 
 price_scheduler = ThreadSimpleScheduler(1800,update_prices)
-price_scheduler.run()
+# price_scheduler.run()

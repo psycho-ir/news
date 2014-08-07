@@ -16,11 +16,10 @@ class IrnaCrawler(Crawler):
             except Exception as e:
                 pass
 
-            body = \
-            soup.find_all('p', {'id': 'ctl00_ctl00_ContentPlaceHolder_ContentPlaceHolder_NewsContent3_BodyLabel'})[0]
+            body = soup.find_all('p', {'id': 'ctl00_ctl00_ContentPlaceHolder_ContentPlaceHolder_NewsContent3_BodyLabel'})[0]
         except Exception as e:
             body = "no content"
-        return str(image) + str(body)
+        return str(image) + str(body), None
 
 
 

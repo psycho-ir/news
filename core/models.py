@@ -35,6 +35,7 @@ class News(models.Model):
     date = models.DateTimeField()
     category = models.ForeignKey(NewsCategory)
     agency = models.ForeignKey(NewsAgency)
+    important = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.title

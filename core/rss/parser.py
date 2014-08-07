@@ -24,7 +24,7 @@ class Parser:
                     return False
                 return True
         print 'reading rss feeds from:%s category:%s agency:%s' % (
-        self.agencyRSSLink.link, self.agencyRSSLink.category_id, self.agencyRSSLink.agency_id)
+            self.agencyRSSLink.link, self.agencyRSSLink.category_id, self.agencyRSSLink.agency_id)
         parsed = feedparser.parse(self.agencyRSSLink.link)
         print 'parsing completed...'
         result = list()
@@ -32,14 +32,18 @@ class Parser:
             try:
                 d = datetime.datetime.strptime(item.published[0:20], '%d %b %Y %H:%M:%S')
             except:
-                d = datetime.datetime.strptime(item.published[5:25], '%d %b %Y %H:%M:%S') + datetime.timedelta(minutes=30,hours=4)
+                d = datetime.datetime.strptime(item.published[5:25], '%d %b %Y %H:%M:%S') + datetime.timedelta(
+                    minutes=30, hours=4)
             if not is_selectable(d):
                 continue
             news = News()
             news.agency_id = self.agencyRSSLink.agency.name
             news.category_id = self.agencyRSSLink.category.name
+            if self.agencyRSSLink.category.name == 'important':
+                news.important = True
             news.title = item.title
-            news.abstract = ''
+            if hasattr(item, 'description'):
+                news.abstract = item.description
             news.link = item.link
             news.date = d
             # item.title, '', item.link, d

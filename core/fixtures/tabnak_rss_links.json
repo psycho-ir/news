@@ -25,5 +25,15 @@
             "category": "economic",
             "agency": "tabnak"
         }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 4,
+        "fields": {
+            "link": "http://www.tabnak.ir/fa/rss/1",
+            "category": "important",
+            "agency": "tabnak"
+        }
     }
+
 ]

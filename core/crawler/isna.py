@@ -12,7 +12,7 @@ class IsnaCrawler(Crawler):
             body = soup.find_all('div', {'class': 'body'})[0]
         except Exception as e:
             body = "no content"
-        return str(body)
+        return str(body),None
 
 
 
