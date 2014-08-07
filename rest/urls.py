@@ -11,6 +11,7 @@ urlpatterns = patterns('',
                        # url(r'^blog/', include('blog.urls')),
 
                        url(r'^latest/', views.LatestNewsView.as_view(), name='latest'),
+                       url(r'^price/', views.PriceView.as_view(), name='price'),
                        url(r'^like/', views.LikeView.as_view(), name='like'),
                        url(r'^bookmark/', views.BookmarkView.as_view(), name='bookmark'),
 

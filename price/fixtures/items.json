@@ -36,7 +36,7 @@
     },
      {
         "model": "price.item",
-        "pk": "con-half",
+        "pk": "coin-half",
         "fields": {
             "local_name": "نیم سکه"
         }
