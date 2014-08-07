@@ -66,13 +66,12 @@ $(document).ready(function(){
         $.get(url,sendingObject,function(data){
             if (data == "{}") return false;
             news     = JSON.parse(data);
-            console.log(news);
             htmlNews = createNews(news);
             if (type == "refresh")
                 setTemplate(htmlNews);
-            else{
-                 appendTemplate(htmlNews);
-            }
+            else
+                appendTemplate(htmlNews);
+
 
 
 
