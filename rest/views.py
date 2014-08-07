@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 from django.core import serializers
 from django.forms.models import model_to_dict
 from django.http import HttpResponse
@@ -7,6 +7,19 @@ from django.template import RequestContext
 from django.views.generic import View
 from django.core.paginator import *
 from core.models import News, Like, Bookmark
+from price.models import Price, Item
+from decimal import Decimal
+import json
+
+
+def json_serial(obj):
+
+    if isinstance(obj, datetime) or isinstance(obj,date):
+        serial = obj.isoformat()
+        return serial
+
+    if isinstance(obj,Decimal):
+        return str(obj)
 
 
 class APIView(View):
@@ -29,12 +42,6 @@ class APIView(View):
 
 class LatestNewsView(APIView):
     def get_api_result(self, request):
-        import json
-
-        def json_serial(obj):
-            if isinstance(obj, datetime):
-                serial = obj.isoformat()
-                return serial
 
         def serializer(obj_list):
             result = []
@@ -89,6 +96,18 @@ class BookmarkView(View):
 
         # Bookmark.objects.filter(news_id=news_id,user__id=request.user.id).delete()
         return HttpResponse('{"message":"Bookmark exist"}')
+
+
+class PriceView(View):
+    def get(self, request):
+        result = []
+        for item in Item.objects.all():
+            result.append(model_to_dict(Price.objects.filter(item=item).first()))
+
+        return HttpResponse(json.dumps(result, default=json_serial))
+
+
+
 
 
 
