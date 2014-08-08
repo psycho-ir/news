@@ -1,10 +1,11 @@
-window.apiDomain   = "/rest/"
+window.apiDomain   = "/rest/";
 window.pageNumber  = 0 ;
 window.agencyId    = 0 ;
-window.priceAPIUrl = "http://www.tala.ir/webservice/price_live.php?mode=ajax&nocache=1";
+
 $(document).ready(function(){
 
     loadLastNews();
+    loadLastPrice();
     $(".agency-menu .agency-li").on("click",function(){
         window.pageNumber = 1 ;
         window.agencyId   = $(this).data("id");
@@ -77,6 +78,18 @@ $(document).ready(function(){
 
         })
     }
+    function callServerForPrice(){
+        var url = window.apiDomain + 'price/' ;
+        var sendingObject = null;
+        $.get(url,sendingObject,function(data){
+            if (data == "{}") return false;
+            var price = JSON.parse(data);
+            price.forEach(function(object,b){
+                $("#"+object.item).text(numberWithCommas(object.price));
+            })
+
+        })
+    }
     function createNews(news){
             var source       = $("#handlebar-news-box").html();
             var template     = Handlebars.compile(source);
@@ -94,7 +107,6 @@ $(document).ready(function(){
     function loadLastNews(){
         callServerForNews(1,0,"refresh");
     }
-
     function attachHandler(){
         var token = $("#csrfmiddlewaretoken").val();
         $(".not-like-bind").on("click",function(){
@@ -108,5 +120,10 @@ $(document).ready(function(){
             callServerForBookmark(newsId,token,this);
         }).toggleClass('not-bookmark-bind is-bind');
     }
-
+    function loadLastPrice(){
+        callServerForPrice();
+    }
+    function numberWithCommas(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 });

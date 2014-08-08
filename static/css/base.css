@@ -77,3 +77,11 @@ div.detail-content{
 .currency-box {
     background: #ffffff ;
 }
+
+.border-bottom .innerAll span {
+    float: left !important;
+}
+
+.border-bottom .innerAll b {
+    float: right !important;
+}
