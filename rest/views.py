@@ -1,24 +1,22 @@
 from datetime import datetime, date
-from django.core import serializers
-from django.forms.models import model_to_dict
-from django.http import HttpResponse
-from django.shortcuts import render, render_to_response
-from django.template import RequestContext
-from django.views.generic import View
-from django.core.paginator import *
-from core.models import News, Like, Bookmark
-from price.models import Price, Item
 from decimal import Decimal
 import json
 
+from django.forms.models import model_to_dict
+from django.http import HttpResponse
+from django.views.generic import View
+from django.core.paginator import *
+
+from core.models import News, Like, Bookmark
+from price.models import Price, Item
+
 
 def json_serial(obj):
-
-    if isinstance(obj, datetime) or isinstance(obj,date):
+    if isinstance(obj, datetime) or isinstance(obj, date):
         serial = obj.isoformat()
         return serial
 
-    if isinstance(obj,Decimal):
+    if isinstance(obj, Decimal):
         return str(obj)
 
 
@@ -31,7 +29,7 @@ class APIView(View):
         result, serializer = self.get_api_result(request)
         p = Paginator(result, size)
         if int(page_number) > p.num_pages:
-            return HttpResponse("{}")
+            return HttpResponse("[]")
 
         current_page = p.page(page_number)
         # response = serializers.serialize('json', current_page, indent=3)
@@ -98,6 +96,25 @@ class BookmarkView(View):
         return HttpResponse('{"message":"Bookmark exist"}')
 
 
+class ListBookmarkView(APIView):
+    def get_api_result(self, request):
+        def serializer(obj_list):
+            result = []
+            for obj in obj_list:
+                dict = model_to_dict(obj.news)
+                dict['likes'] = obj.news.like_set.count()
+                dict['liked'] = obj.news.like_set.filter(user__id=request.user.id).exists()
+                result.append(dict)
+
+            return json.dumps(result, default=json_serial)
+
+        if request.user.is_authenticated():
+            bookmarks = Bookmark.objects.filter(user__id=request.user.id)
+            return bookmarks, serializer
+        else:
+            return [], serializer
+
+
 class PriceView(View):
     def get(self, request):
         result = []
@@ -105,6 +122,8 @@ class PriceView(View):
             result.append(model_to_dict(Price.objects.filter(item=item).first()))
 
         return HttpResponse(json.dumps(result, default=json_serial))
+
+
 
 
 
