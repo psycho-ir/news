@@ -2,12 +2,14 @@ from datetime import datetime, date
 from decimal import Decimal
 import json
 
+from django.core import serializers
+
 from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.views.generic import View
 from django.core.paginator import *
 
-from core.models import News, Like, Bookmark
+from core.models import News, Like, Bookmark, NewsCategory
 from price.models import Price, Item
 
 
@@ -113,6 +115,12 @@ class ListBookmarkView(APIView):
             return bookmarks, serializer
         else:
             return [], serializer
+
+
+class AllCategories(View):
+    def get(self, request):
+        categories = NewsCategory.objects.all()
+        return HttpResponse(serializers.serialize('json', categories), mimetype='application/json')
 
 
 class PriceView(View):

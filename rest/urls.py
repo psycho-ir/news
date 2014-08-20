@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from rest import views
 
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -15,5 +16,6 @@ urlpatterns = patterns('',
                        url(r'^like/', views.LikeView.as_view(), name='like'),
                        url(r'^bookmark/', views.BookmarkView.as_view(), name='bookmark'),
                        url(r'^list_bookmark/', views.ListBookmarkView.as_view(), name='list_bookmark'),
+                       url(r'^all_categories/', views.AllCategories.as_view(), name='all_categories'),
 
 )
