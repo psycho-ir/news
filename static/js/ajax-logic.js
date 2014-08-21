@@ -58,7 +58,7 @@ $(document).ready(function(){
             }
          $.get(url,sendingObject,function(data){
 
-            if (data == "{}" && data == '[]') return false;
+            if (data == "{}" || data == '[]') return false;
 
             news     = JSON.parse(data);
             htmlNews = createNews(news);
@@ -95,7 +95,7 @@ $(document).ready(function(){
             }
         }
         $.get(url,sendingObject,function(data){
-            if (data == "{}") return false;
+            if ( data == "{}" || data == "[]") return false;
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             if (type == "refresh")
@@ -131,7 +131,8 @@ $(document).ready(function(){
          attachHandler();
     }
     function loadLastNews(){
-        callServerForNews(1,0,"refresh");
+        window.pageNumber = 1 ;
+        callServerForNews(window.pageNumber,0,"refresh");
     }
     function attachHandler(){
         var token = $("#csrfmiddlewaretoken").val();
