@@ -1,6 +1,7 @@
 from datetime import datetime, date
 from decimal import Decimal
 import json
+from jdatetime import datetime as jalali_datetime
 
 from django.core import serializers
 
@@ -14,8 +15,13 @@ from price.models import Price, Item
 
 
 def json_serial(obj):
-    if isinstance(obj, datetime) or isinstance(obj, date):
-        serial = obj.isoformat()
+    if isinstance(obj, datetime):
+        serial = jalali_datetime.fromgregorian(datetime=obj)
+
+        return "%s/%s/%s %s:%s:%s" % (serial.year, serial.month, serial.day, serial.hour, serial.minute, serial.second)
+
+    elif isinstance(obj, date):
+        serial = str(jalali_datetime.fromgregorian(date=obj))
         return serial
 
     if isinstance(obj, Decimal):
