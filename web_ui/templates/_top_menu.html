@@ -3,7 +3,14 @@
 
                         <div class="menubar links primary rtl-menu">
                             <ul class="top-menu">
-
+                                <div class="menubar links primary rtl-menu">
+                                    <ul class="agency-menu">
+                                        {% for a in agents %}
+                                            <li class="agency-li" data-id="{{ a }}"><a href="#">{{ a.local_name }}</a></li>
+                                            <li class="divider"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
 
                             </ul>
                         </div>
@@ -36,15 +43,14 @@
 
                             <!-- Three Fourth Column -->
                             <div class="col-md-9">
-                                <h4>خبرگزاری ها</h4>
+                                <h4>
+                                    موضوعات
+                                </h4>
 
                                 <!-- Links widget preview & code sample -->
                                 <div class="menubar links primary rtl-menu">
                                     <ul class="agency-menu">
-                                        {% for a in agents %}
-                                            <li class="agency-li" data-id="{{ a }}"><a href="#">{{ a.local_name }}</a></li>
-                                            <li class="divider"></li>
-                                        {% endfor %}
+
                                     </ul>
                                 </div>
 
