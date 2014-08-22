@@ -46,31 +46,31 @@
                             </div>
                         </div>
                         <div class="separator bottom"></div>
-                        <p class="margin-none">
+                        <p class="margin-none abstract">
                             {{ this.abstract }}
                         </p>
+                       <div class="generic-footer-back">
+                                <span class="pull-right innerAll more">
+                                <i class="fa fa-mail-reply-all"></i>  <a href="/detail/{{ this.id }}">مشاهده
+                                خبر</a>
+                                </span>
+                            <div class="bg-white box-generic-footer">
+                                <div class="btn-group pull-right">
 
-                        <div class="bg-white box-generic-footer">
-                            <div class="btn-group pull-right">
-
-                                <button class="btn btn-default bookmark-news not-bookmark-bind" data-id="{{ this.id }}"  ><i
-                                        class="fa fa-star-o"></i></button>
-                                <button data-toggle="tooltip" data-original-title="{{ this.likes }}" data-placement="right"  class="btn
-                                {{#if this.liked}}
-                                btn-inverse
-                                {{else}}
-                                btn-default
-                                {{/if}}
-                                like-news not-like-bind" data-id="{{ this.id }}" ><i
-                                        class="fa fa-thumbs-o-up" ></i></button>
-                            </div>
-                        <span class="pull-left innerAll">
-                            <i class="fa fa-clock-o"></i>  <a href="/detail/{{ this.id }}">مشاهده
-                            خبر</a>
-                        </span>
-
+                                    <button class="btn btn-default bookmark-news not-bookmark-bind" data-id="{{ this.id }}"  ><i
+                                            class="fa fa-star-o"></i></button>
+                                    <button data-toggle="tooltip" data-original-title="{{ this.likes }}" data-placement="right"  class="btn
+                                    {{#if this.liked}}
+                                    btn-inverse
+                                    {{else}}
+                                    btn-default
+                                    {{/if}}
+                                    like-news not-like-bind" data-id="{{ this.id }}" ><i
+                                            class="fa fa-thumbs-o-up" ></i></button>
+                                </div>
                             <div class="clearfix"></div>
                         </div>
+                    </div>
 
                     </div>
 
