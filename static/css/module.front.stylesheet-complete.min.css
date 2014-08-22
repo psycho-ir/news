@@ -1,82 +1,9 @@
-@import '../../../assets/library/bootstrap/css/bootstrap.min.css';
-@import '../../../assets/library/icons/fontawesome/assets/css/font-awesome.min.css';
-@import '../../../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css';
-@import '../../../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css';
-@import '../../../assets/library/icons/glyphicons/assets/css/glyphicons_social.css';
-@import '../../../assets/library/icons/pictoicons/css/picto.css';
-@import '../../../assets/library/jquery-ui/css/jquery-ui.min.css';
-@import '../../../assets/library/animate/animate.min.css';
-@import '../../../assets/plugins/calendar_fullcalendar/css/fullcalendar.css';
-@import '../../../assets/plugins/charts_easy_pie/css/jquery.easy-pie-chart.css';
-@import '../../../assets/plugins/core_prettyprint/css/prettify.css';
-@import '../../../assets/plugins/forms_editors_wysihtml5/css/bootstrap-wysihtml5-0.0.2.css';
-@import '../../../assets/plugins/forms_elements_bootstrap-datepicker/css/bootstrap-datepicker.css';
-@import '../../../assets/plugins/forms_elements_bootstrap-select/css/bootstrap-select.css';
-@import '../../../assets/plugins/forms_elements_bootstrap-switch/css/bootstrap-switch.css';
-@import '../../../assets/plugins/forms_elements_bootstrap-timepicker/css/bootstrap-timepicker.css';
-@import '../../../assets/plugins/forms_elements_colorpicker-farbtastic/css/farbtastic.css';
-@import '../../../assets/plugins/forms_elements_jasny-fileupload/css/fileupload.css';
-@import '../../../assets/plugins/forms_elements_multiselect/css/multi-select.css';
-@import '../../../assets/plugins/forms_elements_select2/css/select2.css';
-@import '../../../assets/plugins/forms_file_dropzone/css/dropzone.css';
-@import '../../../assets/plugins/forms_file_plupload/jquery.plupload.queue/css/jquery.plupload.queue.css';
-@import '../../../assets/plugins/maps_vector/css/elements.css';
-@import '../../../assets/plugins/maps_vector/css/jquery-jvectormap-1.1.1.css';
-@import '../../../assets/plugins/maps_vector/css/jquery-jvectormap-1.2.2.css';
-@import '../../../assets/plugins/media_blueimp/css/blueimp-gallery.min.css';
-@import '../../../assets/plugins/media_image-crop/css/jquery.Jcrop.css';
-@import '../../../assets/plugins/media_owl-carousel/owl.carousel.css';
-@import '../../../assets/plugins/media_owl-carousel/owl.theme.css';
-@import '../../../assets/plugins/media_prettyphoto/css/prettyPhoto.css';
-@import '../../../assets/plugins/notifications_gritter/css/jquery.gritter.css';
-@import '../../../assets/plugins/notifications_notyfy/css/jquery.notyfy.css';
-@import '../../../assets/plugins/notifications_notyfy/css/notyfy.theme.default.css';
-@import '../../../assets/plugins/other_page-tour/css/pageguide.css';
-@import '../../../assets/plugins/tables_datatables/extras/ColReorder/media/css/ColReorder.css';
-@import '../../../assets/plugins/tables_datatables/extras/ColVis/media/css/ColVis.css';
-@import '../../../assets/plugins/tables_datatables/extras/TableTools/media/css/TableTools.css';
-@import '../../../assets/plugins/tables_responsive/css/footable.core.min.css';
-@import '../../../assets/plugins/ui_sliders_range_jqrangeslider/css/iThing.css';
-/* --- LOADING [css.bootstrap.min] from assets/library/bootstrap/css/bootstrap.min.css */
-/* --- LOADING [css.font-awesome.min] from assets/library/icons/fontawesome/assets/css/font-awesome.min.css */
-/* --- LOADING [css.glyphicons_filetypes] from assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css */
-/* --- LOADING [css.glyphicons_regular] from assets/library/icons/glyphicons/assets/css/glyphicons_regular.css */
-/* --- LOADING [css.glyphicons_social] from assets/library/icons/glyphicons/assets/css/glyphicons_social.css */
-/* --- LOADING [css.picto] from assets/library/icons/pictoicons/css/picto.css */
-/* --- LOADING [css.jquery-ui.min] from assets/library/jquery-ui/css/jquery-ui.min.css */
-/* --- LOADING [css.animate.min] from assets/library/animate/animate.min.css */
-/* --- LOADING [css.fullcalendar] from assets/plugins/calendar_fullcalendar/css/fullcalendar.css */
-/* --- LOADING [css.jquery.easy-pie-chart] from assets/plugins/charts_easy_pie/css/jquery.easy-pie-chart.css */
-/* --- LOADING [css.prettify] from assets/plugins/core_prettyprint/css/prettify.css */
-/* --- LOADING [css.bootstrap-wysihtml5-0.0.2] from assets/plugins/forms_editors_wysihtml5/css/bootstrap-wysihtml5-0.0.2.css */
-/* --- LOADING [css.bootstrap-datepicker] from assets/plugins/forms_elements_bootstrap-datepicker/css/bootstrap-datepicker.css */
-/* --- LOADING [css.bootstrap-select] from assets/plugins/forms_elements_bootstrap-select/css/bootstrap-select.css */
-/* --- LOADING [css.bootstrap-switch] from assets/plugins/forms_elements_bootstrap-switch/css/bootstrap-switch.css */
-/* --- LOADING [css.bootstrap-timepicker] from assets/plugins/forms_elements_bootstrap-timepicker/css/bootstrap-timepicker.css */
-/* --- LOADING [css.farbtastic] from assets/plugins/forms_elements_colorpicker-farbtastic/css/farbtastic.css */
-/* --- LOADING [css.fileupload] from assets/plugins/forms_elements_jasny-fileupload/css/fileupload.css */
-/* --- LOADING [css.multi-select] from assets/plugins/forms_elements_multiselect/css/multi-select.css */
-/* --- LOADING [css.select2] from assets/plugins/forms_elements_select2/css/select2.css */
-/* --- LOADING [css.dropzone] from assets/plugins/forms_file_dropzone/css/dropzone.css */
-/* --- LOADING [css.jquery.plupload.queue] from assets/plugins/forms_file_plupload/jquery.plupload.queue/css/jquery.plupload.queue.css */
-/* --- LOADING [css.elements] from assets/plugins/maps_vector/css/elements.css */
-/* --- LOADING [css.jquery-jvectormap-1.1.1] from assets/plugins/maps_vector/css/jquery-jvectormap-1.1.1.css */
-/* --- LOADING [css.jquery-jvectormap-1.2.2] from assets/plugins/maps_vector/css/jquery-jvectormap-1.2.2.css */
-/* --- LOADING [css.blueimp-gallery.min] from assets/plugins/media_blueimp/css/blueimp-gallery.min.css */
-/* --- LOADING [css.jquery.Jcrop] from assets/plugins/media_image-crop/css/jquery.Jcrop.css */
-/* --- LOADING [css.owl.carousel] from assets/plugins/media_owl-carousel/owl.carousel.css */
-/* --- LOADING [css.owl.theme] from assets/plugins/media_owl-carousel/owl.theme.css */
-/* --- LOADING [css.prettyPhoto] from assets/plugins/media_prettyphoto/css/prettyPhoto.css */
-/* --- LOADING [css.jquery.gritter] from assets/plugins/notifications_gritter/css/jquery.gritter.css */
-/* --- LOADING [css.jquery.notyfy] from assets/plugins/notifications_notyfy/css/jquery.notyfy.css */
-/* --- LOADING [css.notyfy.theme.default] from assets/plugins/notifications_notyfy/css/notyfy.theme.default.css */
-/* --- LOADING [css.pageguide] from assets/plugins/other_page-tour/css/pageguide.css */
-/* --- LOADING [css.ColReorder] from assets/plugins/tables_datatables/extras/ColReorder/media/css/ColReorder.css */
-/* --- LOADING [css.ColVis] from assets/plugins/tables_datatables/extras/ColVis/media/css/ColVis.css */
-/* --- LOADING [css.TableTools] from assets/plugins/tables_datatables/extras/TableTools/media/css/TableTools.css */
-/* --- LOADING [css.footable.core.min] from assets/plugins/tables_responsive/css/footable.core.min.css */
-/* --- LOADING [css.iThing] from assets/plugins/ui_sliders_range_jqrangeslider/css/iThing.css */
-/* --- LOADING [less.helpers] from assets/components/core/helpers.less */
+@import '../components/library/bootstrap/css/bootstrap.min.css';
+@import '../components/library/icons/fontawesome/assets/css/font-awesome.min.css';
+@import '../components/library/icons/glyphicons/assets/css/glyphicons_filetypes.css';
+@import '../components/library/icons/glyphicons/assets/css/glyphicons_regular.css';
+@import '../components/library/icons/glyphicons/assets/css/glyphicons_social.css';
+
 .scripts-async .container-fluid {
   visibility: hidden;
 }
