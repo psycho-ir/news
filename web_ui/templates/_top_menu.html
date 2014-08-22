@@ -4,30 +4,6 @@
                         <div class="menubar links primary rtl-menu">
                             <ul class="top-menu">
 
-                                <li><a href="{% url 'home' %}">
-                                    صفحه اصلی
-                                </a></li>
-                                <li class="divider"></li>
-                                <li><a href="">
-                                    درباره ما
-                                </a></li>
-                                 <li class="divider"></li>
-                                {% if not user.is_authenticated %}
-
-                                    <li><a href="{% url 'user:register' %}">
-                                        ثبت نام
-                                    </a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{% url 'user:login' %}">
-                                        ورود به سیستم
-                                    </a></li>
-                                {% else %}
-                                    <li><a href="{% url 'user:logout' %}">
-خروج
-                                    </a></li>
-                                {% endif %}
-
-
 
                             </ul>
                         </div>
