@@ -7,6 +7,25 @@
     font-weight: normal;
     font-style: normal;
 }
+.navbar .container .navbar-header {
+      float: right !important;
+}
+.navbar .container .navbar-collapse {
+      float: right !important;
+}
+
+.navbar .container .navbar-collapse .navbar-nav li {
+    font-size: 17px;
+    font-family: Yekan;
+    border-radius: 2px;
+    text-align: right;
+    direction: rtl !important;
+}
+
+.nav.navbar-nav.navbar-left.left-side{
+    color: #7399b9;
+    font-size: 14px;
+}
 
 h4,.head-title,.tab_title{
     font-family: 'Yekan' !important;
@@ -45,7 +64,32 @@ h4,.head-title,.tab_title{
 }
 
 div.news-box{
-    height: 250px !important;
+    height: 340px !important;
+}
+
+div.news-box .abstract {
+    font-size: 12px;
+    font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif;
+    height: 115px;
+    overflow: hidden;
+}
+
+div.news-box .box-generic-footer{
+
+}
+
+div.news-box .more {
+    font-family: Yekan;
+    font-size: 16px;
+    float: left !important;
+    color: #d9534f;
+}
+
+div.news-box .generic-footer-back {
+    position: absolute;
+    bottom: 0px;
+
+    width: 93%;
 }
 
 .top-menu li{
@@ -84,4 +128,11 @@ div.detail-content{
 
 .border-bottom .innerAll b {
     float: right !important;
+}
+
+ul.category-menu li {
+    font-family: 'Yekan';
+    font-size: 16px;
+    color: #007fb1;
+    cursor: pointer;
 }

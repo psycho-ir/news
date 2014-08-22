@@ -142,7 +142,7 @@ $(document).ready(function(){
             var html = "";
             data.forEach(function(object,b){
                 var li = $("<li></li>").attr('id',object.pk).text(object.fields.local_name);
-                $(".category-menu").append(li);
+                $(".category-menu").append(li).append('<li class="divider"></li>');
             })
             setHandlerForCategory();
         })
