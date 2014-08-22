@@ -1,144 +1,160 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load i18n %}
 {% block content %}
 
- <style>
-    body{
-        background: url({% static 'images/background/register-background.jpg' %})  no-repeat center center fixed ;
-        background-size: cover;
-        opacity: 0.9;
-    }
+    <style>
+        body {
+            background: url({% static 'images/background/register-background.jpg' %}) no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.9;
+        }
 
 
- </style>   
+    </style>
 
 
-<div style="visibility: visible;" class="layout-app ">
-<div class="container"><!-- row-app -->
-    <div class="row row-app ">
-        <!-- col -->
+    <div style="visibility: visible;" class="layout-app ">
+        <div class="container"><!-- row-app -->
+            <div class="row row-app ">
+                <!-- col -->
 
-        <!-- col-separator.box -->
-        <div class="col-separator col-unscrollable box">
+                <!-- col-separator.box -->
+                <div class="col-separator col-unscrollable box">
 
-            <!-- col-table -->
-            <div class="col-table">
+                    <!-- col-table -->
+                    <div class="col-table">
 
-                <h4 class="innerAll margin-none border-bottom text-center">
-                ثبت نام کاربر
-                </h4>
+                        <h4 class="innerAll margin-none border-bottom text-center">
+                            ثبت نام کاربر
+                        </h4>
 
-                <!-- col-table-row -->
-                <div class="col-table-row">
+                        <!-- col-table-row -->
+                        <div class="col-table-row">
 
-                    <!-- col-app -->
-                    <div class="col-app col-unscrollable">
+                            <!-- col-app -->
+                            <div class="col-app col-unscrollable">
 
-                        <!-- col-app -->
-                        <div class="col-app animated fadeInDown">
+                                <!-- col-app -->
+                                <div class="col-app animated fadeInDown">
 
-                               <!--
-                                 Error
-                                <div class="alert alert-primary error-box yekan-font">
-                                    <b>username has been taken already</b>  <br>
-                                    <b>username has been taken already</b>  <br>
-                                    <b>username has been taken already</b>  <br>
-                                </div>
-                                -->
 
-                            <div class="login">
-                                <div class="placeholder text-center">
-                                <i class="fa fa-pencil"></i>
-                                </div>
-                                <div class="panel panel-default col-sm-6 col-sm-offset-3">
+                                    {% if error_message %}
+                                        <div class="alert alert-primary error-box yekan-font">
+                                            <b>{% trans error_message %}</b>
+                                        </div>
+                                    {% endif %}
 
-                                    <div class="panel-body">
-                                        <form class="form-horizontal login-form" accept-charset="UTF-8" action="" method="POST">
-                                            {% csrf_token %}
-                                            <div class="form-group">
 
-                                                <label for="exampleInputEmail">
-                                                    آدرس ایمیل
-                                                </label>
-                                                <input type="email" name="username" style="direction: ltr" placeholder="Email" id="exampleInputEmail" class="form-control">
+                                    <div class="login">
+                                        <div class="placeholder text-center">
+                                            <i class="fa fa-pencil"></i>
+                                        </div>
+                                        <div class="panel panel-default col-sm-6 col-sm-offset-3">
+
+                                            <div class="panel-body">
+                                                <form class="form-horizontal login-form" accept-charset="UTF-8"
+                                                      action="" method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="form-group">
+
+                                                        <label for="exampleInputEmail">
+                                                            آدرس ایمیل
+                                                        </label>
+                                                        <input type="email" name="email" style="direction: ltr"
+                                                               placeholder="Email" id="exampleInputEmail"
+                                                               class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <label for="exampleInputFirstName">
+                                                            نام
+                                                        </label>
+                                                        <input type="text" name="name" style="direction: ltr"
+                                                               placeholder="First Name" id="exampleInputFirstName"
+                                                               class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <label for="exampleInputLastName">
+                                                            نام خانوادگی
+                                                        </label>
+                                                        <input type="text" name="lastName" style="direction: ltr"
+                                                               placeholder="Last Name" id="exampleInputLastName"
+                                                               class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">
+                                                            رمز عبور
+                                                        </label>
+                                                        <input type="password" value="" name="password"
+                                                               placeholder="Password" id="exampleInputPassword1"
+                                                               class="form-control">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword2">
+                                                            تایید رمز عبور
+                                                        </label>
+                                                        <input type="password" value="" name="password"
+                                                               placeholder="Password Confirmation"
+                                                               id="exampleInputPassword2" class="form-control">
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-primary btn-block">
+                                                        ثبت نام
+                                                    </button>
+
+
+                                                </form>
+
                                             </div>
 
-                                            <div class="form-group">
+                                        </div>
+                                        <div class="col-sm-4 col-sm-offset-4 text-center">
+                                            <div class="innerAll">
+                                                <a href="{% url 'user:login' %}" class="btn btn-info yekan-font">
+                                                    <i class="fa fa-pencil"></i>
+                                                    حساب کاربری دارید ‌؟ وارد صفحه ورود شوید
+                                                </a>
+                                                <a href="{% url 'user:confirm_again' %}" class="btn btn-info yekan-font">
+                                                    <i class="fa fa-pencil"></i>
+                                                        ایمیل خود را تایید نکرده اید؟
+                                                </a>
 
-                                                <label for="exampleInputFirstName">
-نام
-                                                </label>
-                                                <input type="text" name="first_name" style="direction: ltr" placeholder="First Name" id="exampleInputFirstName" class="form-control">
+                                                <div class="separator"></div>
                                             </div>
-
-                                            <div class="form-group">
-
-                                                <label for="exampleInputLastName">
-نام خانوادگی
-                                                </label>
-                                                <input type="text" name="last_name" style="direction: ltr" placeholder="Last Name" id="exampleInputLastName" class="form-control">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">
-                                                    رمز عبور
-                                                </label>
-                                                <input type="password" value="" name="password" placeholder="Password" id="exampleInputPassword1" class="form-control">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword2">
-تایید رمز عبور
-                                                </label>
-                                                <input type="password" value="" name="password" placeholder="Password Confirmation" id="exampleInputPassword2" class="form-control">
-                                            </div>
-
-                                            <button type="submit" class="btn btn-primary btn-block">
-ثبت نام
-                                            </button>
-
-
-                                        </form>
+                                        </div>
+                                        <div class="clearfix"></div>
 
                                     </div>
 
+
                                 </div>
-                                <div class="col-sm-4 col-sm-offset-4 text-center">
-                                    <div class="innerAll">
-                                        <a href="{% url 'user:login' %}" class="btn btn-info yekan-font">
-                                             <i class="fa fa-pencil"></i>
-حساب کاربری دارید ‌؟ وارد صفحه ورود شوید
-                                            </a>
-                                        <div class="separator"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
+                                <!-- // END col-app -->
 
                             </div>
-
+                            <!-- // END col-app.col-unscrollable -->
 
                         </div>
-                        <!-- // END col-app -->
+                        <!-- // END col-table-row -->
 
                     </div>
-                    <!-- // END col-app.col-unscrollable -->
+                    <!-- // END col-table -->
 
                 </div>
-                <!-- // END col-table-row -->
+                <!-- // END col-separator.box -->
+
 
             </div>
-            <!-- // END col-table -->
+            <!-- // END row-app -->
 
         </div>
-        <!-- // END col-separator.box -->
-
 
     </div>
-    <!-- // END row-app -->
-
-</div>
-
-</div>
 
 
 

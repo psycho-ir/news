@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-lg-3 col-lg-offset-4">
             <div class="center-block form-group">
-        <form action="{% url 'confirm_again' %}" method="post" novalidate>
+        <form action="{% url 'user:confirm_again' %}" method="post" novalidate>
             {% csrf_token %}
             <div class="control-group">
                 <p>

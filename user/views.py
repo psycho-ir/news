@@ -7,8 +7,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
-# from Postchi.Mail import send_confirm_mail
-# from Postchi.models import ConfirmMail
+from Postchi.Mail import send_confirm_mail
+from Postchi.models import ConfirmMail
 from news import settings
 from user.login import auth_user
 
@@ -59,7 +59,7 @@ def user_register(request):
         name = request.POST["name"]
         last_name = request.POST["lastName"]
         email = request.POST["email"]
-        username = request.POST["username"]
+        username = request.POST["email"]
         password = request.POST["password"]
 
         is_exist = User.objects.filter(email=email).count() > 0
@@ -82,7 +82,7 @@ def user_register(request):
 
         # send_confirm_mail(u)  # Send Confirmation Link
 
-        return HttpResponseRedirect(reverse('pending'))
+        return HttpResponseRedirect(reverse('user:pending'))
     else:
         context = RequestContext(request)
         return HttpResponse(register_template.render(context))
@@ -119,11 +119,12 @@ def confirm_again(request):
         try:
             email = request.POST["email"]
             user = User.objects.get(email=email.strip())
-            # ConfirmMail.objects.filter(user_id=user.id).delete()
-            # send_confirm_mail(user)
-            return HttpResponseRedirect(reverse('pending'))
+            ConfirmMail.objects.filter(user_id=user.id).delete()
+            send_confirm_mail(user)
+            return HttpResponseRedirect(reverse('user:pending'))
         except Exception as e:
-            return HttpResponseRedirect(reverse('exam:home'))
+            print e
+            return HttpResponseRedirect(reverse('home'))
     else:
 
         template = loader.get_template('confirm_again.html')

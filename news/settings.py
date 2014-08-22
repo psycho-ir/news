@@ -51,7 +51,8 @@ INSTALLED_APPS = (
     'rest',
     'user',
     'user_profile',
-    'price'
+    'price',
+    'Postchi'
 )
 
 SITE_ID = 1
@@ -83,7 +84,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
 TIME_ZONE = 'UTC'
 
@@ -92,6 +93,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),  # Assuming BASE_DIR is where your manage.py file is
+)
 
 
 # Static files (CSS, JavaScript, Images)
@@ -109,3 +114,13 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 DEFAULT_LOGIN_URL = '/'
 DEFAULT_LOGOUT_URL = '/'
+
+# Mail Setting
+DEFAULT_FROM_EMAIL = 'noreply@onlinecademy.com'
+EMAIL_HOST = 'smtp.onlinecademy.com'
+EMAIL_HOST_PASSWORD = 'sorooshMAHDI123'
+EMAIL_HOST_USER = 'admin'
+EMAIL_PORT = 587
+EMAIL_SUBJECT_PREFIX = 'Khabar-chin : '
+
+SERVER_BASE_ADDRESS='http://localhost:8000'

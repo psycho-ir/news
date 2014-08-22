@@ -58,4 +58,4 @@ crawler_scheduler = ThreadSimpleScheduler(10, crawl_some_news)
 crawler_scheduler.run()
 
 price_scheduler = ThreadSimpleScheduler(1800,update_prices)
-# price_scheduler.run()
+price_scheduler.run()
