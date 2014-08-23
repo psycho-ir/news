@@ -17,5 +17,7 @@ urlpatterns = patterns('',
                        url(r'^bookmark/', views.BookmarkView.as_view(), name='bookmark'),
                        url(r'^list_bookmark/', views.ListBookmarkView.as_view(), name='list_bookmark'),
                        url(r'^all_categories/', views.AllCategories.as_view(), name='all_categories'),
+                       url(r'^date/', views.DateView.as_view(), name='date'),
+
 
 )

@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 from datetime import datetime, date
 from decimal import Decimal
 import json
 
+from jdatetime import datetime as jalali_datetime
 from django.core import serializers
-
 from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.views.generic import View
@@ -14,8 +15,13 @@ from price.models import Price, Item
 
 
 def json_serial(obj):
-    if isinstance(obj, datetime) or isinstance(obj, date):
-        serial = obj.isoformat()
+    if isinstance(obj, datetime):
+        serial = jalali_datetime.fromgregorian(datetime=obj)
+
+        return "%s %s %s در ساعت %s:%s:%s" % (serial.day, jalali_datetime.j_months_fa[serial.month - 1], serial.year, serial.hour, serial.minute, serial.second)
+
+    elif isinstance(obj, date):
+        serial = str(jalali_datetime.fromgregorian(date=obj))
         return serial
 
     if isinstance(obj, Decimal):
@@ -130,6 +136,16 @@ class PriceView(View):
             result.append(model_to_dict(Price.objects.filter(item=item).first()))
 
         return HttpResponse(json.dumps(result, default=json_serial))
+
+
+class DateView(View):
+    def get(self, request):
+        last_update_date = News.objects.first().date
+        today = jalali_datetime.now()
+        result ={'latest': '%s %s %s در ساعت %s:%s:%s' % (
+            last_update_date.day, jalali_datetime.j_months_fa[last_update_date.month - 1], last_update_date.year, last_update_date.hour, last_update_date.minute, last_update_date.second),
+         'today': "%s/%s/%s" % (today.year, today.month, today.day)}
+        return HttpResponse(json.dumps(result))
 
 
 

@@ -120,7 +120,6 @@ DEFAULT_FROM_EMAIL = 'noreply@onlinecademy.com'
 EMAIL_HOST = 'smtp.onlinecademy.com'
 EMAIL_HOST_PASSWORD = 'sorooshMAHDI123'
 EMAIL_HOST_USER = 'admin'
-EMAIL_PORT = 587
 EMAIL_SUBJECT_PREFIX = 'Khabar-chin : '
 
 SERVER_BASE_ADDRESS='http://localhost:8000'
