@@ -8,6 +8,7 @@
     font-style: normal;
 }
 .navbar .container .navbar-header {
+      direction: rtl !important;
       float: right !important;
 }
 .navbar .container .navbar-collapse {
@@ -15,11 +16,12 @@
 }
 
 .navbar .container .navbar-collapse .navbar-nav li {
-    font-size: 17px;
+    direction: rtl !important;
+    font-size: 16px;
     font-family: Yekan;
     border-radius: 2px;
     text-align: right;
-    direction: rtl !important;
+
 }
 
 .nav.navbar-nav.navbar-left.left-side{
