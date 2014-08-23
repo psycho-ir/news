@@ -18,7 +18,7 @@ def json_serial(obj):
     if isinstance(obj, datetime):
         serial = jalali_datetime.fromgregorian(datetime=obj)
 
-        return "%s %s %s در ساعت %s:%s:%s" % (serial.day, jalali_datetime.j_months_fa[serial.month-1], serial.year, serial.hour, serial.minute, serial.second)
+        return "%s %s %s در ساعت %s:%s:%s" % (serial.day, jalali_datetime.j_months_fa[serial.month - 1], serial.year, serial.hour, serial.minute, serial.second)
 
     elif isinstance(obj, date):
         serial = str(jalali_datetime.fromgregorian(date=obj))
@@ -138,17 +138,15 @@ class PriceView(View):
         return HttpResponse(json.dumps(result, default=json_serial))
 
 
-class LastUpdateView(View):
+class DateView(View):
     def get(self, request):
         last_update_date = News.objects.first().date
-        return HttpResponse("%s %s %s در ساعت %s:%s:%s"  % (
-            last_update_date.day, jalali_datetime.j_months_fa[last_update_date.month-1], last_update_date.year, last_update_date.hour, last_update_date.minute, last_update_date.second))
-
-
-class TodayView(View):
-    def get(self, request):
         today = jalali_datetime.now()
-        return HttpResponse("%s/%s/%s" % (today.year, today.month, today.day))
+        result ={'latest': '%s %s %s در ساعت %s:%s:%s' % (
+            last_update_date.day, jalali_datetime.j_months_fa[last_update_date.month - 1], last_update_date.year, last_update_date.hour, last_update_date.minute, last_update_date.second),
+         'today': "%s/%s/%s" % (today.year, today.month, today.day)}
+        return HttpResponse(json.dumps(result))
+
 
 
 
