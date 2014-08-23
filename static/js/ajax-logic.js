@@ -172,7 +172,6 @@ $(document).ready(function(){
         $.get(url,null,function(data){
             if ( data == "{}" || data == "[]") return false;
             date  = JSON.parse(data);
-            console.log(date);
             $(".latest").text( 'تاریخ آخرین بروزرسانی :‌ ' + date.latest);
             $(".today").text( 'امروز - ' + date.today);
         })
