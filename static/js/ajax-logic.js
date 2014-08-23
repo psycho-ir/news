@@ -12,6 +12,7 @@ $(document).ready(function(){
     loadLastPrice();
     loadLastBookmark();
     loadCategories();
+    loadDate();
     $(".agency-menu .agency-li").on("click",function(){
         window.pageNumber = 1 ;
         window.activeRole = 'agency';
@@ -166,6 +167,16 @@ $(document).ready(function(){
                 appendTemplate(htmlNews,'.agency-box');
         })
     }
+    function callServerForDate(){
+        var url = window.apiDomain + 'date/' ;
+        $.get(url,null,function(data){
+            if ( data == "{}" || data == "[]") return false;
+            date  = JSON.parse(data);
+            console.log(date);
+            $(".latest").text( 'تاریخ آخرین بروزرسانی :‌ ' + date.latest);
+            $(".today").text( 'امروز - ' + date.today);
+        })
+    }
     function createNews(news){
             var source       = $("#handlebar-news-box").html();
             var template     = Handlebars.compile(source);
@@ -214,6 +225,9 @@ $(document).ready(function(){
             window.categoryId   = $(this).attr("id");
             callServerForCategoryNews(window.categoryPageNumber,window.categoryId,"refresh")
         });
+    }
+    function loadDate(){
+        callServerForDate();
     }
     function numberWithCommas(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

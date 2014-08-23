@@ -138,3 +138,16 @@ ul.category-menu li {
     color: #007fb1;
     cursor: pointer;
 }
+
+.today {
+    color: #d9534f;
+    direction: rtl;
+    margin-left: 5px;
+}
+
+.latest {
+    float: left;
+    color: #184160;
+    direction: rtl;
+    margin-left: 5px;
+}
