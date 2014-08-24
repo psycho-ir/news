@@ -8,17 +8,13 @@
 <div class="layout-app main-page" style="visibility: visible;">
 
 
-            {% include '_sticky_menu.html' %}
-            <div class="container">
-            <div class="innerLR">
+    {% include '_sticky_menu.html' %}
+    <div class="container">
+        <div class="innerLR">
 
-                <div class="separator"></div>
+            <div class="separator"></div>
 
-
-
-
-
-    <div class="box-generic bg-white innerAll inner-2x">
+            <div class="box-generic bg-white innerAll inner-2x">
         <div class="media margin-none">
              <a class="pull-left" href=""><img width="100" alt="" src="{% static news.agency.img_address %}"></a>
             <div class="media-body innerTB">
@@ -38,9 +34,9 @@
         <a href="{{ news.link }}"> منبع خبر </a>
     </div>
 
-    {% include '_comments.html' with object=news %}
+            {% include '_comments.html' with object=news %}
 
-    </div>
+        </div>
 
    </div>
 
