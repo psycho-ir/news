@@ -1,51 +1,65 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+
+
+<div class="layout-app main-page" style="visibility: visible;">
+
+
+    {% include '_sticky_menu.html' %}
+    <div class="container">
+        <div class="innerLR">
+
+
+
+
     <div class="row">
 
         {% for n in result %}
-            <div class="col-sm-6">
-                <div class="box-generic padding-none">
-                    <div class="innerAll border-bottom">
-                        <a class="pull-left mid-side" href=""><img width="100" alt=""
-                                                                   src="{% static n.agency.img_address %}"></a>
-                        <h4 class="strong"><a href="{% url 'detail' n.id %}">{{ n.title }}</a></h4>
+        <div class="col-sm-6">
+            <div class="box-generic bg-white innerAll inner-2x news-box">
 
-                        <p class="text-faded margin-none">Corporate Website / MosaicPro, Inc.</p>
-                    </div>
-                    <div class="innerAll border-bottom">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi cum autem alias est fugiat
-                        ratione
-                        nesciunt eum ullam! Esse, sed, sequi obcaecati pariatur non iste soluta optio necessitatibus
-                        expedita
-                        cum.
-                    </div>
-                    <div class="bg-white innerAll border-bottom">
-                        <a href=""><i class="fa fa-calendar"></i> {{ n.date }} </a> &nbsp;
-                        <a href=""><i class="fa fa-euro"></i> 3 Hours</a> &nbsp;
-                        <span class="label label-default">{{ n.category.local_name }} </span>
-                    </div>
-                    <div class="bg-white box-generic-footer">
-                        <div class="btn-group pull-right">
-                            <button class="btn btn-default"><i class="fa fa-star-o"></i></button>
-                            <button class="btn btn-default"><i class="fa fa-sun-o"></i></button>
+
+
+
+                     <div class="media margin-none">
+                        <a class="pull-left" href=""><img width="100" alt="" src="{% static n.agency.img_address %}"></a>
+
+                        <div class="media-body innerTB">
+                            <h4>
+                                <a href="{% url 'detail' n.id %}">{{ n.title }}</a>
+                            </h4>
+
+                            <p class="text-muted">{{ n.date }}</p>
                         </div>
-												<span class="pull-left innerAll">
-													<i class="fa fa-clock-o"></i>  <a href="{% url 'detail' n.id %}">مشاهده
-                                                    خبر</a>
-												</span>
-
-                        <div class="clearfix"></div>
                     </div>
-                </div>
+
+                    <p class="margin-none abstract">
+                            {{ n.abstract }}
+                    </p>
+
+                    <div class="generic-footer-back">
+                                <span class="pull-right innerAll more">
+                                <i class="fa fa-mail-reply-all"></i>  <a href="/detail/{{ n.id }}">مشاهده
+                                خبر</a>
+                                </span>
+                            <div class="bg-white box-generic-footer">
+                                <div class="btn-group pull-right">
+
+                                </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
             </div>
+        </div>
         {% endfor %}
     </div>
 
     <div class="row">
         {% if result.has_previous %}
             <div class="col-xs-2 well">
-                <a href="?page_number={{ result.previous_page_number }}">قبل</a>
+                <a href="?q={{ query }}&page_number={{ result.previous_page_number }}">قبل</a>
             </div>
         {% endif %}
 
@@ -62,3 +76,7 @@
         {% endif %}
     </div>
 {% endblock %}
+        </div>
+
+   </div>
+</div>
