@@ -68,6 +68,9 @@ $(document).ready(function(){
                $(object).toggleClass('btn-inverse btn-default');
             else
                $(object).toggleClass('btn-default btn-inverse');
+            $('.bookmark-box').html('');
+            window.bookmarkPageNumber = 1;
+            callServerForBookmarkList(window.bookmarkPageNumber);
         })
     }
     function callServerForBookmarkList(pageNumber){
