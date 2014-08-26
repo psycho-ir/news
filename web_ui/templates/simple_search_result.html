@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 
-
+<input type="hidden" name="csrfmiddlewaretoken"  id="csrfmiddlewaretoken" value="{{ csrf_token }}">
 <div class="layout-app main-page" style="visibility: visible;">
 
 
@@ -26,9 +26,7 @@
                                 <a href="{% url 'detail' n.id %}">{{ n.title }}</a>
                             </h4>
 
-                            <p class="text-muted">{{ n.get_persian_date }}</p>
-                            <p>likes:{{ n.like_set.count }} </p>
-                            <p>liked:{{ n.liked }}</p>
+                            <p class="text-muted date-style-news">{{ n.get_persian_date }}  -  {{ n.like_set.count }} بار لایک شده است </p></p>
                         </div>
                     </div>
 
@@ -41,8 +39,20 @@
                                 <i class="fa fa-mail-reply-all"></i>  <a href="/detail/{{ n.id }}">مشاهده
                                 خبر</a>
                                 </span>
+
                             <div class="bg-white box-generic-footer">
                                 <div class="btn-group pull-right">
+
+                                    <button class="btn btn-default bookmark-news not-bookmark-bind" data-id="{{ n.id }}"  ><i
+                                            class="fa fa-star-o"></i></button>
+                                    <button data-toggle="tooltip" data-original-title="{{ n.likes }}" data-placement="right"  class="btn
+                                    {% if n.liked %}
+                                    btn-inverse
+                                    {% else %}}}
+                                    btn-default
+                                    {% endif %}
+                                    like-news not-like-bind" data-id="{{ n.id }}" ><i
+                                            class="fa fa-thumbs-o-up" ></i></button>
 
                                 </div>
                             <div class="clearfix"></div>
