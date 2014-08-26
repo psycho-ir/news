@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 from django.contrib.auth.models import User
 from django.db import models
+from jdatetime import datetime as jalali_datetime
 
 
 class NewsAgency(models.Model):
@@ -36,6 +38,10 @@ class News(models.Model):
     category = models.ForeignKey(NewsCategory)
     agency = models.ForeignKey(NewsAgency)
     important = models.BooleanField(default=False)
+
+    def get_persian_date(self):
+        serial = jalali_datetime.fromgregorian(datetime=self.date)
+        return "%s %s %s در ساعت %s:%s:%s" % (serial.day, jalali_datetime.j_months_fa[serial.month - 1], serial.year, serial.hour, serial.minute, serial.second)
 
     def __unicode__(self):
         return self.title

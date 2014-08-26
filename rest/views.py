@@ -29,7 +29,8 @@ def json_serial(obj):
 
 
 class APIView(View):
-    def get_api_result(self, request): pass
+    def get_api_result(self, request):
+        pass
 
     def get(self, request):
         page_number = request.GET.get('page_number', 1)

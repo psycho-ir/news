@@ -1,11 +1,9 @@
-from time import sleep
 from django.core.paginator import Paginator
-from django.shortcuts import render
 from django.template.context import RequestContext
 from django.views.generic import View
 from django.shortcuts import render_to_response
-from core.models import News, AgencyRSSLink
-from core.rss.parser import Parser
+
+from core.models import News
 
 
 class HomeView(View):
@@ -39,7 +37,10 @@ class SimpleSearchView(View):
         if int(page_number) > paginator.num_pages:
             page_number = paginator.num_pages
 
-        return render_to_response('simple_search_result.html', {'query': query, 'result': paginator.page(page_number)},
+        for item in result:
+            item.liked = item.like_set.filter(user__id= request.user.id).exists()
+
+        return render_to_response('simple_search_result.html', {'query': query, 'result':result},
                                   context_instance=RequestContext(request))
 
 
