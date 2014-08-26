@@ -12,7 +12,7 @@
         "model": "core.agencyrsslink",
         "pk": 402,
         "fields": {
-            "link": "http://isna.ir/fa/Science%20and%20Tech/feed",
+            "link": "http://irna.ir/fa/rss.aspx?kind=143",
             "category": "technology",
             "agency": "irna"
         }
