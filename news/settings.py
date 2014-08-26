@@ -122,4 +122,84 @@ EMAIL_HOST_PASSWORD = 'sorooshMAHDI123'
 EMAIL_HOST_USER = 'admin'
 EMAIL_SUBJECT_PREFIX = 'Khabar-chin : '
 
-SERVER_BASE_ADDRESS='http://localhost:8000'
+SERVER_BASE_ADDRESS = 'http://localhost:8000'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'queries_above_300ms': {
+            '()': 'django.utils.log.CallbackFilter',
+            'callback': lambda record: record.duration > 0.0  # output slow queries only
+        },
+    },
+    'formatters': {
+        'standard': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'price_logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "log", "price_logs.txt"),
+            'maxBytes': 50000000,
+            'backupCount': 2,
+            'formatter': 'standard',
+            # 'filters': ['queries_above_300ms'],
+        },
+        'rss_logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "log", "rss_logs.txt"),
+            'maxBytes': 50000000,
+            'backupCount': 2,
+            'formatter': 'standard',
+            # 'filters': ['queries_above_300ms'],
+        },
+        'crawler_logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "log", "crawler_logs.txt"),
+            'maxBytes': 50000000,
+            'backupCount': 2,
+            'formatter': 'standard',
+            # 'filters': ['queries_above_300ms'],
+        },
+        'error_logfile': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "log", "error.txt"),
+            'maxBytes': 50000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        }
+    },
+    'loggers': {
+        'price_scheduler': {
+            'handlers': ['price_logfile', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'rss_scheduler': {
+            'handlers': ['rss_logfile', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'crawler_scheduler': {
+            'handlers': ['crawler_logfile', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'error': {
+            'handlers': ['error_logfile', 'console'],
+            'level': 'ERROR',
+            'propagate': True,
+        }
+    }
+}

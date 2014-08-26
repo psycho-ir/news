@@ -1,6 +1,9 @@
+import logging
 import urllib
 import json
+
 from price.models import Price
+
 
 __author__ = 'SOROOSH'
 import jdatetime
@@ -29,8 +32,9 @@ class PriceCrawler:
 
         return result, update_date
 
-
+price_logger = logging.getLogger("price_scheduler")
 def update_prices():
+    price_logger.info("Updating prices...")
     c = PriceCrawler()
     result, up_date = c.read_tala_price()
 
@@ -41,6 +45,7 @@ def update_prices():
             p.price = result[a]
             p.item_id = a
             p.save()
+            price_logger.info("Price: %s saved")
 
         else:
             p = Price.objects.filter(item__name=a).first()
@@ -48,9 +53,13 @@ def update_prices():
                 p.date = up_date
                 p.price = result[a]
                 p.save()
+                price_logger.info("Price: %s updated")
             else:
                 p = Price()
                 p.date = up_date
                 p.price = result[a]
                 p.item_id = a
                 p.save()
+                price_logger.info("Price: %s saved")
+
+    price_logger.info("Updating finished.")

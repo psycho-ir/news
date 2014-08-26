@@ -1,7 +1,6 @@
 __author__ = 'SOROOSH'
 
 from abc import ABCMeta, abstractmethod
-import logging
 import multiprocessing
 from time import sleep
 import uuid
@@ -22,7 +21,7 @@ class Scheduler:
                     self.code()
                 except Exception as e:
                     print 'Exception: %s occured. Scheduler continues its job.' % e
-                    sleep(self.seconds)
+                sleep(self.seconds)
 
 
         return result

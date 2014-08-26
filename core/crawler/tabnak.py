@@ -1,5 +1,7 @@
 import re
+
 from core.crawler.common import Crawler
+
 
 __author__ = 'SOROOSH'
 
@@ -24,8 +26,12 @@ class TabnakCrawler(Crawler):
             news_path_links = soup.find_all('div', {'class', 'news_path'})[0].find_all('a')
             for n in news_path_links:
                 m = re.search(r".*cat_id=(.*).*", n['href'], re.M | re.I)
+
                 if m:
-                    cat = cat_ids[m.group(1)]
+                    try:
+                        cat = cat_ids[m.group(1)]
+                    except Exception as e:
+                        cat= None
 
         except Exception as e:
             body = "no content"
