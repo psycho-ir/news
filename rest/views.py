@@ -117,7 +117,7 @@ class ListBookmarkView(APIView):
             return json.dumps(result, default=json_serial)
 
         if request.user.is_authenticated():
-            bookmarks = Bookmark.objects.filter(user__id=request.user.id)
+            bookmarks = Bookmark.objects.filter(user__id=request.user.id).order_by('-id')
             return bookmarks, serializer
         else:
             return [], serializer
@@ -142,15 +142,9 @@ class DateView(View):
     def get(self, request):
         last_update_date = News.objects.first().date
         today = jalali_datetime.now()
-        result ={'latest': '%s %s %s در ساعت %s:%s:%s' % (
+        result = {'latest': '%s %s %s در ساعت %s:%s:%s' % (
             last_update_date.day, jalali_datetime.j_months_fa[last_update_date.month - 1], last_update_date.year, last_update_date.hour, last_update_date.minute, last_update_date.second),
-         'today': "%s/%s/%s" % (today.year, today.month, today.day)}
+                  'today': "%s %s %s" % (today.day, jalali_datetime.j_months_fa[today.month - 1], today.year )}
         return HttpResponse(json.dumps(result))
-
-
-
-
-
-
 
 
