@@ -31,12 +31,28 @@
             "img_address": "images/agencies/isna.jpg"
         }
     },
-     {
+    {
         "model": "core.newsagency",
         "pk": "irna",
         "fields": {
             "local_name": "ایرنا",
             "img_address": "images/agencies/irna.jpg"
+        }
+    },
+    {
+        "model": "core.newsagency",
+        "pk": "bartarinha",
+        "fields": {
+            "local_name": "برترینها",
+            "img_address": "images/agencies/bartarinha.jpg"
+        }
+    },
+    {
+        "model": "core.newsagency",
+        "pk": "mashregh",
+        "fields": {
+            "local_name": "مشرق",
+            "img_address": "images/agencies/mashregh.jpg"
         }
     }
 ]

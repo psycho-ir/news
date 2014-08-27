@@ -1,0 +1,74 @@
+[
+    {
+        "model": "core.agencyrsslink",
+        "pk": 501,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/20/55",
+            "category": "cultural",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 502,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/20/54",
+            "category": "social",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 503,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/20/25",
+            "category": "economic",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 504,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/20/24",
+            "category": "political",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 505,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/11",
+            "category": "technology",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 506,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/23",
+            "category": "sport",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 507,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/20/57",
+            "category": "accident",
+            "agency": "bartarinha"
+        }
+    } ,
+    {
+        "model": "core.agencyrsslink",
+        "pk": 508,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/20/58",
+            "category": "general",
+            "agency": "bartarinha"
+        }
+    }
+]

@@ -57,9 +57,9 @@
     },
     {
         "model": "core.newscategory",
-        "pk": "photo",
+        "pk": "multimedia",
         "fields": {
-            "local_name": "عکس"
+            "local_name": "چندرسانه ای"
         }
     },
     {
@@ -74,6 +74,19 @@
         "pk": "important",
         "fields": {
             "local_name": "مهم"
+        }
+    },
+    {
+        "model": "core.newscategory",
+        "pk": "general",
+        "fields": {
+            "local_name": "عمومی"
+        }
+    } ,  {
+        "model": "core.newscategory",
+        "pk": "history",
+        "fields": {
+            "local_name": "تاریخ"
         }
     }
 

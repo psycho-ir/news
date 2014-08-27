@@ -16,7 +16,7 @@ cat_ids = {'1': 'cultural',
 
 
 class TabnakCrawler(Crawler):
-    agencies = ['tabnak', 'yjc']
+    agencies = ['tabnak', 'yjc', 'bartarinha', 'mashregh']
 
     def crawl_content(self, news):
         soup = self._get_soup(news.link)
@@ -31,7 +31,7 @@ class TabnakCrawler(Crawler):
                     try:
                         cat = cat_ids[m.group(1)]
                     except Exception as e:
-                        cat= None
+                        cat = None
 
         except Exception as e:
             body = "no content"
