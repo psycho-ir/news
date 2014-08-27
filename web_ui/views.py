@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator
+
 from django.template.context import RequestContext
 from django.views.generic import View
 from django.shortcuts import render_to_response
@@ -11,10 +12,12 @@ class HomeView(View):
         return render_to_response('home.html', {'news': News.objects.all()[0:10]},
                                   context_instance=RequestContext(request))
 
+
 class LoginView(View):
     def get(self, request):
         return render_to_response('login.html', {},
                                   context_instance=RequestContext(request))
+
 
 class DetailView(View):
     def get(self, request, news_id):
@@ -37,10 +40,12 @@ class SimpleSearchView(View):
         if int(page_number) > paginator.num_pages:
             page_number = paginator.num_pages
 
-        for item in result:
-            item.liked = item.like_set.filter(user__id= request.user.id).exists()
+        page_result = []
+        for item in paginator.page(page_number):
+            item.liked = item.like_set.filter(user__id=request.user.id).exists()
+            page_result.append(item)
 
-        return render_to_response('simple_search_result.html', {'query': query, 'result':result},
+        return render_to_response('simple_search_result.html', {'query': query, 'result': page_result},
                                   context_instance=RequestContext(request))
 
 
