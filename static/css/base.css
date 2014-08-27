@@ -29,6 +29,12 @@
     font-size: 14px;
 }
 
+.header-logo{
+    margin-top: 3px;
+    width: 120px;
+    height: 50px;
+}
+
 h4,.head-title,.tab_title{
     font-family: 'Yekan' !important;
 }
@@ -157,3 +163,4 @@ ul.category-menu li {
     direction: rtl;
     margin-left: 5px;
 }
+
