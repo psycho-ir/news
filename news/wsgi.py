@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.settings")
 import logging
 
 from core.models import News, AgencyRSSLink, NewsDetail
@@ -21,7 +22,6 @@ price_logger = logging.getLogger("price_scheduler")
 rss_logger = logging.getLogger("rss_scheduler")
 crawler_logger = logging.getLogger("crawler_scheduler")
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.settings")
 
 from django.core.wsgi import get_wsgi_application
 
@@ -58,11 +58,11 @@ def crawl_some_news():
             n.save()
 
 
-scheduler = ThreadSimpleScheduler(180, show_latest_news)
+scheduler = ThreadSimpleScheduler('RSS-READER', 180, show_latest_news)
 # scheduler.run()
 
-crawler_scheduler = ThreadSimpleScheduler(10, crawl_some_news)
+crawler_scheduler = ThreadSimpleScheduler('CRAWLER', 10, crawl_some_news)
 # crawler_scheduler.run()
 
-price_scheduler = ThreadSimpleScheduler(1800, update_prices)
+price_scheduler = ThreadSimpleScheduler('PRICE-READER', 1800, update_prices)
 price_scheduler.run()

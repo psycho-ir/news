@@ -1,11 +1,9 @@
 from django.core.paginator import Paginator
-
 from django.template.context import RequestContext
 from django.views.generic import View
 from django.shortcuts import render_to_response
 
 from core.models import News
-
 
 class HomeView(View):
     def get(self, request):

@@ -1,0 +1,33 @@
+{% extends 'management_base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                <th>Scheduler name</th>
+                <th>Status</th>
+                <th>Actions</th>
+                </thead>
+                <tbody>
+                {% for scheduler in schedulers %}
+                    <tr>
+                        <td>
+                            {{ scheduler.name }}
+                        </td>
+                        <td>
+                            {{ scheduler.status }}
+                        </td>
+                        <td>
+                            Pause/Resume
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+{% endblock %}

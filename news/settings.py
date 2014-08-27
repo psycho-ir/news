@@ -52,7 +52,8 @@ INSTALLED_APPS = (
     'user',
     'user_profile',
     'price',
-    'Postchi'
+    'Postchi',
+    'scheduler_manager'
 )
 
 SITE_ID = 1

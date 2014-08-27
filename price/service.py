@@ -32,7 +32,10 @@ class PriceCrawler:
 
         return result, update_date
 
+
 price_logger = logging.getLogger("price_scheduler")
+
+
 def update_prices():
     price_logger.info("Updating prices...")
     c = PriceCrawler()
@@ -45,7 +48,7 @@ def update_prices():
             p.price = result[a]
             p.item_id = a
             p.save()
-            price_logger.info("Price: %s saved")
+            price_logger.info("Price: %s saved" % p.item.name)
 
         else:
             p = Price.objects.filter(item__name=a).first()
@@ -53,13 +56,13 @@ def update_prices():
                 p.date = up_date
                 p.price = result[a]
                 p.save()
-                price_logger.info("Price: %s updated")
+                price_logger.info("Price: %s updated" % p.item.name)
             else:
                 p = Price()
                 p.date = up_date
                 p.price = result[a]
                 p.item_id = a
                 p.save()
-                price_logger.info("Price: %s saved")
+                price_logger.info("Price: %s saved" % p.item.name)
 
     price_logger.info("Updating finished.")
