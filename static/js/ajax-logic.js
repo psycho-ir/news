@@ -82,7 +82,10 @@ $(document).ready(function(){
             }
         activatePreLoader();
          $.get(url,sendingObject,function(data){
-            if (data == "{}" || data == '[]') return false;
+            if (data == "{}" || data == '[]'){
+                 inactivatePreLoader();
+                 return false;
+            }
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             appendTemplate(htmlNews,".bookmark-box");
@@ -121,7 +124,11 @@ $(document).ready(function(){
         }
          activatePreLoader();
         $.get(url,sendingObject,function(data){
-            if ( data == "{}" || data == "[]") return false;
+            if ( data == "{}" || data == "[]") {
+                 inactivatePreLoader();
+                 return false;
+            }
+
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             if (type == "refresh")
@@ -135,7 +142,10 @@ $(document).ready(function(){
         var url = window.apiDomain + 'price/' ;
         var sendingObject = null;
         $.get(url,sendingObject,function(data){
-            if (data == "{}" || data =="[]") return false;
+            if (data == "{}" || data =="[]"){
+                inactivatePreLoader();
+                return false;
+            }
             var price = JSON.parse(data);
             price.forEach(function(object,b){
                 $("#"+object.item).text(numberWithCommas(object.price));
@@ -165,7 +175,10 @@ $(document).ready(function(){
             }
         activatePreLoader();
         $.get(url,sendingObject,function(data){
-            if ( data == "{}" || data == "[]") return false;
+            if ( data == "{}" || data == "[]"){
+                inactivatePreLoader();
+                return false;
+            }
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             if (type == "refresh")
