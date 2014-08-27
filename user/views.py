@@ -1,12 +1,15 @@
 from functools import wraps
 import logging
-from django.contrib.auth import authenticate, login, logout
+
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
+from django.views.generic import View
+
 from Postchi.Mail import send_confirm_mail
 from Postchi.models import ConfirmMail
 from news import settings
@@ -139,3 +142,21 @@ def is_confim_valid(user_id, confirm_code):
     except ObjectDoesNotExist as e:
         logging.info('Error: ' + e.message)
         return False
+
+
+class ChangePasswordView(View):
+    def get(self, request, error_message=None, message=None):
+        return render_to_response('change_pass.html', {'error_message': error_message, 'message': message}, RequestContext(request))
+
+    def post(self, request):
+        oldPass = request.POST["currentPass"]
+        newPass = request.POST["newPass"]
+
+        if request.user.check_password(oldPass):
+            request.user.set_password(newPass)
+            request.user.save()
+
+            return self.get(request, message='Password has been changed')
+        else:
+            return self.get(request, error_message='Error in changing password')
+

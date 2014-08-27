@@ -2928,3 +2928,9 @@ msgstr "No title"
 
 msgid "You have been registered with this email"
 msgstr "قبلا با این ایمیل کاربری ایجاد شذه است"
+
+msgid "Password has been changed"
+msgstr "گذرواژه با موفقیت تغییر کرد"
+
+msgid "Error in changing password"
+msgstr "خطا در تغییر گذرواژه"
