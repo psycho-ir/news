@@ -10,6 +10,15 @@
 
         {% include '_sticky_menu.html' %}
 
+        <div id="modal-preloader" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="width: 60px;left: 50%;position:absolute;">
+                <img style="display: block;text-align: center" src="{% static 'images/system/preloader.GIF' %}" width="50" hidden="50">
+            </div>
+          </div>
+        </div>
+
+
 
         <div class="container">
             <div class="innerLR">
@@ -23,11 +32,13 @@
 
                 </div>
 
+                <div class="row preloader" style="display: none">
+                   <img src="{% static 'images/system/preloader.gif' %}" width="50" hidden="50">
+                </div>
 
+                <div class="separator"></div>
 
-                 <div class="separator"></div>
-
-                <div class="row">
+                <div class="row main-row">
 
                     <!-- Tabs -->
                     <div class="relativeWrap">

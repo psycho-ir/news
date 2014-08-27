@@ -62,6 +62,7 @@ $(document).ready(function(){
             news_id : newsId ,
             csrfmiddlewaretoken : token
         };
+        activatePreLoader();
         $.post(url,sendingObject,function(data){
             data = JSON.parse(data);
             if (data.message = 'Bookmark saved')
@@ -71,6 +72,7 @@ $(document).ready(function(){
             $('.bookmark-box').html('');
             window.bookmarkPageNumber = 1;
             callServerForBookmarkList(window.bookmarkPageNumber);
+            inactivatePreLoader();
         })
     }
     function callServerForBookmarkList(pageNumber){
@@ -78,14 +80,13 @@ $(document).ready(function(){
         sendingObject = {
                page_number : pageNumber
             }
+        activatePreLoader();
          $.get(url,sendingObject,function(data){
-
             if (data == "{}" || data == '[]') return false;
-
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             appendTemplate(htmlNews,".bookmark-box");
-
+            inactivatePreLoader();
         })
 
     }
@@ -95,12 +96,14 @@ $(document).ready(function(){
             news_id : newsId ,
             csrfmiddlewaretoken : token
         };
+        activatePreLoader();
         $.post(url,sendingObject,function(data){
             data = JSON.parse(data);
             if (data.message = 'Like removed')
                $(object).toggleClass('btn-inverse btn-default');
             else
                $(object).toggleClass('btn-default btn-inverse');
+            inactivatePreLoader();
         })
     }
     function callServerForNews(pageNumber,agencyId,type){
@@ -116,6 +119,7 @@ $(document).ready(function(){
                agencies      : agencyId
             }
         }
+         activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]") return false;
             news     = JSON.parse(data);
@@ -124,6 +128,7 @@ $(document).ready(function(){
                 setTemplate(htmlNews,'.agency-box');
             else
                 appendTemplate(htmlNews,'.agency-box');
+            inactivatePreLoader();
         })
     }
     function callServerForPrice(){
@@ -135,7 +140,6 @@ $(document).ready(function(){
             price.forEach(function(object,b){
                 $("#"+object.item).text(numberWithCommas(object.price));
             })
-
         })
     }
     function callServerForCategory(){
@@ -159,7 +163,7 @@ $(document).ready(function(){
                page_number : pageNumber ,
                categories      : categoryId
             }
-
+        activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]") return false;
             news     = JSON.parse(data);
@@ -168,6 +172,7 @@ $(document).ready(function(){
                 setTemplate(htmlNews,'.agency-box');
             else
                 appendTemplate(htmlNews,'.agency-box');
+            inactivatePreLoader();
         })
     }
     function callServerForDate(){
@@ -233,6 +238,12 @@ $(document).ready(function(){
     }
     function numberWithCommas(number) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function activatePreLoader(){
+        $('#modal-preloader').modal("show");
+    }
+    function inactivatePreLoader(){
+        $('#modal-preloader').modal("hide");
     }
 
 });
