@@ -3,7 +3,11 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>
+        {% block title %}
+            خبرچین
+        {% endblock %}
+    </title>
 
     <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
     <link href="{% static "font-farsi/fonts.css" %}" rel="stylesheet">
@@ -11,7 +15,7 @@
     <link href="{% static "bootstrap/css/modern-business.css" %}" rel="stylesheet">
     <link href="{% static "bootstrap/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
 
-    <link href="{% static "css/module.front.stylesheet-complete.min.css" %}" rel="stylesheet"  />
+    <link href="{% static "css/module.front.stylesheet-complete.min.css" %}" rel="stylesheet"/>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
 
     <script src="{% static "components/library/jquery/jquery.min.js" %}"></script>
@@ -77,8 +81,9 @@
 
         {{/news}}
 
+
     </script>
-   {% endverbatim %}
+    {% endverbatim %}
 
 </head>
 <body>
@@ -86,10 +91,10 @@
 {% block content %}
 
 {% endblock %}
-    <script src="{% static "components/library/bootstrap/js/bootstrap.min.js" %}"></script>
-    <script>
-        $('body').tooltip({ selector: '[data-toggle="tooltip"]' });
-    </script>
+<script src="{% static "components/library/bootstrap/js/bootstrap.min.js" %}"></script>
+<script>
+    $('body').tooltip({ selector: '[data-toggle="tooltip"]' });
+</script>
 
 
 </body>
