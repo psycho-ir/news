@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load i18n %}
+{% block title %}
+    Khabar Chin - Register
+{% endblock %}
 {% block content %}
 
     <style>
@@ -9,12 +12,10 @@
             background-size: cover;
             opacity: 0.9;
         }
-
-
     </style>
 
-
     <div style="visibility: visible;" class="layout-app ">
+    {% include '_sticky_menu.html' %}
         <div class="container"><!-- row-app -->
             <div class="row row-app ">
 
