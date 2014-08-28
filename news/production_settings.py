@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR, 'stat')
 
 
 # Quick-start development settings - unsuitable for production
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'news.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME', 'khabarchin'),
+        'USER': os.environ.get('MYSQL_USER', 'root'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD', 'root'),
+        'HOST': '127.0.0.1',
+        'ATOMIC_REQUESTS': True
     }
 }
 
@@ -124,7 +129,7 @@ EMAIL_HOST_PASSWORD = 'sorooshMAHDI123'
 EMAIL_HOST_USER = 'admin'
 EMAIL_SUBJECT_PREFIX = 'Khabar-chin : '
 
-SERVER_BASE_ADDRESS = 'http://localhost:8000'
+SERVER_BASE_ADDRESS = 'http://khabar-chin.com'
 
 LOGGING = {
     'version': 1,

@@ -21,9 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '#mmm(c*ezo)q(!z3@7xdcrgv88960a5ryvz2+8n1i235tr2r4d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"),)
 
 TEMPLATE_LOADERS = [
@@ -44,22 +44,15 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.comments',
     'django.contrib.sites',
-    'comments',
     'south',
     'core',
-    'web_ui',
-    'rest',
-    'user',
-    'user_profile',
     'price',
-    'Postchi',
     'scheduler_manager'
 )
 
 SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,18 +61,23 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'news.urls'
+ROOT_URLCONF = 'scheduler_manager.urls'
 
-WSGI_APPLICATION = 'news.wsgi.application'
+WSGI_APPLICATION = 'news.core_wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DB_NAME', 'khabarchin'),
+        'USER': os.environ.get('MYSQL_USER', 'root'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD', 'root'),
+        'HOST': '127.0.0.1',
+        'ATOMIC_REQUESTS': True
     }
 }
 
@@ -124,7 +122,7 @@ EMAIL_HOST_PASSWORD = 'sorooshMAHDI123'
 EMAIL_HOST_USER = 'admin'
 EMAIL_SUBJECT_PREFIX = 'Khabar-chin : '
 
-SERVER_BASE_ADDRESS = 'http://localhost:8000'
+SERVER_BASE_ADDRESS = 'http://localhost:8003'
 
 LOGGING = {
     'version': 1,

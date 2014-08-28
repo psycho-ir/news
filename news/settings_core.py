@@ -44,22 +44,15 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.comments',
     'django.contrib.sites',
-    'comments',
     'south',
     'core',
-    'web_ui',
-    'rest',
-    'user',
-    'user_profile',
     'price',
-    'Postchi',
     'scheduler_manager'
 )
 
 SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,9 +61,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'news.urls'
+ROOT_URLCONF = 'scheduler_manager.urls'
 
-WSGI_APPLICATION = 'news.wsgi.application'
+WSGI_APPLICATION = 'news.core_wsgi.application'
 
 
 # Database
@@ -124,7 +117,7 @@ EMAIL_HOST_PASSWORD = 'sorooshMAHDI123'
 EMAIL_HOST_USER = 'admin'
 EMAIL_SUBJECT_PREFIX = 'Khabar-chin : '
 
-SERVER_BASE_ADDRESS = 'http://localhost:8000'
+SERVER_BASE_ADDRESS = 'http://localhost:8003'
 
 LOGGING = {
     'version': 1,
