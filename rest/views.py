@@ -143,6 +143,8 @@ class DateView(View):
     def get(self, request):
         last_update_date = jalali_datetime.fromgregorian(datetime=News.objects.first().date)
         today = jalali_datetime.now()
+        if last_update_date > today:
+            last_update_date = today
         result = {'latest': '%s %s %s در ساعت %s:%s:%s' % (
             last_update_date.day, jalali_datetime.j_months_fa[last_update_date.month - 1], last_update_date.year, last_update_date.hour, last_update_date.minute, last_update_date.second),
                   'today': "%s %s %s" % (today.day, jalali_datetime.j_months_fa[today.month - 1], today.year )}
