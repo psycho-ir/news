@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block title %}
+  {{ news }}
+{% endblock %}
 
+{% block content %}
 {% load agency_tags %}
 {% load staticfiles %}
 
@@ -19,7 +22,8 @@
              <a class="pull-left" href=""><img width="100" alt="" src="{% static news.agency.img_address %}"></a>
             <div class="media-body innerTB">
                 <h4><a href="">{{ news }}</a></h4>
-                <p class="text-muted">{{ news.get_persian_date }}</p>
+                <p class="text-muted date-style-news">{{ news.date }} - {{ news.likes }} بار لایک شده است </p>
+
                 <p>likes : {{ news.like_set.count }}</p>
                 <p>liked : {{ news.liked }}</p>
             </div>

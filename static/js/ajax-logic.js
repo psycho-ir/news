@@ -129,6 +129,7 @@ $(document).ready(function(){
          if (!notLoading) activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]") {
+                 setTemplate('','.agency-box');
                  inactivatePreLoader();
                  return false;
             }
@@ -180,6 +181,7 @@ $(document).ready(function(){
         if (!notLoading) activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]"){
+                setTemplate('','.agency-box');
                 inactivatePreLoader();
                 return false;
             }

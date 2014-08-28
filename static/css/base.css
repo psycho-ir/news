@@ -75,7 +75,7 @@ div.news-box{
     height: 340px !important;
 }
 
-div.news-box .date-style-news {
+.date-style-news {
     color: #c72b18;
     font-size: 11px;
     font-family: tahoma, 'Abel', Verdana, Geneva, sans-serif;
@@ -164,3 +164,6 @@ ul.category-menu li {
     margin-left: 5px;
 }
 
+.main-news-box {
+    float: right;
+}
