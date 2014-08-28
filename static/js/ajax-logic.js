@@ -28,18 +28,22 @@ $(document).ready(function(){
         if($(window).scrollTop() == $(document).height() - $(window).height()) {
             var activeTab  = window.activeTab;
             var activeRole = window.activeRole;
+            var notLoading = true;
             if( activeTab == '#tab-1'){
+
                 if(activeRole == "last-news"){
                     window.pageNumber+= 1;
-                    callServerForNews(window.pageNumber,0,"append");
+
+                    callServerForNews(window.pageNumber,0,"append",notLoading);
                 }
                 else if ( activeRole == "category" ){
                     window.categoryPageNumber+= 1;
-                    callServerForCategoryNews(window.categoryPageNumber,window.categoryId,"append");
+
+                    callServerForCategoryNews(window.categoryPageNumber,window.categoryId,"append",notLoading);
                 }
                 else {
                     window.pageNumber+= 1;
-                    callServerForNews(window.pageNumber,window.agencyId,"append");
+                    callServerForNews(window.pageNumber,window.agencyId,"append",notLoading);
                 }
 
                 /*if (window.agencyId == 0){
@@ -51,7 +55,7 @@ $(document).ready(function(){
             }
             else if ( activeTab == '#tab-4' ){
                 window.bookmarkPageNumber+= 1;
-                callServerForBookmarkList(window.bookmarkPageNumber);
+                callServerForBookmarkList(window.bookmarkPageNumber,notLoading);
             }
 
         }
@@ -75,12 +79,12 @@ $(document).ready(function(){
             inactivatePreLoader();
         })
     }
-    function callServerForBookmarkList(pageNumber){
+    function callServerForBookmarkList(pageNumber,notLoading){
         var url           = window.apiDomain + 'list_bookmark/';
         sendingObject = {
                page_number : pageNumber
             }
-        activatePreLoader();
+        if (!notLoading) activatePreLoader();
          $.get(url,sendingObject,function(data){
             if (data == "{}" || data == '[]'){
                  inactivatePreLoader();
@@ -89,7 +93,7 @@ $(document).ready(function(){
             news     = JSON.parse(data);
             htmlNews = createNews(news);
             appendTemplate(htmlNews,".bookmark-box");
-            inactivatePreLoader();
+            if (!notLoading) inactivatePreLoader();
         })
 
     }
@@ -109,7 +113,7 @@ $(document).ready(function(){
             inactivatePreLoader();
         })
     }
-    function callServerForNews(pageNumber,agencyId,type){
+    function callServerForNews(pageNumber,agencyId,type,notLoading){
         var url = window.apiDomain + 'latest/' ;
         var sendingObject = null;
         if (agencyId == 0){
@@ -122,7 +126,7 @@ $(document).ready(function(){
                agencies      : agencyId
             }
         }
-         activatePreLoader();
+         if (!notLoading) activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]") {
                  inactivatePreLoader();
@@ -135,7 +139,7 @@ $(document).ready(function(){
                 setTemplate(htmlNews,'.agency-box');
             else
                 appendTemplate(htmlNews,'.agency-box');
-            inactivatePreLoader();
+            if (!notLoading) inactivatePreLoader();
         })
     }
     function callServerForPrice(){
@@ -165,7 +169,7 @@ $(document).ready(function(){
             setHandlerForCategory();
         })
     }
-    function callServerForCategoryNews(pageNumber,categoryId,type){
+    function callServerForCategoryNews(pageNumber,categoryId,type,notLoading){
         var url = window.apiDomain + 'latest/' ;
         var sendingObject = null;
 
@@ -173,7 +177,7 @@ $(document).ready(function(){
                page_number : pageNumber ,
                categories      : categoryId
             }
-        activatePreLoader();
+        if (!notLoading) activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]"){
                 inactivatePreLoader();
@@ -185,7 +189,7 @@ $(document).ready(function(){
                 setTemplate(htmlNews,'.agency-box');
             else
                 appendTemplate(htmlNews,'.agency-box');
-            inactivatePreLoader();
+             if (!notLoading) inactivatePreLoader();
         })
     }
     function callServerForDate(){
