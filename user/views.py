@@ -64,6 +64,11 @@ def user_register(request):
         email = request.POST["email"]
         username = request.POST["email"]
         password = request.POST["password"]
+        password_again = request.POST["password_again"]
+        if password != password_again:
+            context = RequestContext(request, {'error_message': "Password confirmation is wrong"})
+            return HttpResponse(register_template.render(context))
+
 
         is_exist = User.objects.filter(email=email).count() > 0
         u = User(username=username, first_name=name, last_name=last_name, email=email)
@@ -81,9 +86,8 @@ def user_register(request):
         u.is_active = False
         u.save()
 
-        # from Postchi.Mail import send_confirm_mail
-
-        # send_confirm_mail(u)  # Send Confirmation Link
+        from Postchi.Mail import send_confirm_mail
+        send_confirm_mail(u)  # Send Confirmation Link
 
         return HttpResponseRedirect(reverse('user:pending'))
     else:
