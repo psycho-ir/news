@@ -19,7 +19,9 @@
              <a class="pull-left" href=""><img width="100" alt="" src="{% static news.agency.img_address %}"></a>
             <div class="media-body innerTB">
                 <h4><a href="">{{ news }}</a></h4>
-                <p class="text-muted">{{ news.date }}</p>
+                <p class="text-muted">{{ news.get_persian_date }}</p>
+                <p>likes : {{ news.like_set.count }}</p>
+                <p>liked : {{ news.liked }}</p>
             </div>
         </div>
         <div class="separator bottom"></div>
