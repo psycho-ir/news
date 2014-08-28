@@ -69,7 +69,6 @@ def user_register(request):
             context = RequestContext(request, {'error_message': "Password confirmation is wrong"})
             return HttpResponse(register_template.render(context))
 
-
         is_exist = User.objects.filter(email=email).count() > 0
         u = User(username=username, first_name=name, last_name=last_name, email=email)
         u.set_password(password)
@@ -87,6 +86,7 @@ def user_register(request):
         u.save()
 
         from Postchi.Mail import send_confirm_mail
+
         send_confirm_mail(u)  # Send Confirmation Link
 
         return HttpResponseRedirect(reverse('user:pending'))
@@ -140,12 +140,9 @@ def confirm_again(request):
 
 
 def is_confim_valid(user_id, confirm_code):
-    try:
-        # confirmation = ConfirmMail.objects.get(confirm_key=confirm_code, user_id=user_id)
+    if ConfirmMail.objects.filter(confirm_key=confirm_code, user_id=user_id).exists():
         return True
-    except ObjectDoesNotExist as e:
-        logging.info('Error: ' + e.message)
-        return False
+    return False
 
 
 class ChangePasswordView(View):
