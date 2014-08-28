@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load i18n %}
+{% block title %}
+    Khabar Chin - Login
+{% endblock %}
 {% block content %}
 
     <style>
@@ -15,7 +18,7 @@
 
 
     <div style="visibility: visible;" class="layout-app ">
-
+     {% include '_sticky_menu.html' %}
 
         <div class="container"><!-- row-app -->
             <div class="row row-app ">
@@ -49,16 +52,21 @@
                                         <label for="exampleInputEmail1">
                                             آدرس ایمیل
                                         </label>
-                                        <input type="email" name="username" style="direction: ltr"
-                                               placeholder="Email" id="inputEmail3"
-                                               class="form-control"></div>
+
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                                            <input style="direction: ltr" name="username" type="email" placeholder="Email" class="form-control">
+                                        </div>
+
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">
                                             رمز عبور
                                         </label>
-                                        <input type="password" value="" name="password"
-                                               placeholder="Password" id="inputPassword3"
-                                               class="form-control">
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                                            <input style="direction: ltr" name="password" type="password" placeholder="Password" class="form-control">
+                                        </div>
                                     </div>
                                     <div class="separator"></div>
                                     <div class="separator"></div>
