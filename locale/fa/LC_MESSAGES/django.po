@@ -2934,3 +2934,6 @@ msgstr "گذرواژه با موفقیت تغییر کرد"
 
 msgid "Error in changing password"
 msgstr "خطا در تغییر گذرواژه"
+
+msgid "Password confirmation is wrong"
+msgstr "تایید رمز عبور صحیح نمی باشد"
