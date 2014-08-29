@@ -7,7 +7,7 @@
 {% load agency_tags %}
 {% load staticfiles %}
 
-
+<input type="hidden" name="csrfmiddlewaretoken"  id="csrfmiddlewaretoken" value="{{ csrf_token }}">
 <div class="layout-app main-page" style="visibility: visible;">
 
 
@@ -23,7 +23,8 @@
             <div class="media-body innerTB">
                 <h4><a href="">{{ news }}</a></h4>
                 <p class="text-muted date-style-news">{{ news.get_persian_date }} - {{ news.like_set.count }} بار لایک شده است </p>
-                <p>liked : {{ news.liked }}</p>
+
+
             </div>
         </div>
         <div class="separator bottom"></div>
@@ -32,10 +33,33 @@
               {{ news.detail.content | safe }}
             </p>
         </div>
+                <div class="news-box">
+                      <div class="generic-footer-back">
+                                <span class="pull-right innerAll more">
+                                <i class="fa fa-mail-reply-all"></i>  <a href="{{ news.link }}"> منبع خبر </a>
+                                </span>
+
+                            <div class="bg-white box-generic-footer">
+                                <div class="btn-group pull-right">
+
+                                    <button class="btn btn-default bookmark-news not-bookmark-bind" data-id="{{ news.id }}"  ><i
+                                            class="fa fa-star-o"></i></button>
+                                    <button data-toggle="tooltip" data-original-title="{{ news.likes }}" data-placement="right"  class="btn
+                                    {% if news.liked %}
+                                    btn-inverse
+                                    {% else %}}}
+                                    btn-default
+                                    {% endif %}
+                                    like-news not-like-bind" data-id="{{ news.id }}" ><i
+                                            class="fa fa-thumbs-o-up" ></i></button>
+
+                                </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
 
 
-
-        <a href="{{ news.link }}"> منبع خبر </a>
     </div>
 
             {% include '_comments.html' with object=news %}
