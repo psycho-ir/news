@@ -166,3 +166,17 @@ ul.category-menu li {
 .main-news-box {
     float: right;
 }
+
+.active-agency {
+    color: #7399b9 !important;
+}
+.inactive-agency {
+    color: #eb6a5a !important;
+}
+
+.active-category {
+    color: #eb6a5a !important;
+}
+.inactive-category {
+    color: #7399b9 !important;
+}
