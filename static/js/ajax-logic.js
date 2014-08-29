@@ -20,10 +20,14 @@ $(document).ready(function(){
         $(this).siblings().find("a").removeClass("active-agency").addClass("inactive-agency");
         if($(this).find("a").hasClass('active-agency')){
              window.agencyId   = 0;
+             window.categoryId = 0;
+             $(".category-menu").find("li").removeClass("active-category").addClass("inactive-category");
              $(this).find('a').removeClass("active-agency").addClass("inactive-agency");
         }
         else {
+
              window.agencyId   = $(this).data("id");
+             $(".category-menu").find("li").removeClass("active-category").addClass("inactive-category");
              $(this).find('a').removeClass("inactive-agency").addClass("active-agency");
         }
 
@@ -181,20 +185,17 @@ $(document).ready(function(){
     }
     function callServerForCategoryNews(pageNumber,categoryId,agencyId,type,notLoading){
         var url = window.apiDomain + 'latest/' ;
+         var sendingObject = {
+                   page_number : pageNumber
+                };
 
-        var sendingObject = null;
-            if (agencyId == 0)
-                sendingObject = {
-                   page_number : pageNumber ,
-                   categories      : categoryId
-                }
-            else {
-               sendingObject = {
-               page_number : pageNumber ,
-               categories      : categoryId,
-               agencies : agencyId
+         if ( categoryId != null ){
+                sendingObject.categories = categoryId;
             }
-            }
+        if (agencyId != 0){
+            sendingObject.agencies = agencyId ;
+        }
+
         if (!notLoading) activatePreLoader();
         $.get(url,sendingObject,function(data){
             if ( data == "{}" || data == "[]"){
@@ -212,6 +213,11 @@ $(document).ready(function(){
              if (!notLoading) inactivatePreLoader();
         })
     }
+
+
+
+
+
     function callServerForDate(){
         var url = window.apiDomain + 'date/' ;
         $.get(url,null,function(data){
@@ -269,9 +275,12 @@ $(document).ready(function(){
             window.categoryId   = $(this).attr("id");
         $(this).siblings().removeClass("active-category").addClass("inactive-category");
         if($(this).hasClass('active-category')){
-             //$(this).removeClass("active-category").addClass("inactive-category");
+             window.categoryId = null ;
+
+             $(this).removeClass("active-category").addClass("inactive-category");
         }
         else {
+
              $(this).removeClass("inactive-category").addClass("active-category");
         }
 
