@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.settings_core")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.settings")
 import logging
 
 from core.models import News, AgencyRSSLink, NewsDetail
@@ -57,10 +57,10 @@ def crawl_some_news():
 
 
 scheduler = ThreadSimpleScheduler('RSS-READER', 180, show_latest_news)
-scheduler.run()
+# scheduler.run()
 
 crawler_scheduler = ThreadSimpleScheduler('CRAWLER', 10, crawl_some_news)
-crawler_scheduler.run()
+# crawler_scheduler.run()
 
 price_scheduler = ThreadSimpleScheduler('PRICE-READER', 1800, update_prices)
 # price_scheduler.run()
