@@ -43,7 +43,7 @@ def send_confirm_mail(targetUser):
     confirm_template = loader.get_template('confirm_mail.html')
     mail_content = confirm_template.render(mail_vars)
     try:
-        msg = EmailMessage('{}Confirm Your Azma-Web Account'.format(projSetting.EMAIL_SUBJECT_PREFIX),
+        msg = EmailMessage('{}Confirm Your Khabar-Chin Account'.format(projSetting.EMAIL_SUBJECT_PREFIX),
                            mail_content,
                            projSetting.DEFAULT_FROM_EMAIL,
                            [targetUser.email])

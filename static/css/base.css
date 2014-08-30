@@ -102,7 +102,6 @@ div.news-box .more {
 div.news-box .generic-footer-back {
     position: absolute;
     bottom: 0px;
-
     width: 93%;
 }
 
@@ -166,4 +165,18 @@ ul.category-menu li {
 
 .main-news-box {
     float: right;
+}
+
+.active-agency {
+    color: #7399b9 !important;
+}
+.inactive-agency {
+    color: #eb6a5a !important;
+}
+
+.active-category {
+    color: #eb6a5a !important;
+}
+.inactive-category {
+    color: #7399b9 !important;
 }

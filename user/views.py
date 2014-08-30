@@ -126,6 +126,8 @@ def confirm_again(request):
         try:
             email = request.POST["email"]
             user = User.objects.get(email=email.strip())
+            if user.is_active:
+                raise Exception("User activated before.")
             ConfirmMail.objects.filter(user_id=user.id).delete()
             send_confirm_mail(user)
             return HttpResponseRedirect(reverse('user:pending'))

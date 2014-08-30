@@ -53,7 +53,7 @@ INSTALLED_APPS = (
     'user_profile',
     'price',
     'Postchi',
-    'scheduler_manager'
+    'scheduler_manager',
 )
 
 SITE_ID = 1
@@ -105,6 +105,8 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

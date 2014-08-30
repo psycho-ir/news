@@ -1,27 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="center-block">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>
-                        تنها یک قدم تا پیوستن به خبرچین!
-                    </h1>
-                </div>
+
+    <div class="layout-app main-page" style="visibility: visible;">
+     {% include '_sticky_menu.html' %}
+    <div class="container">
+
+
+        <div class="placeholder text-center">
+
+            <h4 class="innerAll margin-none border-bottom text-center">
+                <i class="fa fa-mail-forward"></i> &nbsp;
+                        تنها یک قدم تا پیوستن به خبرچین !
+            </h4>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="widget innerAll bg-white border-none">
+                <div class="widget widget-body-gray margin-none">
+                    <div class="widget-body">
+                        <div class=" tahoma-font glyphicons glyphicon-xlarge glyphicon-top eyedropper glyphicon-primary">
+
+                             <div class="row">
+
+                        <div class="col-lg-4 col-lg-offset-4">
+            <div class="center-block form-group">
+
+            {% csrf_token %}
+            <div class="control-group default-font">
+                        <p style="color: #00AD00;font-size: 25px" class="yekan-font">
+            ثبت نام شما با موفقیت انجام شد.
+                        </p>
+                        <p>
+            به زودی ایمیلی برای تکمیل ثبت نام شما ارسال خواهد شد. لطفا با توجه به توضیحات ارسال شده عمل کنید.
+        </p>
+            <br>
+            <p>
+                در صورت دریافت نکردن ایمیل از ارسال مجدد استفاده نمایید
+            </p>
+
+             <br>
+            <a  href="{% url 'user:confirm_again' %}" class="btn btn-success yekan-font">
+                ارسال مجدد
+            </a>
+
+
+
             </div>
         </div>
 
-        <p>
-            ثبت نام شما با موفقیت انجام شد.
-        </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
-        <p>
-            به زودی ایمیلی برای تکمیل ثبت نام شماارسال خواهد شد. لطفا با توجه به توضیحات ارسال شده عمل کنید.
-            <br/>
-            در صورت دریافت نکردن ایمیل
-            <a href="{% url 'user:confirm_again' %}">اینجا</a>
-            کلیک کنید.
-        </p>
+
+   </div>
     </div>
+
+
+
 {% endblock %}
