@@ -88,6 +88,13 @@
         "fields": {
             "local_name": "تاریخ"
         }
+    },
+     {
+        "model": "core.newscategory",
+        "pk": "science",
+        "fields": {
+            "local_name": "علمی"
+        }
     }
 
 ]

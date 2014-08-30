@@ -3,7 +3,7 @@
         "model": "core.agencyrsslink",
         "pk": 101,
         "fields": {
-            "link": "http://www.yjc.ir/fa/rss/8",
+            "link": "http://yjc.ir/fa/rss/8",
             "category": "sport",
             "agency": "yjc"
         }
@@ -12,7 +12,7 @@
         "model": "core.agencyrsslink",
         "pk": 102,
         "fields": {
-            "link": "http://www.yjc.ir/fa/rss/5",
+            "link": "http://yjc.ir/fa/rss/5",
             "category": "social",
             "agency": "yjc"
         }
@@ -21,7 +21,7 @@
         "model": "core.agencyrsslink",
         "pk": 103,
         "fields": {
-            "link": "http://www.yjc.ir/fa/rss/6",
+            "link": "http://yjc.ir/fa/rss/6",
             "category": "economic",
             "agency": "yjc"
         }
@@ -30,7 +30,7 @@
         "model": "core.agencyrsslink",
         "pk": 104,
         "fields": {
-            "link": "http://www.yjc.ir/fa/rss/3",
+            "link": "http://yjc.ir/fa/rss/3",
             "category": "political",
             "agency": "yjc"
         }
@@ -39,8 +39,44 @@
         "model": "core.agencyrsslink",
         "pk": 105,
         "fields": {
-            "link": "http://www.yjc.ir/fa/rss/4",
+            "link": "http://yjc.ir/fa/rss/4",
             "category": "cultural",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 106,
+        "fields": {
+            "link": "http://yjc.ir/fa/rss/7",
+            "category": "science",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 107,
+        "fields": {
+            "link": "http://yjc.ir/fa/rss/9",
+            "category": "international",
+            "agency": "yjc"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 108,
+        "fields": {
+            "link": "http://yjc.ir/fa/rss/11",
+            "category": "multimedia",
+            "agency": "yjc"
+        }
+    } ,
+    {
+        "model": "core.agencyrsslink",
+        "pk": 109,
+        "fields": {
+            "link": "http://yjc.ir/fa/rss/2",
+            "category": "multimedia",
             "agency": "yjc"
         }
     }
