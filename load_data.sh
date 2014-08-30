@@ -1,1 +1,1 @@
-python2.7 manage.py loaddata categories.json irna_rss_links.json isna_rss_links.json bartarinha_rss_links.json mashregh_rss_links.json tabnak_rss_links.json yjc_rss_links.json items.json
+python2.7 manage.py loaddata initial_data.json categories.json irna_rss_links.json isna_rss_links.json bartarinha_rss_links.json mashregh_rss_links.json tabnak_rss_links.json yjc_rss_links.json items.json
