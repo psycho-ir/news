@@ -4,13 +4,21 @@ from django.db import models
 from jdatetime import datetime as jalali_datetime
 
 
+class EnableManager(models.Manager):
+    def get_queryset(self):
+        return super(EnableManager, self).get_queryset().filter(enable=True)
+
+
 class NewsAgency(models.Model):
+    objects = EnableManager()
     name = models.CharField(max_length=100, primary_key=True)
     local_name = models.CharField(max_length=200)
     img_address = models.CharField(max_length=200)
+    enable = models.BooleanField(default=True)
+
 
     def __unicode__(self):
-        return self.name
+        return self.local_name
 
 
 class NewsCategory(models.Model):
@@ -18,13 +26,22 @@ class NewsCategory(models.Model):
     local_name = models.CharField(max_length=200)
 
     def __unicode__(self):
-        return self.name
+        return self.local_name
 
 
 class AgencyRSSLink(models.Model):
+    objects = EnableManager()
+
+    class Meta:
+        ordering = ['agency', 'link']
+
     link = models.CharField(max_length=250)
     category = models.ForeignKey(NewsCategory)
     agency = models.ForeignKey(NewsAgency, related_name='rss_links')
+    enable = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return '[%s %s]' % (self.category.local_name, self.link)
 
 
 class News(models.Model):
