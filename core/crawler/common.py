@@ -1,12 +1,10 @@
 import urllib
 import urllib2
 from bs4 import BeautifulSoup
-import re
 
 __author__ = 'soroosh'
 
 crawler_registry = {}
-strip_unicode = re.compile("([^-_a-zA-Z0-9!@#%&=,/'\";:~`\$\^\*\(\)\+\[\]\.\{\}\|\?\<\>\\]+|[^\s]+)")
 
 
 class CrawlerMeta(type):
@@ -25,7 +23,7 @@ class Crawler:
     def crawl_content(self, news): raise NotImplementedError()
 
     def _get_soup(self, link):
-        response = urllib2.urlopen(urllib.quote(strip_unicode.sub('',link).replace('\n', ''), safe=':/'))
+        response = urllib2.urlopen(urllib.quote(link.replace('\n', '').encode('utf-8'), safe=':/'))
         html = response.read()
         soup = BeautifulSoup(html)
 
