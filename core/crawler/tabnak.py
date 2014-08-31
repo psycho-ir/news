@@ -44,6 +44,8 @@ class TabnakCrawler(Crawler):
             body = "no content"
 
         print 'returning'
+        print body
+        print cat
         return str(body), cat
 
 
