@@ -22,9 +22,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'stat')
 SECRET_KEY = '#mmm(c*ezo)q(!z3@7xdcrgv88960a5ryvz2+8n1i235tr2r4d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"),)
 
 TEMPLATE_LOADERS = [
