@@ -13,6 +13,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'stat')
+ALLOWED_HOSTS=['*']
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +33,6 @@ TEMPLATE_LOADERS = [
     'django.template.loaders.eggs.Loader',
 ]
 
-ALLOWED_HOSTS = []
 
 # Application definition
 
