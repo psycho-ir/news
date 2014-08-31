@@ -43,6 +43,7 @@ class TabnakCrawler(Crawler):
         except Exception as e:
             body = "no content"
 
+        print 'returning'
         return str(body), cat
 
 
