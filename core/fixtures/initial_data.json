@@ -36,7 +36,8 @@
         "pk": "irna",
         "fields": {
             "local_name": "ایرنا",
-            "img_address": "images/agencies/irna.jpg"
+            "img_address": "images/agencies/irna.jpg",
+            "enable": false
         }
     },
     {

@@ -34,6 +34,15 @@
             "category": "important",
             "agency": "tabnak"
         }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 5,
+        "fields": {
+            "link": "http://www.tabnak.ir/fa/rss/8",
+            "category": "multimedia",
+            "agency": "tabnak"
+        }
     }
 
 ]

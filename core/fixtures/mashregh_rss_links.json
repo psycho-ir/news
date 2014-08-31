@@ -57,17 +57,24 @@
         "model": "core.agencyrsslink",
         "pk": 607,
         "fields": {
-            "link": "http://www.tabnak.ir/fa/rss/1",
-            "category": "important",
+            "link": "http://www.mashreghnews.ir/fa/rss/8",
+            "category": "multimedia",
             "agency": "mashregh"
         }
-    } ,
-    {
+    } , {
         "model": "core.agencyrsslink",
         "pk": 608,
         "fields": {
-            "link": "http://www.mashreghnews.ir/fa/rss/8",
-            "category": "multimedia",
+            "link": "http://www.mashreghnews.ir/fa/rss/5",
+            "category": "international",
+            "agency": "mashregh"
+        }
+    },{
+        "model": "core.agencyrsslink",
+        "pk": 609,
+        "fields": {
+            "link": "http://www.mashreghnews.ir/fa/rss/9",
+            "category": "political",
             "agency": "mashregh"
         }
     }

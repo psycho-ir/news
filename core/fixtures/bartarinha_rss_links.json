@@ -70,5 +70,32 @@
             "category": "general",
             "agency": "bartarinha"
         }
+    } ,
+    {
+        "model": "core.agencyrsslink",
+        "pk": 509,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/3",
+            "category": "social",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 509,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/17",
+            "category": "social",
+            "agency": "bartarinha"
+        }
+    },
+    {
+        "model": "core.agencyrsslink",
+        "pk": 509,
+        "fields": {
+            "link": "http://bartarinha.ir/fa/rss/21",
+            "category": "multimedia",
+            "agency": "bartarinha"
+        }
     }
 ]

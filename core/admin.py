@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+import models
+
+
+admin.site.register(models.NewsAgency)
+admin.site.register(models.NewsCategory)
+admin.site.register(models.AgencyRSSLink)
