@@ -49,7 +49,7 @@ class News(models.Model):
         ordering = ['-date']
 
     title = models.CharField(max_length=200)
-    abstract = models.CharField(max_length=500)
+    abstract = models.CharField(max_length=1500)
     link = models.CharField(max_length=255, unique=True)
     date = models.DateTimeField()
     category = models.ForeignKey(NewsCategory)
