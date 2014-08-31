@@ -47,10 +47,13 @@ def crawl_some_news():
     for n in selected_news:
         crawler_logger.info('News: %s with ID: %s loaded to crawl its content' % (n, n.id))
         detail_content, cat = get_crawler(n.agency_id).crawl_content(n)
+        print 'returned'
         detail = NewsDetail()
         detail.news_id = n.id
         detail.content = detail_content
         detail.save()
+        print 'detail saved'
+        print cat
         if cat:
             n.category_id = cat
             n.save()
