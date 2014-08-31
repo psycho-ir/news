@@ -12,8 +12,6 @@ urlpatterns = patterns('',
                        # Examples:
                        # url(r'^$', 'news.views.home', name='home'),
                        # url(r'^blog/', include('blog.urls')),
-                       url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-                           {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG}),
                        url(r'^(?i)user/', include('user.urls', namespace='user')),
                        url(r'^comments', include('django.contrib.comments.urls')),
                        url(r'^admin/', include(admin.site.urls)),
@@ -25,3 +23,7 @@ urlpatterns = patterns('',
                        url(r'^(?i)search/simple$', SimpleSearchView.as_view(), name='simple_search'),
 
 )
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns + url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+                                    {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG})
