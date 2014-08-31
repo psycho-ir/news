@@ -23,6 +23,7 @@ class TabnakCrawler(Crawler):
         cat = None
         try:
             body = soup.find_all('div', {'class': 'body'})[0]
+            print body
             print 0
             try:
                 print 1
@@ -45,8 +46,7 @@ class TabnakCrawler(Crawler):
 
         print 'returning'
         print cat
-
-        print body
+        print type(body)
         return str(body), cat
 
 
