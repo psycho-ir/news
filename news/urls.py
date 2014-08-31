@@ -23,7 +23,7 @@ urlpatterns = patterns('',
                        url(r'^(?i)search/simple$', SimpleSearchView.as_view(), name='simple_search'),
 
 )
-
-if settings.DEBUG:
-    urlpatterns = urlpatterns + url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-                                    {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG})
+#
+# if settings.DEBUG:
+#     urlpatterns = urlpatterns + url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+#                                     {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG})
