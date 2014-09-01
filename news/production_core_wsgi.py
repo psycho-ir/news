@@ -6,6 +6,7 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
+from cx_Oracle import IntegrityError
 from datetime import timedelta
 
 import os
@@ -42,7 +43,11 @@ def show_latest_news():
             new_news = parser.collect_news_after()
         for n in new_news:
             rss_logger.info('News:%s is loaded' % n)
-            n.save()
+            try:
+                n.save()
+            except IntegrityError as e:
+                rss_logger.error('Error in saving news: %s reason: %s. System is continuing saving other news', n.link, e)
+                pass
 
 
 def crawl_some_news():
