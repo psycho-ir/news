@@ -6,6 +6,7 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
+from datetime import timedelta
 
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.production_settings_core")
@@ -33,7 +34,7 @@ def show_latest_news():
         parser = Parser(link)
         if latest_news is not None:
             rss_logger.info('latest news added in: %s' % latest_news.date)
-            new_news = parser.collect_news_after(date=latest_news.date)
+            new_news = parser.collect_news_after(date=latest_news.date+timedelta(seconds=10))
         else:
             rss_logger.info('First news added')
             new_news = parser.collect_news_after()
