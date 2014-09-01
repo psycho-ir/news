@@ -5,6 +5,7 @@
     Khabar Chin - Intelligent News Aggregator
 {% endblock %}
 {% block content %}
+    {{ settings }}
 
     <input type="hidden" name="csrfmiddlewaretoken"  id="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <div class="layout-app main-page" style="visibility: visible;">

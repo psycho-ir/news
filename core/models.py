@@ -12,6 +12,7 @@ class EnableManager(models.Manager):
 class NewsAgency(models.Model):
     objects = EnableManager()
     name = models.CharField(max_length=100, primary_key=True)
+    url = models.URLField(max_length=60)
     local_name = models.CharField(max_length=200)
     img_address = models.CharField(max_length=200)
     enable = models.BooleanField(default=True)
