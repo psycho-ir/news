@@ -134,7 +134,10 @@ class PriceView(View):
     def get(self, request):
         result = []
         for item in Item.objects.all():
-            result.append(model_to_dict(Price.objects.filter(item=item).first()))
+
+            item__first = Price.objects.filter(item=item).first()
+            if item__first is not None:
+                result.append(model_to_dict(item__first))
 
         return HttpResponse(json.dumps(result, default=json_serial))
 
