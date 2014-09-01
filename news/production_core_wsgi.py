@@ -46,8 +46,7 @@ def show_latest_news():
             try:
                 n.save()
             except IntegrityError as e:
-                rss_logger.error('Error in saving news: %s reason: %s. System is continuing saving other news', n.link, e)
-                pass
+                rss_logger.error('Error in saving news: %s reason: %s. System is continuing saving other news' % (n.title, e))
 
 
 def crawl_some_news():
