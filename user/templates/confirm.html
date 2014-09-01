@@ -3,61 +3,61 @@
 {% block content %}
 
     <div class="layout-app main-page" style="visibility: visible;">
-     {% include '_sticky_menu.html' %}
-    <div class="container">
+        {% include '_sticky_menu.html' %}
+        <div class="container">
 
 
-        <div class="placeholder text-center">
+            <div class="placeholder text-center">
 
-            <h4 class="innerAll margin-none border-bottom text-center">
-                <i class="fa fa-mail-forward"></i> &nbsp;
-خوش آمدید
-            </h4>
-        </div>
-
-
-        <div class="col-md-12">
-            <div class="widget innerAll bg-white border-none">
-                <div class="widget widget-body-gray margin-none">
-                    <div class="widget-body">
-                        <div class=" tahoma-font glyphicons glyphicon-xlarge glyphicon-top eyedropper glyphicon-primary">
-
-                             <div class="row">
-
-                        <div class="col-lg-4 col-lg-offset-4">
-            <div class="center-block form-group">
-
-            {% csrf_token %}
-            <div class="control-group default-font">
-                        <p style="color: #00AD00;font-size: 25px" class="yekan-font">
-به جامعه آزما وب خوش امدید.
-
-
-    <div style="font-size: 19px"><p>
-         از هم اکنون شما یکی از اعضای خبر چین شده اید و می توانید از تمامی امکانات ما استفاده نمایید .
-    <br />
-    در صورت داشتن هر گونه انتقاد و یا پیشنهاد لطفا با ما تماس بگیرید.
-
-             <br><br>
-            <a  href="{% url 'user:login' %}" class="btn btn-success yekan-font">
-ورود به حساب کاربری
-            </a>
-
-
-
+                <h4 class="innerAll margin-none border-bottom text-center">
+                    <i class="fa fa-mail-forward"></i> &nbsp;
+                    خوش آمدید
+                </h4>
             </div>
-        </div>
 
+
+            <div class="col-md-12">
+                <div class="widget innerAll bg-white border-none">
+                    <div class="widget widget-body-gray margin-none">
+                        <div class="widget-body">
+                            <div class=" tahoma-font glyphicons glyphicon-xlarge glyphicon-top eyedropper glyphicon-primary">
+
+                                <div class="row">
+
+                                    <div class="col-lg-4 col-lg-offset-4">
+                                        <div class="center-block form-group">
+
+                                            {% csrf_token %}
+                                            <div class="control-group default-font">
+                                                <p style="color: #00AD00;font-size: 25px" class="yekan-font">
+                                                    به جامعه خبرچین خوش امدید.
+
+                                                <div style="font-size: 19px"><p>
+                                                    از هم اکنون شما یکی از اعضای خبرچین شده اید و می توانید از تمامی امکانات ما استفاده نمایید.
+                                                    <br/>
+                                                    در صورت داشتن هر گونه انتقاد و یا پیشنهاد لطفا با ما تماس بگیرید.
+
+
+                                                    <br><br>
+                                                    <a href="{% url 'user:login' %}" class="btn btn-success yekan-font">
+                                                        ورود به حساب کاربری
+                                                    </a>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
-        </div>
-
-
-   </div>
     </div>
 
 

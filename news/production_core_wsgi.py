@@ -6,8 +6,10 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/
 """
+from datetime import timedelta
 
 import os
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "news.production_settings_core")
 import logging
 
@@ -22,9 +24,10 @@ price_logger = logging.getLogger("price_scheduler")
 rss_logger = logging.getLogger("rss_scheduler")
 crawler_logger = logging.getLogger("crawler_scheduler")
 
-
 from django.core.wsgi import get_wsgi_application
+
 application = get_wsgi_application()
+
 
 def show_latest_news():
     all_links = AgencyRSSLink.objects.all()
@@ -33,13 +36,16 @@ def show_latest_news():
         parser = Parser(link)
         if latest_news is not None:
             rss_logger.info('latest news added in: %s' % latest_news.date)
-            new_news = parser.collect_news_after(date=latest_news.date)
+            new_news = parser.collect_news_after(date=latest_news.date + timedelta(minutes=1))
         else:
             rss_logger.info('First news added')
             new_news = parser.collect_news_after()
         for n in new_news:
             rss_logger.info('News:%s is loaded' % n)
-            n.save()
+            try:
+                n.save()
+            except Exception as e:
+                rss_logger.error('Error in saving news: %s reason: %s. System is continuing saving other news' % (n.title, e))
 
 
 def crawl_some_news():

@@ -4,7 +4,8 @@
         "pk": "yjc",
         "fields": {
             "local_name": "باشگاه خبرنگاران جوان",
-            "img_address": "images/agencies/yjc.jpg"
+            "img_address": "images/agencies/yjc.jpg",
+            "url": "http://yjc.ir"
         }
     },
     {
@@ -12,7 +13,9 @@
         "pk": "asriran",
         "fields": {
             "local_name": "عصر ایران",
-            "img_address": "images/agencies/asriran.jpg"
+            "img_address": "images/agencies/asriran.jpg",
+            "url": "http://asriran.com",
+            "enable": false
         }
     },
     {
@@ -20,7 +23,8 @@
         "pk": "tabnak",
         "fields": {
             "local_name": "تابناک",
-            "img_address": "images/agencies/tabnak.jpg"
+            "img_address": "images/agencies/tabnak.jpg",
+            "url": "http://tabnak.ir"
         }
     },
     {
@@ -28,7 +32,8 @@
         "pk": "isna",
         "fields": {
             "local_name": "ایسنا",
-            "img_address": "images/agencies/isna.jpg"
+            "img_address": "images/agencies/isna.jpg",
+            "url": "http://isna.ir"
         }
     },
     {
@@ -37,7 +42,8 @@
         "fields": {
             "local_name": "ایرنا",
             "img_address": "images/agencies/irna.jpg",
-            "enable": false
+            "enable": false,
+            "url": "http://irna.ir"
         }
     },
     {
@@ -45,7 +51,8 @@
         "pk": "bartarinha",
         "fields": {
             "local_name": "برترینها",
-            "img_address": "images/agencies/bartarinha.jpg"
+            "img_address": "images/agencies/bartarinha.jpg",
+            "url": "http://bartarinha.ir"
         }
     },
     {
@@ -53,7 +60,8 @@
         "pk": "mashregh",
         "fields": {
             "local_name": "مشرق",
-            "img_address": "images/agencies/mashregh.jpg"
+            "img_address": "images/agencies/mashregh.jpg",
+            "url": "http://mashreghnews.ir"
         }
     }
 ]

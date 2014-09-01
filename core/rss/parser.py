@@ -1,6 +1,6 @@
 import datetime
 from time import sleep
-from django.conf import settings
+
 from core.models import News
 
 
@@ -20,7 +20,7 @@ class Parser:
 
         else:
             def is_selectable(d):
-                if d <= kwargs.get('date'):
+                if d < kwargs.get('date'):
                     return False
                 return True
         print 'reading rss feeds from:%s category:%s agency:%s' % (

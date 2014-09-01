@@ -1,6 +1,8 @@
 import urllib
 import urllib2
+
 from bs4 import BeautifulSoup
+
 
 __author__ = 'soroosh'
 
@@ -28,4 +30,14 @@ class Crawler:
         soup = BeautifulSoup(html)
 
         return soup
+
+
+class ImageSanitizer:
+    def sanitize_all_images(self, body, news):
+        all_imgs = body.find_all('img')
+        for img in all_imgs:
+            if img.attrs['src'] is not None and img.attrs['src'].strip()[0] == '/':
+                img.attrs['src'] = news.agency.url + img.attrs['src']
+
+
 
