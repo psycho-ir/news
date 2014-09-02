@@ -41,6 +41,7 @@ class TabnakCrawler(Crawler, ImageSanitizer):
                 crawler_logger.error("Error occured in TabnakCrawler %s" % e)
                 pass
         except Exception as e:
+            crawler_logger.error("Error occured in TabnakCrawler %s" % e)
             body = "no content"
 
         return str(body), cat
