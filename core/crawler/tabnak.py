@@ -1,5 +1,6 @@
 import logging
 import re
+from urllib2 import HTTPError
 
 from core.crawler.common import Crawler, ImageSanitizer
 
@@ -22,7 +23,11 @@ class TabnakCrawler(Crawler, ImageSanitizer):
     agencies = ['tabnak', 'yjc', 'bartarinha', 'mashregh']
 
     def crawl_content(self, news):
-        soup = self._get_soup(news.link)
+        try:
+            soup = self._get_soup(news.link)
+        except HTTPError as http_error:
+            if http_error.code == 404:
+                return 'Deleted', None
         cat = None
         try:
             body = soup.find_all('div', {'class': 'body'})[0]
