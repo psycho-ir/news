@@ -1,7 +1,10 @@
+import logging
 import re
 
 from core.crawler.common import Crawler, ImageSanitizer
 
+
+crawler_logger = logging.getLogger('crawler')
 
 __author__ = 'SOROOSH'
 
@@ -35,6 +38,7 @@ class TabnakCrawler(Crawler, ImageSanitizer):
                         except Exception as e:
                             cat = None
             except Exception as e:
+                crawler_logger.error("Error occured in TabnakCrawler %s" % e)
                 pass
         except Exception as e:
             body = "no content"
