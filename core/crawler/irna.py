@@ -1,4 +1,7 @@
+from urllib2 import HTTPError
+
 from core.crawler.common import Crawler
+
 
 __author__ = 'SOROOSH'
 
@@ -7,7 +10,11 @@ class IrnaCrawler(Crawler):
     agencies = ['irna']
 
     def crawl_content(self, news):
-        soup = self._get_soup(news.link)
+        try:
+            soup = self._get_soup(news.link)
+        except HTTPError as http_error:
+            if http_error.code == 404:
+                return 'Deleted', None
         try:
             image = ''
             try:
