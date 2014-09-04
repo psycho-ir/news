@@ -126,7 +126,7 @@ class ListBookmarkView(APIView):
 
 class AllCategories(View):
     def get(self, request):
-        categories = NewsCategory.objects.all()
+        categories = NewsCategory.objects.all().exists(id='important')
         return HttpResponse(serializers.serialize('json', categories), mimetype='application/json')
 
 
