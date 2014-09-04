@@ -126,7 +126,7 @@ class ListBookmarkView(APIView):
 
 class AllCategories(View):
     def get(self, request):
-        categories = NewsCategory.objects.all().exclude(id='important')
+        categories = NewsCategory.objects.all().exclude(name='important')
         return HttpResponse(serializers.serialize('json', categories), mimetype='application/json')
 
 
