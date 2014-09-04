@@ -33,15 +33,18 @@ class TabnakCrawler(Crawler, ImageSanitizer):
             body = soup.find_all('div', {'class': 'body'})[0]
             self.sanitize_all_images(body, news)
             try:
-                news_path_links = soup.find_all('div', {'class', 'news_path'})[0].find_all('a')
-                for n in news_path_links:
-                    m = re.search(r".*cat_id=(.*).*", n['href'], re.M | re.I)
+                if news.agency_id == 'tabnak':
+                    news_path_links = soup.find_all('div', {'class', 'news_path'})[0].find_all('a')
+                    for n in news_path_links:
+                        m = re.search(r".*cat_id=(.*).*", n['href'], re.M | re.I)
 
-                    if m:
-                        try:
-                            cat = cat_ids[m.group(1)]
-                        except Exception as e:
-                            cat = None
+                        if m:
+                            try:
+                                cat = cat_ids[m.group(1)]
+                            except Exception as e:
+                                cat = None
+                else:
+                    cat = None
             except Exception as e:
                 crawler_logger.error("Error occured in TabnakCrawler %s" % e)
                 pass
