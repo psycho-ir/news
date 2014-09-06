@@ -1,7 +1,11 @@
+import logging
 import re
+from urllib2 import HTTPError
 
 from core.crawler.common import Crawler, ImageSanitizer
 
+
+crawler_logger = logging.getLogger('crawler')
 
 __author__ = 'SOROOSH'
 
@@ -19,24 +23,33 @@ class TabnakCrawler(Crawler, ImageSanitizer):
     agencies = ['tabnak', 'yjc', 'bartarinha', 'mashregh']
 
     def crawl_content(self, news):
-        soup = self._get_soup(news.link)
+        try:
+            soup = self._get_soup(news.link)
+        except HTTPError as http_error:
+            if http_error.code == 404:
+                return 'Deleted', None
         cat = None
         try:
             body = soup.find_all('div', {'class': 'body'})[0]
             self.sanitize_all_images(body, news)
             try:
-                news_path_links = soup.find_all('div', {'class', 'news_path'})[0].find_all('a')
-                for n in news_path_links:
-                    m = re.search(r".*cat_id=(.*).*", n['href'], re.M | re.I)
+                if news.agency_id == 'tabnak':
+                    news_path_links = soup.find_all('div', {'class', 'news_path'})[0].find_all('a')
+                    for n in news_path_links:
+                        m = re.search(r".*cat_id=(.*).*", n['href'], re.M | re.I)
 
-                    if m:
-                        try:
-                            cat = cat_ids[m.group(1)]
-                        except Exception as e:
-                            cat = None
+                        if m:
+                            try:
+                                cat = cat_ids[m.group(1)]
+                            except Exception as e:
+                                cat = None
+                else:
+                    cat = None
             except Exception as e:
+                crawler_logger.error("Error occured in TabnakCrawler %s" % e)
                 pass
         except Exception as e:
+            crawler_logger.error("Error occured in TabnakCrawler %s" % e)
             body = "no content"
 
         return str(body), cat

@@ -1,0 +1,1 @@
+tail -f 25 /root/khabar-chin/news/log/crawler_logs.txt
