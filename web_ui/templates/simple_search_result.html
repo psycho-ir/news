@@ -69,21 +69,21 @@
     </div>
 
     <div class="row">
-        {% if result.has_previous %}
+        {% if paginator.has_previous %}
             <div class="col-xs-2 well">
-                <a href="?q={{ query }}&page_number={{ result.previous_page_number }}">قبل</a>
+                <a href="?q={{ query }}&page_number={{ paginator.previous_page_number }}">قبل</a>
             </div>
         {% endif %}
 
         <div class="col-xs-2 well">
         <span class="current">
-            صفحه {{ result.number }} از {{ result.paginator.num_pages }}.
+            صفحه {{ paginator.number }} از {{ paginator.num_pages }}.
         </span>
         </div>
 
-        {% if result.has_next %}
+        {% if paginator.has_next %}
             <div class="col-xs-2 well">
-                <a href="?q={{ query }}&page_number={{ result.next_page_number }}">بعد</a>
+                <a href="?q={{ query }}&page_number={{ paginator.next_page_number }}">بعد</a>
             </div>
         {% endif %}
     </div>

@@ -49,7 +49,8 @@ class SimpleSearchView(View):
             item.liked = item.like_set.filter(user__id=request.user.id).exists()
             page_result.append(item)
 
-        return render_to_response('simple_search_result.html', {'query': query, 'result': page_result},
+        return render_to_response('simple_search_result.html',
+                                  {'query': query, 'paginator': paginator.page(page_number), 'result': page_result},
                                   context_instance=RequestContext(request))
 
 

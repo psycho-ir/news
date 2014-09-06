@@ -2,9 +2,12 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.static import static
+from django.views.generic.base import TemplateView
 from django.views.static import serve
 
 from web_ui.views import HomeView, DetailView, LoginView, SimpleSearchView
+
+
 
 admin.autodiscover()
 
@@ -21,6 +24,7 @@ urlpatterns = patterns('',
                        url(r'^(?i)$', HomeView.as_view(), name='home'),
                        url(r'^login/', LoginView.as_view(), name='login'),
                        url(r'^(?i)search/simple$', SimpleSearchView.as_view(), name='simple_search'),
+                       (r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
 
 )
 #
