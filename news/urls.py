@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 
@@ -21,7 +22,7 @@ urlpatterns = patterns('',
                        url(r'^login/', LoginView.as_view(), name='login'),
                        url(r'^(?i)search/simple$', SimpleSearchView.as_view(), name='simple_search'),
                        (r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
-                       (r'^sitemap\.txt$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/plain')),
+                       (r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml', content_type='text/plain')),
 
 )
 #
