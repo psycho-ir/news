@@ -93,7 +93,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'fa-ir'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT+3:30'
 
 USE_I18N = True
 
